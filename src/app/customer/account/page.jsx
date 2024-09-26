@@ -66,42 +66,66 @@ export default function Page() {
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
             <tr className="py-6 ">
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
             <tr className="py-6 ">
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
             <tr className="py-6 ">
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
             <tr className="py-6 ">
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
             <tr className="py-6 ">
               <td className="">1sacacacs</td>
               <td className="">2</td>
               <td className="">3</td>
-              <td className="">4</td>
+              <td className="">
+                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                  Shipped
+                </span>
+              </td>
               <td className="">Actions</td>
             </tr>
           </tbody>
