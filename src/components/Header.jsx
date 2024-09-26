@@ -37,7 +37,7 @@ export default function Header() {
       </div>
       <div className=" bg-white px-4">
         <div className="max-w-[1536px] con mx-auto flex items-center py-6 gap-10 justify-between max-lg:flex-wrap">
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-2 sm:gap-10">
             <IoIosMenu size={24} className="cursor-pointer lg:hidden" />
             <Logo />
           </div>

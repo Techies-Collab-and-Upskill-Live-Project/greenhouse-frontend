@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import leaf from "/public/images/leaf.png";
 import { LandingCards } from "@/lib/constants";
-import LandingCard from "@/components/ui/LandingCard";
+import LandingCard from "@/components/landingPage/LandingCard";
 
 export default function Home() {
   const renderLandingCards = () => {
