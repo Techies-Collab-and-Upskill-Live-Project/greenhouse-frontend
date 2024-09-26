@@ -1,8 +1,16 @@
+"use client";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function notfound() {
+  const router = useRouter();
+
+  const gotoHome = () => {
+    router.push("/");
+  };
+
   return (
     <div className="gap-10 sm:gap-20 h-screen pt-52 flex justifycenter text-center items-center flex-col px-8">
       <h1 className="text-6xl">Oops!</h1>
@@ -15,7 +23,7 @@ export default function notfound() {
           alt="404"
         />
       </div>
-      <Button css={`bg-forest-green-500 h-[51px] w-[190px]`}>
+      <Button fn={gotoHome} css={`bg-forest-green-500 h-[51px] w-[190px]`}>
         Go to Home page{" "}
       </Button>
     </div>
