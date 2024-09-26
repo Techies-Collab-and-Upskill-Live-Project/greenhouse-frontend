@@ -19,7 +19,7 @@ function Button() {
 export default function Header() {
   return (
     <header className="">
-      <div className=" bg-forest-green-500 py-3 px-4 max-sm:hidden">
+      <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden">
         <div className="container mx-auto text-white font-light flex justify-between text-xs">
           <div>
             <Link href="tel:+2349112312345" className="flex gap-1 items-center">

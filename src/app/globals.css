@@ -24,6 +24,17 @@ th {
 tr {
   @apply border-t-2 border-[];
 }
+
+/* Hide scroll bar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scroll bar for IE, Edge, and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .background_img {
   background-image: linear-gradient(to left, #002212b2, #002212b2),
     url("/images/hero_img.jpeg");

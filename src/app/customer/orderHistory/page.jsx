@@ -15,7 +15,7 @@ export default function Page() {
           <div
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 cursor-pointer border-b-2 -mb-0.5 duration-150 
+            className={`pb-2 cursor-pointer border-b-2 -mb-0.5 duration-150 whitespace-nowrap 
           ${
             activeTab === tab
               ? "text-forest-green-500 border-forest-green-500"
@@ -30,11 +30,11 @@ export default function Page() {
   };
 
   return (
-    <section className=" flex flex-col ">
+    <section className=" flex flex-col overflow-auto ">
       <h1 className="text-2xl font-semibold mb-4">Orders</h1>
-      <>{renderTabs()}</>
-      <div className="bg-white rounded-lg overflow-hidden border-2">
-        <table className="table-auto w-full">
+      <div className="overflow-x-auto hide-scroll">{renderTabs()}</div>
+      <div className="bg-white rounded-lg overflow-auto border-2">
+        <table className="table-auto w-full overflow-aut">
           <thead>
             <tr className="text-left border-t-0 bg-[#F9FAFB] font-medium text-sm">
               <th className="">Order Id</th>

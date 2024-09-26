@@ -5,9 +5,9 @@ import { MdOutlineEdit } from "react-icons/md";
 
 export default function Page() {
   return (
-    <section className=" flex flex-col gap-10">
-      <div className="flex gap-10">
-        <div className="w-1/3 max-w-[363px] h-[224px] rounded-lg bg-white p-6 flex flex-col items-center justify-center">
+    <section className=" flex flex-col gap-10 ">
+      <div className="flex gap-10 flex-wrap justify-center">
+        <div className="w-1/3 lg:max-w-[363px] min-w-[300px] max-lg:w-full h-[224px] rounded-lg bg-white p-6 flex flex-col items-center justify-center">
           <div className="h-24 w-24 overflow-hidden rounded-full">
             <Image
               height={500}
@@ -22,7 +22,7 @@ export default function Page() {
             <Link href="#">View Profile</Link>
           </div>
         </div>
-        <div className="flex-1 bg-white rounded-lg p-6">
+        <div className="flex-1 bg-white rounded-lg p-6 max-sm:w-full min-w-[300px]">
           <div className="flex justify-between border-b border-b-[#B1B2B2] pb-3">
             <h2 className="font-medium">BILLING ADDRESS</h2>
             <MdOutlineEdit size={26} />
@@ -51,85 +51,88 @@ export default function Page() {
             </Link>
           </div>
         </div>
-        <table className="table-auto w-full">
-          <thead>
-            <tr className="text-left bg-[#F9FAFB] font-medium text-sm">
-              <th className="">Order Id</th>
-              <th className="">Date</th>
-              <th className="">Price</th>
-              <th className="">Status</th>
-              <th className="">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-            <tr className="py-6 ">
-              <td className="">1sacacacs</td>
-              <td className="">2</td>
-              <td className="">3</td>
-              <td className="">
-                <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
-                  Shipped
-                </span>
-              </td>
-              <td className="">Actions</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full">
+            <thead>
+              <tr className="text-left bg-[#F9FAFB] font-medium text-sm">
+                <th className="">Order Id</th>
+                <th className="">Date</th>
+                <th className="">Price</th>
+                <th className="">Status</th>
+                <th className="">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+              <tr className="py-6 ">
+                <td className="">1sacacacs</td>
+                <td className="">2</td>
+                <td className="">3</td>
+                <td className="">
+                  <span className="bg-green-300 text-forest-green-500 py-1 px-3 rounded-xl text-sm font-medium">
+                    Shipped
+                  </span>
+                </td>
+                <td className="">Actions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

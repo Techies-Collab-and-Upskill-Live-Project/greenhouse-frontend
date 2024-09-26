@@ -10,7 +10,7 @@ export default function GoBack() {
     router.back();
   };
   return (
-    <div onClick={goBack} className="">
+    <div onClick={goBack} className="cursor-pointer">
       <MdOutlineKeyboardBackspace size={32} />
     </div>
   );
