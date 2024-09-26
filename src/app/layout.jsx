@@ -17,14 +17,17 @@ export default function RootLayout({ children }) {
         <title>Green House</title>
       </head>
       <body className="">
-       
         {/* <nav>
           <Link href="/vendor/dashboard">Go to Vendor</Link>
           <Link href="/customer/account">Go to Customer</Link>
           <Link href="/admin/overview">Go to Admin</Link>
         </nav> */}
 
-        {showHeaderFooter && <Header />}
+        {showHeaderFooter && (
+          <header className="fixed left-0 right-0">
+            <Header />
+          </header>
+        )}
         <main>{children}</main>
         {showHeaderFooter && <div>Footer</div>}
       </body>
