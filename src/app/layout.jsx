@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Green House</title>
       </head>
-      <body className="">
+      <body className="flex flex-col justify-between">
         {/* <nav>
           <Link href="/vendor/dashboard">Go to Vendor</Link>
           <Link href="/customer/account">Go to Customer</Link>
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             <Header />
           </header>
         )}
-        <main>{children}</main>
+        <main className="min-h-[50vh]">{children}</main>
         {showHeaderFooter && (
           <div className="mt-20">
             <Footer />
