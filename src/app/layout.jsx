@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import "./globals.css";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "../components/footer";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -29,7 +30,11 @@ export default function RootLayout({ children }) {
           </header>
         )}
         <main>{children}</main>
-        {showHeaderFooter && <div>Footer</div>}
+        {showHeaderFooter && (
+          <div>
+            <Footer />
+          </div>
+        )}
       </body>
     </html>
   );

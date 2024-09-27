@@ -24,7 +24,7 @@ export default function Home() {
               Made for You
             </h1>
             <p className="hero-title text-white">Shop Smart, Live Green</p>
-            <Button css={`bg-white text-black w-[187px] h-[55px]`}>
+            <Button css={`bg-white text-[black] w-[187px] h-[55px]`}>
               Shop Now
             </Button>
           </div>
