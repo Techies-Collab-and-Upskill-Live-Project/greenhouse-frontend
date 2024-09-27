@@ -25,6 +25,13 @@ tr {
   @apply border-t-2 border-[];
 }
 
+label {
+  @apply font-semibold text-sm inline-block;
+}
+.input {
+  @apply focus:outline-none rounded-lg px-4 py-1 h-10 bg-transparent border-2;
+}
+
 /* Hide scroll bar for Chrome, Safari, and Edge */
 ::-webkit-scrollbar {
   display: none;
