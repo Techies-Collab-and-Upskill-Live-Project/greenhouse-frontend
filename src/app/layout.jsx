@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         )}
         <main>{children}</main>
         {showHeaderFooter && (
-          <div>
+          <div className="mt-20">
             <Footer />
           </div>
         )}

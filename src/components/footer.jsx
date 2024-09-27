@@ -12,7 +12,8 @@ export default function footer() {
   return (
     <footer className="bg-forest-green-700">
       <div className=" px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] text-white container mx-auto px-4 py-4">
+        <div className="grid grid-cols-1 l:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">
+          {/* <div className="flex text-white container mx-auto px-4 py-4"> */}
           <div className="w-[143px] h-[65px]">
             <Image
               width={400}
@@ -21,9 +22,10 @@ export default function footer() {
               alt="logo of FYSI"
               className="w-full"
             />
-            <h3 className="text-white">Shop Smart.Live Green</h3>
+            <h3 className="text-white mt-2">Shop Smart.Live Green</h3>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-6 pt-8 gap-4">
+          {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
+          <div className="flex flex-wrap gap-10 pt-8 justify-between">
             <div className="flex flex-col gap-1">
               <IoIosMenu size={24} className="cursor-pointer" />
               <div>
@@ -141,9 +143,9 @@ export default function footer() {
                 </Link>
               </div>
             </div>
-            <div>
+            {/* <div>
               <h1 className="font-medium text-[16px]">About</h1>
-            </div>
+            </div> */}
             <div>
               <h1 className="font-medium text-[16px]">Support</h1>
               <div>
@@ -158,20 +160,20 @@ export default function footer() {
               </div>
             </div>
             <div>
-              <h1 className="font-medium text-[16px]">Sell on Fysi</h1>
+              <h1 className="font-medium text-[16px] mb-2">Sell on Fysi</h1>
               <div className="flex space-x-4">
                 <Link href="/facebook" className="block">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                     <FaFacebookF className="text-black w-5 h-5" />
                   </div>
                 </Link>
                 <Link href="/instagram" className="block">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                     <ImInstagram className="text-black w-5 h-5" />
                   </div>
                 </Link>
                 <Link href="/twitter" className="block">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                     <FaTwitter className="text-black w-5 h-5" />
                   </div>
                 </Link>
