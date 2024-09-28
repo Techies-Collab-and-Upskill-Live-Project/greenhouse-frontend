@@ -5,6 +5,7 @@ import Link from "next/link";
 import leaf from "/public/images/leaf.png";
 import { LandingCards } from "@/lib/constants";
 import LandingCard from "@/components/landingPage/LandingCard";
+import CatergoriesCard from "@/components/landingPage/CatergoriesCard";
 
 export default function Home() {
   const renderLandingCards = () => {
@@ -24,7 +25,7 @@ export default function Home() {
               Made for You
             </h1>
             <p className="hero-title text-white">Shop Smart, Live Green</p>
-            <Button css={`bg-white text-[black] w-[187px] h-[55px]`}>
+            <Button css={`bg-white text-[#000000] w-[187px] h-[55px]`}>
               Shop Now
             </Button>
           </div>
@@ -35,6 +36,7 @@ export default function Home() {
           {renderLandingCards()}
         </div>
       </section>
+      <CatergoriesCard />
     </>
   );
 }
