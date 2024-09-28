@@ -4,12 +4,12 @@ export default function Page() {
   return (
     <div>
       <div>
-        <h1 className="font-semibold">Personal info</h1>
+        <h1 className="font-semibold text-lg">Personal info</h1>
         <p>Update your photo and personal details.</p>
       </div>
 
       <div className="bg-white rounded-lg ">
-        <div className="flex gap-10 mb-5">
+        <div className="flex gap-10 mb-5 p-4">
           <div className="flex-1">
             <label className="mb-3 " htmlFor="firstname">
               First Name
@@ -21,7 +21,7 @@ export default function Page() {
               placeholder="John"
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 ">
             <label className="mb-3 " htmlFor="lastname">
               Last Name
             </label>
@@ -35,7 +35,7 @@ export default function Page() {
           {/* <div></div> */}
         </div>
         <div>
-          <div className="">
+          <div className="p-4">
             <label className="mb-3 " htmlFor="lastname">
               Email address
             </label>
@@ -50,11 +50,13 @@ export default function Page() {
         <div></div>
       </div>
 
-      <div>
-        <h1 className="font-semibold">Password</h1>
-        <p>Please enter your current password to change your password.</p>
+      <div className="bg-white mt-10 rounded-lg">
+        <div className="p-4">
+          <h1 className="font-semibold">Password</h1>
+          <p>Please enter your current password to change your password.</p>
+        </div>
+        <div></div>
       </div>
-      <div></div>
     </div>
   );
 }
