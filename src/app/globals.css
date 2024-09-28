@@ -54,3 +54,11 @@ label {
 .hero-title {
   font-family: "DM Sans", sans-serif;
 }
+
+.flower_background {
+  background-image: url("/images/flower.png");
+  background-size: cover;
+  /* background-position: right; */
+  transform: scaleX(-1);
+  background-repeat: no-repeat;
+}
