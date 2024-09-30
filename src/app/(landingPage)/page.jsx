@@ -1,17 +1,27 @@
-"use client";
+import React from "react";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 import leaf from "/public/images/leaf.png";
-import { LandingCards } from "@/lib/constants";
+import { LandingCards, Cards } from "@/lib/constants";
 import LandingCard from "@/components/landingPage/LandingCard";
+import {
+  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardArrowLeft,
+} from "react-icons/md";
 import CatergoriesCard from "@/components/landingPage/CatergoriesCard";
 
 export default function Home() {
   const renderLandingCards = () => {
-    return LandingCards.map((c, i) => {
-      return <LandingCard key={i} imageUrl={c.image} text={c.text} />;
-    });
+    return LandingCards.map((c, i) => (
+      <LandingCard key={i} imageUrl={c.image} text={c.text} />
+    ));
+  };
+
+  const renderCategoriesCards = () => {
+    return Cards.map((c, i) => (
+      <CatergoriesCard key={i} image={c.image} text={c.text} />
+    ));
   };
 
   return (
@@ -24,19 +34,40 @@ export default function Home() {
               <br />
               Made for You
             </h1>
-            <p className="hero-title text-white">Shop Smart, Live Green</p>
-            <Button css={`bg-white text-[#000] w-[187px] h-[55px]`}>
+            <p className="hero-title text-white text-[14px] md:text-[20px] lg:text-[26px]">
+              Shop Smart, Live Green
+            </p>
+            <Button css={`bg-white text-[#000000] w-[187px] h-[55px]`}>
               Shop Now
             </Button>
           </div>
         </div>
       </section>
-      <section className="container mx-auto pt-6">
-        <div className="flex justify-center flex-wrap items-center gap-10">
+      <section className="container-md mx-auto pt-6 px-1 lg:px-11">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 place-items-center lg:gap-10">
           {renderLandingCards()}
         </div>
       </section>
-      <CatergoriesCard />
+      <section className="container-md mx-auto pt-6 px-3 lg:px-11">
+        <div className="">
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <h1 className="hero-title font-bold text-[28px]">Categories</h1>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center">
+                <MdOutlineKeyboardArrowLeft className="text-white w-5 h-5" />
+              </div>
+              <div className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center">
+                <MdOutlineKeyboardArrowRight className="text-white w-5 h-5" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full overflow-x-auto lg:overflow-x-visible">
+          <div className="grid place-items-center grid-cols-3 gap-6">
+            {renderCategoriesCards()}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
