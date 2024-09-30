@@ -74,7 +74,7 @@ export default function PersonalDetails() {
       <div className="w-full max-w-md">
         <h1 className="text-2xl font-bold mb-2">Personal Details</h1>
         <p className="mb-6 text-sm md:text-base">
-          We'd love to get to know you better! Please fill in a few details
+          We&apos;d love to get to know you better! Please fill in a few details
         </p>
 
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
