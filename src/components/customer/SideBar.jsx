@@ -49,9 +49,7 @@ export default function SideBar() {
 
   return (
     <div
-      className={`min-w-[240px] flex flex-col h-[296px] justify-between gap-1 b-red-300  text-[#101928] bg-white max-lg:fixed max-lg:top-52 max-lg:left-2 ${
-        isOpen ? "translate-x-0" : "max-lg:-translate-x-[200%]"
-      } duration-150 `}
+      className={`min-w-[240px] flex flex-col h-[296px] justify-between gap-1 b-red-300  text-[#101928] bg-white max-lg:fixed max-lg:top-52 max-lg:left-2 max-lg:-translate-x-[200%] duration-150 `}
     >
       {/* <div className="relative pl-4"> */}
       {renderLinks()}

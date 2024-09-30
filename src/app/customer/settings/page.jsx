@@ -8,8 +8,8 @@ export default function Page() {
         <p>Update your photo and personal details.</p>
       </div>
 
-      <div className="bg-white rounded-lg ">
-        <div className="flex gap-10 mb-5 p-4">
+      <div className="bg-white rounded-lg mt-10">
+        <div className="flex gap-10 mb-5 px-5 pt-5 ">
           <div className="flex-1">
             <label className="mb-3 " htmlFor="firstname">
               First Name
@@ -35,7 +35,7 @@ export default function Page() {
           {/* <div></div> */}
         </div>
         <div>
-          <div className="p-4">
+          <div className="px-5">
             <label className="mb-3 " htmlFor="lastname">
               Email address
             </label>
@@ -47,15 +47,15 @@ export default function Page() {
             />
           </div>
         </div>
-        <div></div>
+        <div className="pb-10 ">heol</div>
       </div>
 
-      <div className="bg-white mt-10 rounded-lg">
-        <div className="p-4">
-          <h1 className="font-semibold">Password</h1>
-          <p>Please enter your current password to change your password.</p>
-        </div>
-        <div></div>
+      <div className=" mt-10">
+        <h1 className="font-semibold text-lg">Password</h1>
+        <p>Please enter your current password to change your password.</p>
+      </div>
+      <div className="bg-white mt-10 rounded-lg p-5">
+        <div>pass</div>
       </div>
     </div>
   );
