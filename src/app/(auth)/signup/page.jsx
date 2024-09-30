@@ -47,7 +47,7 @@ export default function Page() {
       <div>
         <h1 className="text-2xl font-bold mb-2">Create your account</h1>
         <p className="mb-6">
-          Let's get started by creating your account. To keep your account safe,
+          Let&apos;s get started by creating your account. To keep your account safe,
           we need a strong password.
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
