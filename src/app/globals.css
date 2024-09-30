@@ -58,7 +58,7 @@ label {
 .flower_background {
   background-image: url("/images/flower.png");
   background-size: cover;
-  /* background-position: right; */
+  background-position: center;
   transform: scaleX(-1);
   background-repeat: no-repeat;
 }

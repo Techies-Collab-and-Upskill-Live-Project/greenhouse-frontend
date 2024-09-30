@@ -13,7 +13,7 @@ import Button from "./ui/Button";
 export default function footer() {
   return (
     <footer className="">
-      <div className="relative min-h-screen px-8 xl:px-44">
+      <div className="relative min-h-[50vh] px-8 xl:px-44">
         <div className="absolute inset-0 flower_background"></div>
         <div className="absolute bottom-40 flex items-center justify-center">
           <div className="w-[323px]  md:w-[420x] lg:w-[615px] h-[350px] md:h-[400x] lg:h-[226px] bg-forest-green-500 text-white p-8 rounded-md shadow-lg">
