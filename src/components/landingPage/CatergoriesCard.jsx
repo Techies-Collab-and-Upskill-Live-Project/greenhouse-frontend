@@ -1,24 +1,21 @@
 import React from "react";
-import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
+import Image from "next/image";
 
-export default function CatergoriesCard() {
+export default function CategoriesCard({ image, text }) {
   return (
-    // <section><section/>
-    <section>
-      <div className="container mx-auto py-6 px-3">
-        <div className="flex items-center justify-between gap-2">
-          <h1 className="hero-title font-bold text-[28px]">Categories</h1>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-5 h-5 bg-forest-green-800 rounded-full flex items-center justify-center">
-              <MdOutlineKeyboardArrowRight className="text-white w-3 h-3" />
-            </div>
-            <div className="w-5 h-5 bg-forest-green-800 rounded-full flex items-center justify-center">
-              <MdOutlineKeyboardArrowLeft className="text-white w-3 h-3" />
-            </div>
-          </div>
+    <section className="relative w-[189px] h-[231px] lg:w-[389px] lg:h-[304px] rounded-lg overflow-hidden">
+      <Image
+        height={700}
+        width={700}
+        src={image}
+        alt="picture of the product"
+        className="w-full h-full object-cover rounded-[10px]"
+      />
+      <div className="absolute bottom-0 left-0 flex items-center">
+        <div className="bg-forest-green-700 p-2 rounded-sm w-[160px] h-[48px] flex items-center">
+          <h1 className="text-[16px] text-white whitespace-nowrap overflow-hidden overflow-ellipsis w-full">
+            {text}
+          </h1>
         </div>
       </div>
     </section>

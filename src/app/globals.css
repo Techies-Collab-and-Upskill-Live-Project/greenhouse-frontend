@@ -62,3 +62,8 @@ label {
   transform: scaleX(-1);
   background-repeat: no-repeat;
 }
+.container-md {
+  max-width: 120rem;
+  margin: 0 auto;
+  /* padding: 2rem 3.2rem; */
+}
