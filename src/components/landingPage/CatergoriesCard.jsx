@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CategoriesCard({ image, text }) {
   return (
-    <section className="relative w-[189px] h-[231px] lg:w-[389px] lg:h-[304px] rounded-lg overflow-hidden">
+    <section className="relative min-w-[189px] h-[231px] md:min-w-[200px] md:h-[250px] lg:min-w-[389px] lg:h-[304px] rounded-lg overflow-hidden">
       <Image
         height={700}
         width={700}
