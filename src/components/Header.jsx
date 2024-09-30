@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header className="">
-      <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden">
+      <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden ">
         <div className="container mx-auto text-white font-light flex justify-between text-xs">
           <div>
             <Link href="tel:+2349112312345" className="flex gap-1 items-center">
@@ -98,7 +98,7 @@ export default function Header() {
         className={`fixed text-white bg-forest-green-500 top-0 bottom-0 w-full max-w-[300px] flex flex-col px-2 py-7   ${
           isOpen ? "translate-x-0" : "-translate-x-[200%]"
         } 
-      duration-150 lg:hidden`}
+      duration-150 lg:hidden overflow-y-auto`}
       >
         <div className="flex justify-between px-4">
           <div className="h-[38px]">
@@ -141,10 +141,10 @@ export default function Header() {
         </div>
         {/* Auth menu */}
         <div className="flex flex-col gap-4 mt-10 px-4 pb-4">
-          <Link href='#' >Sell on Fysi</Link>
-          <Link href='/about' >About Us</Link>
-          <Link href='/contact' >Support</Link>
-          <Link href='/contact' >Contact Us</Link>
+          <Link href="#">Sell on Fysi</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/contact">Support</Link>
+          <Link href="/contact">Contact Us</Link>
         </div>
       </nav>
     </header>
