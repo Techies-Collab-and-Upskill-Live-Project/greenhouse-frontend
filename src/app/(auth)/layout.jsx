@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 
 export default function Layout({ children }) {
   const [description, setDescription] = useState("");
@@ -31,7 +31,7 @@ export default function Layout({ children }) {
           ))}
           <div className="absolute inset-0 bg-gradient-to-b from-forest-green-900/30 to-forest-green-900/50"></div>
         </div>
-        {children}
+        <Suspense>{children}</Suspense>
       </div>
     </section>
   );
