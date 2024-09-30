@@ -89,17 +89,34 @@ const LandingCards = [
     image: "/images/leaf.png",
   },
   {
-    text: "Eco friendly products",
-    image: "/images/leaf.png",
+    text: "Eco packaging",
+    image: "/images/ph_package-light.png",
   },
   {
     text: "Eco friendly products",
-    image: "/images/leaf.png",
+    image: "/images/iconamoon.png",
   },
   {
-    text: "Eco friendly products",
-    image: "/images/leaf.png",
+    text: "Certified vendors & products",
+    image: "/images/Vector.png",
   },
 ];
 
 export { LandingCards };
+
+const Cards = [
+  {
+    text: "House Hold items",
+    image: "/images/Household.png",
+  },
+  {
+    text: "Clothing",
+    image: "/images/Clothing.png",
+  },
+  {
+    text: "Personal Care",
+    image: "/images/Orange.png",
+  },
+];
+
+export { Cards };
