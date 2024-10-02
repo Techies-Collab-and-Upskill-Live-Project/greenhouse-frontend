@@ -1,19 +1,8 @@
 "use client";
 import React, { useRef } from "react";
 import { useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
-import Bambo from "../../../public/images/Bambo.jpeg";
-import Soap from "../../../public/images/Soap.jpeg";
-import Crochet from "../../../public/images/Crochet.jpeg";
-import HandKitten from "../../../public/images/HandKitten.jpeg";
-import pens from "../../../public/images/pens.jpeg";
-import ecophone from "../../../public/images/ecophone.jpeg";
-import bio from "../../../public/images/bio.jpeg";
-import cotton from "../../../public/images/cotton.jpeg";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
-import Link from "next/link";
-import leaf from "/public/images/leaf.png";
+import { FaRegHeart } from "react-icons/fa";
 import { LandingCards, Cards } from "@/lib/constants";
 import LandingCard from "@/components/landingPage/LandingCard";
 import {
@@ -22,6 +11,9 @@ import {
 } from "react-icons/md";
 import CatergoriesCard from "@/components/landingPage/CatergoriesCard";
 import Product from "@/components/landingPage/ProductCard";
+import Hotdeal from "@/components/landingPage/Hotdeal";
+import Sustain from "@/components/landingPage/Sustainability";
+import New from "@/components/landingPage/New";
 
 export default function Home() {
   const scrollContainerRef = useRef(null);
@@ -104,92 +96,9 @@ export default function Home() {
         </div>
       </section>
       <Product />
-      <section className="container-md mx-auto pt-6 px-3 lg:px-11">
-        <div className="">
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <h1 className="hero-title font-bold text-[28px]">Hot Deals</h1>
-            <div className="flex items-center justify-center gap-3">
-              <h1 className="text-forest-green-600 text-[16px]">Sell All</h1>
-            </div>
-          </div>
-        </div>
-        <div className="flex gap-4 overflow-scroll md:overflow-scroll lg:overflow-visible">
-          <div className="relative group">
-            <div className="w-[288px] h-[417px] overflow-hidden">
-              <Image
-                alt="images of one of the popular products"
-                width={700}
-                height={700}
-                src={ecophone}
-                className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
-                <FaRegHeart className="text-white" size={16} />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-normal text-[12px]">Eco Phone cases</h3>
-              <p className="font-bold text-[12px]">&#8358;500</p>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="w-[288px] h-[417px] overflow-hidden">
-              <Image
-                alt="images of one of the popular products"
-                width={700}
-                height={700}
-                src={pens}
-                className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
-                <FaRegHeart className="text-white" size={16} />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-normal text-[12px]">Eco Pens</h3>
-              <p className="font-bold text-[12px]">&#8358;500</p>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="w-[288px] h-[417px] overflow-hidden">
-              <Image
-                alt="images of one of the popular products"
-                width={700}
-                height={700}
-                src={cotton}
-                className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
-                <FaRegHeart className="text-white" size={16} />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-normal text-[12px]">Bamboo cotton buds</h3>
-              <p className="font-bold text-[12px]">&#8358;500</p>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="w-[288px] h-[417px] overflow-hidden hover:scale-100">
-              <Image
-                alt="images of one of the popular products"
-                width={700}
-                height={700}
-                src={bio}
-                className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 hover:scale-110"
-              />
-              <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
-                <FaRegHeart className="text-white" size={16} />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-normal text-[12px]">
-                Biodegradable kitchen sponge
-              </h3>
-              <p className="font-bold text-[12px]">&#8358;500</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hotdeal />
+      <Sustain />
+      <New />
     </>
   );
 }
