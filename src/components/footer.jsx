@@ -31,11 +31,7 @@ export default function footer() {
                     <IoMailOutline className="text-slate-400" />
                   </div>
                   <input
-<<<<<<< HEAD
-                    class="block p-3 pl-10 w-[310px] lg:w-[317px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-=======
                     className="block p-3 pl-10 w-[250px] lg:w-[317px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
->>>>>>> 9c1081ab16485fbc5db11148d1e09fca35718cd6
                     placeholder="Enter your email"
                     type="email"
                     id="email"
