@@ -13,10 +13,10 @@ import Button from "./ui/Button";
 export default function footer() {
   return (
     <footer className="">
-      <div className="relative min-h-[50vh] px-8 xl:px-44">
+      <div className="relative min-h-[60vh] lg:min-h-[100vh] px-8 xl:px-44">
         <div className="absolute inset-0 flower_background"></div>
-        <div className="absolute bottom-40 flex items-center justify-center">
-          <div className="w-[323px]  md:w-[420x] lg:w-[615px] h-[350px] md:h-[400x] lg:h-[226px] bg-forest-green-500 text-white p-8 rounded-md shadow-lg">
+        <div className="absolute bottom-8 left-1 lg:left-3 lg:bottom-40 flex items-center justify-center">
+          <div className="w-[370px]  md:w-[480px] lg:w-[615px] h-[350px] md:h-[300px] lg:h-[240px] bg-forest-green-500 text-white p-8 rounded-md shadow-lg">
             <h2 className="text-[24px] font-bold mb-4 hero-title">
               Subscribe to our newsletter
             </h2>

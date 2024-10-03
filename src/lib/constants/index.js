@@ -98,7 +98,7 @@ const LandingCards = [
   },
   {
     text: "Certified vendors & products",
-    image: "/images/Vector.png",
+    image: "/images/Cert.png",
   },
 ];
 

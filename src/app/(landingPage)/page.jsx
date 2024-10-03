@@ -1,8 +1,8 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import { useState } from "react";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
-import Link from "next/link";
-import leaf from "/public/images/leaf.png";
+import { FaRegHeart } from "react-icons/fa";
 import { LandingCards, Cards } from "@/lib/constants";
 import LandingCard from "@/components/landingPage/LandingCard";
 import {
@@ -10,8 +10,14 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 import CatergoriesCard from "@/components/landingPage/CatergoriesCard";
+import Product from "@/components/landingPage/ProductCard";
+import Hotdeal from "@/components/landingPage/Hotdeal";
+import Sustain from "@/components/landingPage/Sustainability";
+import New from "@/components/landingPage/New";
 
 export default function Home() {
+  const scrollContainerRef = useRef(null);
+
   const renderLandingCards = () => {
     return LandingCards.map((c, i) => (
       <LandingCard key={i} imageUrl={c.image} text={c.text} />
@@ -22,6 +28,17 @@ export default function Home() {
     return Cards.map((c, i) => (
       <CatergoriesCard key={i} image={c.image} text={c.text} />
     ));
+  };
+
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = 300; // Adjust this value to control scroll distance
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -53,21 +70,35 @@ export default function Home() {
           <div className="flex items-center justify-between gap-2 mb-2">
             <h1 className="hero-title font-bold text-[28px]">Categories</h1>
             <div className="flex items-center justify-center gap-3">
-              <div className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center">
+              <div
+                className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center cursor-pointer"
+                onClick={() => scroll("left")}
+              >
                 <MdOutlineKeyboardArrowLeft className="text-white w-5 h-5" />
               </div>
-              <div className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center">
+              <div
+                className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center cursor-pointer"
+                onClick={() => scroll("right")}
+              >
                 <MdOutlineKeyboardArrowRight className="text-white w-5 h-5" />
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full overflow-x-auto lg:overflow-x-visible">
-          <div className="grid place-items-center grid-cols-3 gap-6">
+        <div
+          ref={scrollContainerRef}
+          className="w-full overflow-x-auto lg:overflow-x-hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          <div className="flex gap-6" style={{ minWidth: "max-content" }}>
             {renderCategoriesCards()}
           </div>
         </div>
       </section>
+      <Product />
+      <Hotdeal />
+      <Sustain />
+      <New />
     </>
   );
 }
