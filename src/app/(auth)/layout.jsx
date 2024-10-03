@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 
@@ -17,7 +19,7 @@ export default function Layout({ children }) {
 
   return (
     <section className="h-screen flex items-stretch">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full px-4 lg:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full ">
         <div className="relative hidden md:block">
           {images.map((img, index) => (
             <img

@@ -21,9 +21,8 @@ export default function AccountCreated() {
   // useFormik hook
   const formik = useFormik({
     initialValues: {
-      email,
+      email: "ewherheakpesiri+4@gmail.com",
       password: "",
-      confirmPassword: "",
       confirmPassword: "",
     },
     validationSchema: Yup.object({
@@ -38,8 +37,10 @@ export default function AccountCreated() {
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
-        const res = await axios.post("/users/send-otp/", {
+        const res = await axios.post("/users/set-password/", {
           email: values.email,
+          password: values.password,
+          password1: values.confirmPassword,
         });
 
         if (res) {

@@ -14,7 +14,7 @@ const Page = () => {
   // console.log(email);
 
   return (
-    <section className="flex">
+    <section className="flex  justify-center">
       <div className="flex flex-col items-center md:items-start justify-center px-6 md:px-16">
         <div className="flex items-center justify-center w-full">
           <Link href="/">
@@ -28,7 +28,9 @@ const Page = () => {
           <p className="mb-6 text-center ">
             We have sent a verification code to {email}
           </p>
+
           <OtpForm />
+
           {/* <Button fn={handleSubmit} text="submit" load={loading} /> */}
           <p className="text-center  mt-4">
             Didn&apos;t receive the verification code? It might take a moment.{" "}

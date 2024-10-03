@@ -2,15 +2,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Button from "./ui/Button";
+import axios from "@/config/axios";
 
 // OtpInput component
 const OtpInput = () => {
   const router = useRouter();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const inputRefs = useRef([]);
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
+
+  // console.log(email);
 
   useEffect(() => {
     inputRefs.current[0]?.focus();
@@ -57,24 +61,23 @@ const OtpInput = () => {
   async function handleSubmit(values) {
     setLoading(true);
     try {
-      console.log(values);
-      
-      // const res = await axios.post("/users/verify-otp/", {
-      //   email,
-      //   otp
-      // });
+      const otpString = otp.join("");
+      // console.log(otp.join(""));
 
-      // if (res) {
-      //   setLoading(false);
-      //   console.log(res);
-      // }
+      const res = await axios.post("/users/verify-otp/", {
+        email,
+        otp: otpString,
+      });
+
+      if (res) {
+        setLoading(false);
+        router.push(`/createAccount?email=${email}`);
+      }
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-
-    // router.push(`/createAccount?email=${email}`);
   }
 
   return (
@@ -87,7 +90,7 @@ const OtpInput = () => {
         <Button
           type="submit"
           css="text-white bg-forest-green-500 w-full mt-8"
-          // loading={loading}
+          loading={loading}
           fn={handleSubmit}
         >
           Submit

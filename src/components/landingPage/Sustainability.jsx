@@ -6,8 +6,8 @@ import Vector from "../../../public/images/Vector.png";
 import Star from "../../../public/images/Star.png";
 export default function Sustain() {
   return (
-    <section className="bg-forest-green-800 min-h-[100vh] mt-6">
-      <div className="flex items-center justify-center container-md px-3 lg:px-11 gap-3 relative">
+    <section className="bg-forest-green-800 min-h-screen mt-6">
+      <div className="flex items-center justify-center container-sm px-3 lg:px-11 gap-3 relative">
         <div className="text-white w-full md:w-full lg:w-[25%] relative">
           <div className="">
             <h1 className="pt-24 px-24 lg:px-2 whitespace-normal text-[32px] font-bold hero-title">
@@ -17,19 +17,19 @@ export default function Sustain() {
               <Image src={Vector} alt="picture of a butterfly" />
             </div>
           </div>
-          <div className="mt-[550px] pl-24 lg:pl-2">
+          <div className="mt-[450px] pl-24 lg:pl-2">
             <p className="hero-title">
               Shop confidently with our eco-certified vendors—{" "}
               <span className="font-bold">
                 your choices make a real difference.
               </span>
             </p>
-            <div className="absolute -bottom-10 -right-8 lg:-bottom-16 lg:-right-3">
+            <div className="absolute -bottom-2 z-0 -right-5 lg:-bottom-8 lg:-right-3">
               <Image src={Star3} alt="star" />
             </div>
           </div>
         </div>
-        <div className="text-green-500  h-[150vh] w-[50%] hidden md:hidden lg:block">
+        <div className="text-green-500 h-[100vh] w-[50%] hidden md:hidden lg:block">
           <Image
             alt="background image"
             src={Eco_img}
@@ -43,7 +43,7 @@ export default function Sustain() {
             Shopping on Fysi means you are helping to build a more sustainable
             world and that makes you a hero.
           </p>
-          <div className="absolute -top-10">
+          <div className="absolute -top-10 -left-2">
             <Image src={Star} alt="image of an icon" />
           </div>
         </div>
