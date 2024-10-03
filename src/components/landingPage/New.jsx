@@ -8,15 +8,14 @@ import Image from "next/image";
 
 export default function Hotdeal() {
   return (
-    <section className="container-md mx-auto pt-6 px-3 lg:px-11">
-      <div className="">
-        <div className="flex items-center justify-between gap-2 mb-2">
+    <section className="pt-6 px-4 py-20 flex items-center justify-center overflow-scroll">
+      <div className="max-w-full">
+        <div className=" flex items-center justify-between gap-2 mb-2">
           <h1 className="hero-title font-bold text-[28px]">New In</h1>
           <div className="flex items-center justify-center gap-3">
             <h1 className="text-forest-green-600 text-[16px]">Sell All</h1>
           </div>
         </div>
-      </div>
       <div className="flex gap-4 overflow-scroll md:overflow-scroll lg:overflow-visible">
         <div className="relative group">
           <div className="w-[288px] h-[417px] overflow-hidden">
@@ -26,7 +25,7 @@ export default function Hotdeal() {
               height={700}
               src={ecophone}
               className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 group-hover:scale-110"
-            />
+              />
             <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
               <FaRegHeart className="text-white" size={16} />
             </div>
@@ -44,7 +43,7 @@ export default function Hotdeal() {
               height={700}
               src={pens}
               className="w-full h-full object-cover rounded-[9px] transition-transform duration-300 group-hover:scale-110"
-            />
+              />
             <div className="absolute top-2 left-60 bg-forest-green-500 p-2 rounded-full">
               <FaRegHeart className="text-white" size={16} />
             </div>
@@ -92,6 +91,7 @@ export default function Hotdeal() {
             <p className="font-bold text-[12px]">&#8358;500</p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

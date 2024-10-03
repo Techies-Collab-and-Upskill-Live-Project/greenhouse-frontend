@@ -36,7 +36,8 @@ export default function Page() {
 
         if (res) {
           setLoading(false);
-          console.log(res);
+          // console.log(res);
+          router.push(`/otp?email=${values.email}`);
         }
       } catch (error) {
         console.log(error);
@@ -47,7 +48,6 @@ export default function Page() {
       //   console.log("Form submitted successfully!", values);
       //   setLoading(false);
 
-      //   router.push(`/otp?email=${values.email}`);
       // }, 3000);
     },
   });

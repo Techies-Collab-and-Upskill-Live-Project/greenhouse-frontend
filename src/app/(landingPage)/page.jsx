@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="">
       <section className="">
         <div className="pt-32 min-h-[100vh] background_img flex justify-center items-center">
           <div className="flex gap-3 lg:gap-8 items-center justify-center text-center flex-col">
@@ -60,16 +60,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="container-md mx-auto pt-6 px-1 lg:px-11">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 place-items-center lg:gap-10">
+      <section className="px-4 max-w-[1300px] mx-auto py-20 flex flex-col items-center justify-center">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           {renderLandingCards()}
         </div>
       </section>
-      <section className="container-md mx-auto pt-6 px-3 lg:px-11">
-        <div className="">
-          <div className="flex items-center justify-between gap-2 mb-2">
+      <section className="max-w-[1300px] px-4 mx-auto  py-10 text-center">
+        <div>
+          <div className="flex items-center justify-between gap-2 mb-2 xl:px-6">
             <h1 className="hero-title font-bold text-[28px]">Categories</h1>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center gap-3 ">
               <div
                 className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center cursor-pointer"
                 onClick={() => scroll("left")}
@@ -87,18 +87,23 @@ export default function Home() {
         </div>
         <div
           ref={scrollContainerRef}
-          className="w-full overflow-x-auto lg:overflow-x-hidden"
+          className="w-full overflow-x-auto  flex justify-start"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <div className="flex gap-6" style={{ minWidth: "max-content" }}>
+          <div
+            className="flex gap-6 justify-center w-full  bg-red-30 items-center"
+            // className="w-full grid grid-cols-3 gap-10"
+            style={{ minWidth: "max-content" }}
+          >
             {renderCategoriesCards()}
           </div>
         </div>
       </section>
+
       <Product />
       <Hotdeal />
       <Sustain />
       <New />
-    </>
+    </div>
   );
 }
