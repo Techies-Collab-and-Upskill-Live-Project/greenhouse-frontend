@@ -9,8 +9,8 @@ const OtpInput = () => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [error, setError] = useState(false);
   const inputRefs = useRef([]);
-   const searchParams = useSearchParams();
-   const email = searchParams.get("email");
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
 
   useEffect(() => {
     inputRefs.current[0]?.focus();
@@ -54,11 +54,27 @@ const OtpInput = () => {
     ));
   };
 
-  function handleSubmit(values) {
-    // handleOtp({ axios, dispatch, router, values, otpValues: otp.join("") });
-    // console.log(otp.join(""));
-    // console.log(values);
-    router.push(`/createAccount?email=${email}`)
+  async function handleSubmit(values) {
+    setLoading(true);
+    try {
+      console.log(values);
+      
+      // const res = await axios.post("/users/verify-otp/", {
+      //   email,
+      //   otp
+      // });
+
+      // if (res) {
+      //   setLoading(false);
+      //   console.log(res);
+      // }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+
+    // router.push(`/createAccount?email=${email}`);
   }
 
   return (
