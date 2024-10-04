@@ -47,7 +47,9 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="pb-10 ">heol</div>
+        <div className="pb-10 ">
+          
+        </div>
       </div>
 
       <div className=" mt-10">
