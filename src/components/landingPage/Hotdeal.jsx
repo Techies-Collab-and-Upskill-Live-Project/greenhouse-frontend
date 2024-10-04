@@ -15,7 +15,7 @@ export default function Hotdeal() {
             <h1 className="hero-title font-bold text-[28px]">Hot Deals</h1>
           </div>
           <div className="flex items-center justify-center gap-3">
-            <h1 className="text-forest-green-600 text-[16px]">Sell All</h1>
+            <h1 className="text-forest-green-600 text-[17px]">Sell All</h1>
           </div>
         </div>
         <div className="flex gap-4 overflow-scroll md:overflow-scroll lg:overflow-visible">
