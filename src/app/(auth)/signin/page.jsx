@@ -8,6 +8,8 @@ import Link from "next/link";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import axios from "@/config/axios";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,21 +27,39 @@ export default function Login() {
         .email("Invalid email address"),
       password: Yup.string().required("Password is required"),
     }),
-    onSubmit: (values) => {
-      console.log("Form submitted successfully!", values);
+    onSubmit: async (values) => {
       setLoading(true);
+      try {
+        const res = await axios.post("/users/login/", {
+          email: values.email,
+          password: values.password,
+        });
 
-      setTimeout(() => {
-        router.push("/customer/account");
-        setLoading(false);
-      }, 3000);
+        if (res) {
+          setLoading(false);
+          router.push("/customer/account");
+          console.log(res);
+           }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      
+      // console.log("Form submitted successfully!", values);
+      // setLoading(true);
+
+      // setTimeout(() => {
+      //   router.push("/customer/account");
+      //   setLoading(false);
+      // }, 3000);
     },
   });
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div>
-        <img src="/images/Logo.png" alt="logo" className="mb-6" />
+        <Image width={100} height={100} src="/images/Logo.png" alt="logo" className="mb-6" />
       </div>
       <div>
         <h1 className="text-2xl font-bold mb-2">Welcome back</h1>

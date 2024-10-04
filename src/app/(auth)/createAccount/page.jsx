@@ -8,7 +8,8 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import { useRouter, useSearchParams } from "next/navigation";
-import axios from "axios";
+import Image from "next/image";
+import axios from "@/config/axios";
 
 export default function AccountCreated() {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +22,7 @@ export default function AccountCreated() {
   // useFormik hook
   const formik = useFormik({
     initialValues: {
-      email: "ewherheakpesiri+4@gmail.com",
+      email,
       password: "",
       confirmPassword: "",
     },
@@ -37,15 +38,19 @@ export default function AccountCreated() {
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
+        console.log(values);
+
         const res = await axios.post("/users/set-password/", {
-          email: values.email,
+          email:values.email,
           password: values.password,
           password1: values.confirmPassword,
         });
 
         if (res) {
+          console.log(email);
           setLoading(false);
-          console.log(res);
+          // console.log(res);
+          router.push(`/personalDetails?email=${email}`)
         }
       } catch (error) {
         console.log(error);
@@ -65,7 +70,13 @@ export default function AccountCreated() {
   return (
     <div className="flex flex-col items-center justify-center px-8 md:px-16">
       <Link href="/">
-        <img src="/images/Logo.png" alt="logo" className="mb-6" />
+        <Image
+          src="/images/Logo.png"
+          alt="logo"
+          className="mb-6"
+          width={200}
+          height={200}
+        />
       </Link>
       <div>
         <h1 className="text-2xl font-bold mb-2">Create your account</h1>
