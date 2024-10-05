@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -9,6 +10,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleLogin } from "@react-oauth/google";
+import axios from "@/config/axios";
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -16,8 +18,6 @@ export default function Page() {
 
   const initialValues = {
     email: "",
-    password: "",
-    confirmPassword: "",
   };
 
   const validationSchema = Yup.object({
@@ -27,15 +27,28 @@ export default function Page() {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       setLoading(true);
+      try {
+        const res = await axios.post("/users/send-otp/", {
+          email: values.email,
+        });
 
-      setTimeout(() => {
-        console.log("Form submitted successfully!", values);
+        if (res) {
+          setLoading(false);
+          // console.log(res);
+          router.push(`/otp?email=${values.email}`);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
         setLoading(false);
+      }
+      // setTimeout(() => {
+      //   console.log("Form submitted successfully!", values);
+      //   setLoading(false);
 
-        router.push(`/otp?email=${values.email}`);
-      }, 3000);
+      // }, 3000);
     },
   });
 
@@ -47,13 +60,13 @@ export default function Page() {
       <div>
         <h1 className="text-2xl font-bold mb-2">Create your account</h1>
         <p className="mb-6">
-          Let&apos;s get started by creating your account. To keep your account safe,
-          we need a strong password.
+          Let&apos;s get started by creating your account. To keep your account
+          safe, we need a strong password.
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
           <div>
             <label htmlFor="email" className="block mb-1">
-              Email or Phone Number*
+              Email
             </label>
             <input
               type="text"

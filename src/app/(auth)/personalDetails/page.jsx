@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
+import axios from "@/config/axios";
 
 // Comprehensive list of major country codes
 const countryCodes = [
@@ -37,7 +39,9 @@ const countryCodes = [
 ];
 
 export default function PersonalDetails() {
+  const searchParams = useSearchParams();
   const router = useRouter();
+  const email = searchParams.get("email");
   const [loading, setLoading] = useState(false);
 
   // useFormik hook
@@ -55,21 +59,46 @@ export default function PersonalDetails() {
         .matches(/^\d{10,15}$/, "Phone number is not valid")
         .required("Phone number is required"),
     }),
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
-      setTimeout(() => {
-        console.log("Form submitted successfully!", values);
-        router.push("/signin");
-        setSubmitting(false);
+      // setTimeout(() => {
+      //   // console.log("Form submitted successfully!", values);
+      //   router.push("/signin");
+      //   setSubmitting(false);
+      //   setLoading(false);
+      // }, 3000);
+      try {
+        const res = await axios.post("/users/complete-profile/", {
+          email,
+          first_name: values.firstName,
+          last_name: values.lastName,
+          phone_number: values.phoneNumber,
+        });
+
+        if (res) {
+          setLoading(false);
+          router.push("/signin");
+          // console.log(res);
+        }
+        // console.log(email,values);
+      } catch (error) {
+        console.log(error);
+      } finally {
         setLoading(false);
-      }, 3000);
+      }
     },
   });
 
   return (
     <div className="flex flex-col items-center justify-center p-4 md:p-8">
       <Link href="/">
-        <img src="/images/Logo.png" alt="logo" className="mb-6" />
+        <Image
+          src="/images/Logo.png"
+          alt="logo"
+          className="mb-6"
+          width={100}
+          height={100}
+        />
       </Link>
       <div className="w-full max-w-md">
         <h1 className="text-2xl font-bold mb-2">Personal Details</h1>

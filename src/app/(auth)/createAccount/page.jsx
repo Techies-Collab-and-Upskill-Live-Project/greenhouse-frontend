@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
 import { useFormik } from "formik";
@@ -7,6 +8,8 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import { useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
+import axios from "@/config/axios";
 
 export default function AccountCreated() {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +25,6 @@ export default function AccountCreated() {
       email,
       password: "",
       confirmPassword: "",
-      confirmPassword: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Email is required"),
@@ -33,27 +35,54 @@ export default function AccountCreated() {
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Please confirm your password"),
     }),
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
-      setTimeout(() => {
-        console.log("Form submitted successfully!", values);
+      try {
+        console.log(values);
+
+        const res = await axios.post("/users/set-password/", {
+          email:values.email,
+          password: values.password,
+          password1: values.confirmPassword,
+        });
+
+        if (res) {
+          console.log(email);
+          setLoading(false);
+          // console.log(res);
+          router.push(`/personalDetails?email=${email}`)
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
         setLoading(false);
-        router.push(`/personalDetails?email=${email}`);
-        setSubmitting(false);
-      }, 3000);
+      }
+
+      // setTimeout(() => {
+      //   console.log("Form submitted successfully!", values);
+      //   setLoading(false);
+      //   router.push(`/personalDetails?email=${email}`);
+      //   setSubmitting(false);
+      // }, 3000);
     },
   });
 
   return (
     <div className="flex flex-col items-center justify-center px-8 md:px-16">
       <Link href="/">
-        <img src="/images/Logo.png" alt="logo" className="mb-6" />
+        <Image
+          src="/images/Logo.png"
+          alt="logo"
+          className="mb-6"
+          width={200}
+          height={200}
+        />
       </Link>
       <div>
         <h1 className="text-2xl font-bold mb-2">Create your account</h1>
         <p className="mb-6">
-          Let&apos;s get started by creating your account. To keep your account safe,
-          we need a strong password.
+          Let&apos;s get started by creating your account. To keep your account
+          safe, we need a strong password.
         </p>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6 mb-6">
