@@ -13,7 +13,7 @@ import Button from "./ui/Button";
 export default function footer() {
   return (
     <footer className="">
-      <div className="relative min-h-[60vh] lg:min-h-[100vh] px-8 xl:px-44">
+      <div className=" container-md relative min-h-[60vh] lg:min-h-[100vh] px-8 xl:px-44">
         <div className="absolute inset-0 flower_background"></div>
         <div className="absolute bottom-8 left-1 lg:left-3 lg:bottom-40 flex items-center justify-center">
           <div className="w-[370px]  md:w-[480px] lg:w-[615px] h-[350px] md:h-[300px] lg:h-[240px] bg-forest-green-500 text-white p-8 rounded-md shadow-lg">
@@ -52,7 +52,7 @@ export default function footer() {
         </div>
       </div>
       <div className="bg-forest-green-700 text-white">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container-md mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Logo and Tagline */}
             <div className="lg:col-span-2">
@@ -164,7 +164,7 @@ export default function footer() {
 
           <hr className="my-8 border-white/20" />
 
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="container-md flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               {["Terms and Conditions", "Privacy Policy", "Legal Notice"].map(
                 (item) => (

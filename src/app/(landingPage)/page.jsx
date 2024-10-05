@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <>
       <section className="">
-        <div className="pt-32 min-h-[100vh] background_img flex justify-center items-center">
+        <div className="pt-32 min-h-[70vh] md:min-h-[70vh] lg:min-h-[100vh] background_img flex justify-center items-center">
           <div className="flex gap-3 lg:gap-8 items-center justify-center text-center flex-col">
             <h1 className="font-bold text-[48px] lg:text-[107px] text-white hero-title">
               Eco-Products,
@@ -60,12 +60,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="container-md mx-auto pt-6 px-1 lg:px-11">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 place-items-center lg:gap-10">
+      <section className="pt-6">
+        <div className="flex items-center justify-center gap-6 flex-wrap lg:flex-nowrap">
           {renderLandingCards()}
         </div>
       </section>
-      <section className="container-md mx-auto pt-6 px-3 lg:px-11">
+      <section className="pt-6">
         <div className="">
           <div className="flex items-center justify-between gap-2 mb-2">
             <h1 className="hero-title font-bold text-[28px]">Categories</h1>
@@ -90,9 +90,7 @@ export default function Home() {
           className="w-full overflow-x-auto lg:overflow-x-hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <div className="flex gap-6" style={{ minWidth: "max-content" }}>
-            {renderCategoriesCards()}
-          </div>
+          <div className="flex gap-6">{renderCategoriesCards()}</div>
         </div>
       </section>
       <Product />

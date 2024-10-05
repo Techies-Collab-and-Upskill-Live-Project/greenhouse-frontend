@@ -3,7 +3,7 @@ import React from "react";
 
 export default function LandingCard({ imageUrl, text }) {
   return (
-    <div className=" w-[180px] h-[168px] md:w-[250px] md:h-[250px]  lg:w-[280px] lg:h-[201px] bg-[#E6ECE9] flex gap-2 items-center justify-center flex-col rounded-lg">
+    <div className=" w-[168px] h-[168px] md:w-[250px] md:h-[250px] lg:w-[292px] lg:h-[201px] bg-[#E6ECE9] flex gap-2 items-center justify-center flex-col rounded-lg">
       <div className="h-11 w-11 lg:h-16 lg:w-16">
         <Image
           height={70}
