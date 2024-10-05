@@ -65,5 +65,10 @@ label {
 .container-md {
   max-width: 120rem;
   margin: 0 auto;
-  /* padding: 2rem 3.2rem; */
+  padding: 0 3.2rem;
+}
+.container-sm {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.2rem;
 }
