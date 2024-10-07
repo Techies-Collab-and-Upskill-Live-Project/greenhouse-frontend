@@ -1,9 +1,15 @@
+"use client";
+import { useGetUserStore } from "@/zustand/stores";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { MdOutlineEdit } from "react-icons/md";
 
 export default function Page() {
+  const { user } = useGetUserStore();
+
+  console.log(user);
+
   return (
     <section className=" flex flex-col gap-10 ">
       <div className="flex gap-10 flex-wrap justify-center">
@@ -17,7 +23,9 @@ export default function Page() {
               className="object-cover h-full w-full object-center"
             />
           </div>
-          <h2 className="font-medium mt-4 mb-2">Nike Bankole</h2>
+          <h2 className="font-medium mt-4 mb-2">
+            {user?.profile?.first_name + " " + user?.profile?.last_name}
+          </h2>
           <div className="text-xs">
             <Link href="#">View Profile</Link>
           </div>
@@ -31,10 +39,10 @@ export default function Page() {
             <h3>Nike Bankole</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem,
-              sint.
+              sint. f
             </p>
-            <p>nikeakancklk@ajcancj.scs</p>
-            <p>0908078675644</p>
+            <p>{user?.email}</p>
+            <p>{user?.profile?.phone_number}</p>
           </div>
         </div>
       </div>

@@ -29,6 +29,7 @@ export default function Login() {
     }),
     onSubmit: async (values) => {
       setLoading(true);
+      // console.log(values);
       try {
         const res = await axios.post("/users/login/", {
           email: values.email,
@@ -36,16 +37,27 @@ export default function Login() {
         });
 
         if (res) {
+          const accessToken = res.data?.token;
+          const user = res.data?.user;
+          sessionStorage.setItem("accessToken", accessToken);
+          sessionStorage.setItem("user", JSON.stringify(user));
           setLoading(false);
-          router.push("/customer/account");
-          console.log(res);
-           }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setLoading(false);
+
+          const route =
+            user?.user_type === "Customer"
+              ? "/customer/account"
+              : "/vendor/dashboard";
+
+          router.push(route);
+          console.log(res.data.token);
+          console.log(res.data);
         }
-      
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+
       // console.log("Form submitted successfully!", values);
       // setLoading(true);
 
@@ -59,7 +71,13 @@ export default function Login() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div>
-        <Image width={100} height={100} src="/images/Logo.png" alt="logo" className="mb-6" />
+        <Image
+          width={100}
+          height={100}
+          src="/images/Logo.png"
+          alt="logo"
+          className="mb-6"
+        />
       </div>
       <div>
         <h1 className="text-2xl font-bold mb-2">Welcome back</h1>

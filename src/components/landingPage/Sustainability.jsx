@@ -17,14 +17,14 @@ export default function Sustain() {
               <Image src={Vector} alt="picture of a butterfly" />
             </div>
           </div>
-          <div className="mt-[450px] pl-24 lg:pl-2">
+          <div className="mt-[450px] lg:mt-[640px] pl-24 lg:pl-2">
             <p className="hero-title">
               Shop confidently with our eco-certified vendors—{" "}
               <span className="font-bold">
                 your choices make a real difference.
               </span>
             </p>
-            <div className="absolute -bottom-2 z-0 -right-5 lg:-bottom-8 lg:-right-3">
+            <div className="absolute -bottom-2 z-0 -right-5 lg:-bottom-20 lg:-right-3">
               <Image src={Star3} alt="star" />
             </div>
           </div>
