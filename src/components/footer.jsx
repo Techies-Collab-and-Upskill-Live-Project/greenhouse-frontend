@@ -13,44 +13,14 @@ import Button from "./ui/Button";
 export default function footer() {
   return (
     <footer className="">
-      <div className="container-sm  relative h-[60vh] lg:min-h-screen px-8">
-        <div className="absolute inset-0 flower_background"></div>
-        <div className="absolute bottom-8 left-1 lg:left-3 lg:bottom-30 flex items-center justify-center m-2 lg:m-36">
-          <div className="w-[370px]  md:w-[480px] lg:w-[615px] h-[350px] md:h-[300px] lg:h-[240px] bg-forest-green-500 text-white p-8 rounded-md shadow-lg">
-            <h2 className="text-[24px] font-bold mb-4 hero-title">
-              Subscribe to our newsletter
-            </h2>
-            <p className="mb-6 hero-title font-normal text-[20px]">
-              Be the first to know about exclusive offers, eco-tips, and new{" "}
-              arrivals
-            </p>
-            <div>
-              <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
-                <div className="relative">
-                  <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                    <IoMailOutline className="text-slate-400" />
-                  </div>
-                  <input
-                    className="block p-3 pl-10 w-[310px] lg:w-[317px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Enter your email"
-                    type="email"
-                    id="email"
-                    required=""
-                  />
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="py-2 px-5 w-full lg:w-[109px] text-sm font-medium text-center text-white rounded-lg cursor-pointer bg-primary-900 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 border dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </div>
+      <section className="flower_background h-[60vh] lg:min-h-screen">
+        <div className="container-sm px-8 ">
+          <div className="">
+            <div className="text-green-500">Two</div>
+            <div className="text-red-500">Three</div>
           </div>
         </div>
-      </div>
+      </section>
       <div className="bg-forest-green-700 text-white">
         <div className="container-md mx-auto px-6 lg:px-40 py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 ">
