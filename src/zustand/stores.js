@@ -7,4 +7,9 @@ const useCustomerSidebarStore = create((set) => ({
   toggleNavbar: () => set((state) => ({ isOpen: !state.isOpen })), // Function to toggle navbar
 }));
 
-export { useCustomerSidebarStore };
+const useGetUserStore = create((set) => ({
+  user: {},
+  setUser: (data) => set({ user: data }),
+}));
+
+export { useCustomerSidebarStore, useGetUserStore };
