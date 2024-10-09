@@ -41,7 +41,7 @@ export default function AccountCreated() {
         console.log(values);
 
         const res = await axios.post("/users/set-password/", {
-          email:values.email,
+          email: values.email,
           password: values.password,
           password1: values.confirmPassword,
         });
@@ -50,7 +50,7 @@ export default function AccountCreated() {
           console.log(email);
           setLoading(false);
           // console.log(res);
-          router.push(`/personalDetails?email=${email}`)
+          router.push(`/personalDetails?email=${email}`);
         }
       } catch (error) {
         console.log(error);
