@@ -13,17 +13,37 @@ import Button from "./ui/Button";
 export default function footer() {
   return (
     <footer className="">
-      <section className="flower_background h-[60vh] lg:min-h-screen">
-        <div className="container-sm px-8 ">
-          <div className="">
-            <div className="text-green-500">Two</div>
-            <div className="text-red-500">Three</div>
+      <section className="flower_background h-[60vh] lg:min-h-screen relative">
+        <div className="container-sm px-8">
+          <div className="flex items-start justify-start pt-2 lg:pt-64">
+            <div className="bg-forest-green-700 flex-2 w-[343px] h-[329px] lg:w-[615px] lg:h-[256px] p-10 rounded-lg">
+              <p className="text-white text-[20px] font-bold mb-7">
+                Subscribe to our newsletter
+              </p>
+              <p className="text-white text-[14px] lg:text-[20px] font-extralight hero-title mb-5">
+                Be the first to know about exclusive offers, eco-tips, and new{" "}
+                <br />
+                arrivals!
+              </p>
+              <div className="w-[250px] lg:w-[350px] h-[40px] bg-white relative flex items-center rounded-md shadow-sm border">
+                <IoMailOutline className="absolute left-2 text-gray-500" />
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  className="flex-grow pl-8 pr-4 py-2 bg-transparent border-none outline-none text-gray-800"
+                />
+                <button className="text-white bg-green-800 hover:bg-green-600 px-4 py-2 rounded-md transition-all">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+            <div className="bg-red-500 flex-1"></div>
           </div>
         </div>
       </section>
       <div className="bg-forest-green-700 text-white">
-        <div className="container-md mx-auto px-6 lg:px-40 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 ">
+        <div className="container-md mx-auto px-6 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Logo and Tagline */}
             <div className="lg:col-2">
               <div className="w-36">

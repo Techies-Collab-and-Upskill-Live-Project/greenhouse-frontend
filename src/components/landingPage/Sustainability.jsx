@@ -6,7 +6,7 @@ import Vector from "../../../public/images/Vector.png";
 import Star from "../../../public/images/Star.png";
 export default function Sustain() {
   return (
-    <section className=" flex bg-forest-green-500 text-white max-sm:h-screen ">
+    <section className=" flex bg-forest-green-500 text-white max-sm:h-screen">
       <div className="flex-1 overflow-hidden relative flex flex-col">
         <div className="mt-4 ml-10">
           <Image src={Vector} alt="picture of a butterfly" />
@@ -20,7 +20,7 @@ export default function Sustain() {
             <br /> make a real difference.
           </p>
         </div>
-        <div className="overflow-hidden  sm:h-[200px] 2xl:h-[351px] absolute bottom-0 right-0">
+        <div className="overflow-hidden sm:h-[200px] 2xl:h-[351px] absolute bottom-0 right-0">
           <Image
             src={Star3}
             alt="star"
