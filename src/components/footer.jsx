@@ -32,7 +32,7 @@ export default function footer() {
                   placeholder="Your email"
                   className="flex-grow pl-8 pr-4 py-2 bg-transparent border-none outline-none text-gray-800"
                 />
-                <button className="text-white bg-green-800 hover:bg-green-600 px-4 py-2 rounded-md transition-all">
+                <button className="text-white bg-green-800 hover:bg-green-600 -mx-1 px-4 py-2 rounded-md transition-all">
                   Subscribe
                 </button>
               </div>
