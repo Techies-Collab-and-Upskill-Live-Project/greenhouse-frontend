@@ -58,10 +58,9 @@ export default function Page() {
         <img src="/images/Logo.png" alt="logo" className="mb-6" />
       </Link>
       <div>
-        <h1 className="text-2xl font-bold mb-2">Create your account</h1>
+        <h1 className="text-2xl font-bold mb-2">Welcome to Fysi</h1>
         <p className="mb-6">
-          Let&apos;s get started by creating your account. To keep your account
-          safe, we need a strong password.
+          Type your e-mail or phone number to log in or create a Fysi account
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
           <div>
@@ -103,10 +102,10 @@ export default function Page() {
           />
         </div>
 
-        <p className="mt-6 text-center">
-          Already have an account?{" "}
+        <p className="mt-6 text-center whitespace-normal">
+          By continuing you agree to Fysi’s <br />
           <Link href="/signin" className="text-green-800 hover:underline">
-            Sign in
+            Terms and Conditions
           </Link>
         </p>
       </div>
