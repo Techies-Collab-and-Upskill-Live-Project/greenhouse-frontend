@@ -1,46 +1,97 @@
-// "use client";
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+import React, { useState } from "react";
+import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
+import Image from "next/image";
 
-// import React, { useState } from "react";
-// import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
+const FaqPage = () => {
+  const faqsData = [
+    {
+      question: "What is Fysi?",
+      answer:
+        "Fysi is an online marketplace that connects eco-conscious customers with vendors who share our passion for sustainability. Our platform features a wide range of eco-friendly products.",
+    },
+    {
+      question: "How do I know if a product is truly eco-friendly?",
+      answer:
+        "Fysi is committed to ensuring that all products listed on our platform meet stringent eco-friendly standards. We provide sustainability scores and certifications to guide your purchase decisions.",
+    },
+    {
+      question: "Can I trust the vendors on Fysi?",
+      answer:
+        "Our team verifies each vendor to ensure they comply with our strict eco-friendly guidelines, so you can shop with confidence.",
+    },
+    {
+      question: "How do I place an order?",
+      answer:
+        "Placing an order on Fysi is simple! Just browse through our marketplace, add your chosen items to the cart, and proceed to checkout.",
+    },
+    {
+      question: "What is the return policy?",
+      answer:
+        "Fysi offers a customer-friendly return policy that allows you to return products within 30 days, provided they meet the return conditions.",
+    },
+  ];
 
-// const Faq = ({ question, answer }) => {
-//   const [isOpen, setIsOpen] = useState(false);
+  const FaqItem = ({ question, answer }) => {
+    const [dropdown, setDropdown] = useState(false);
 
-//   const safeQuestion = typeof question === "string" ? question : "";
-//   const questionId = safeQuestion.replace(/\s+/g, "-").toLowerCase();
+    return (
+      <div className="flex justify-between pb-1 sm:pb-4 bg-red-600 mx-auto container w-full">
+        <div>
+          <h6 className="pb-3 font-bold text-[20px]">{question}</h6>
+          <p
+            className={` ${
+              dropdown ? "opacity-60 visible " : "opacity-0  "
+            } text-[17px] transition-opacity leading-8`}
+          >
+            {answer}
+          </p>
+        </div>
+        <div className="cursor-pointer" onClick={() => setDropdown(!dropdown)}>
+          {dropdown ? (
+            <TfiAngleUp className="text-[23px] sm:text-[27px]" />
+          ) : (
+            <TfiAngleDown className="text-[23px] sm:text-[27px]" />
+          )}
+        </div>
+      </div>
+    );
+  };
 
-//   return (
-//     <div className="flex justify-between pb-1 sm:pb-4">
-//       <div className="flex-grow pr-4">
-//         <h6 className="pb-3 font-bold text-xl">{safeQuestion}</h6>
-//         <p
-//           id={`faq-answer-${questionId}`}
-//           className={`text-base leading-8 transition-all duration-300 ${
-//             isOpen ? "opacity-60 max-h-96" : "opacity-0 max-h-0"
-//           } overflow-hidden`}
-//         >
-//           {answer}
-//         </p>
-//       </div>
-//       <button
-//         className="cursor-pointer flex-shrink-0 focus:outline-none"
-//         onClick={() => setIsOpen(!isOpen)}
-//         aria-expanded={isOpen}
-//         aria-controls={`faq-answer-${questionId}`}
-//       >
-//         {isOpen ? (
-//           <TfiAngleUp className="text-2xl sm:text-[27px]" />
-//         ) : (
-//           <TfiAngleDown className="text-2xl sm:text-[27px]" />
-//         )}
-//       </button>
-//     </div>
-//   );
-// };
+  return (
+    <div className="pt-56 pb-24 gap-36 flex justify-between items-center w-full container mx-auto">
+      <div>
+        <div className="md:text-[32px] text-[27px] font-bold mb-16 text-center md:text-left">
+          Frequently Asked Questions
+        </div>
 
-// export default Faq;
-import React from "react";
+        {faqsData.map((faq, index) => (
+          <FaqItem key={index} question={faq.question} answer={faq.answer} />
+        ))}
 
-export default function Faq() {
-  return <h1>Well this is working!</h1>;
-}
+        <div className="pt-1">
+          <p>
+            Didn&apos;t find the answer you were looking for? Contact our
+            support team, we&apos;re here to help!
+          </p>
+          <button className="bg-forest-green-500 hover:bg-forest-green-400 text-white rounded-md px-4 py-2 mt-3">
+            Contact Support
+          </button>
+        </div>
+      </div>
+
+      <div className="hidden lg:block">
+        <Image
+          width={1000}
+          height={1000}
+          quality={100}
+          src="/images/faqfruit.png"
+          alt="FAQ Illustration"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default FaqPage;

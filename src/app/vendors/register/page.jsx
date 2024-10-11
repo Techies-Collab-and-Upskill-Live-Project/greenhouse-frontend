@@ -87,31 +87,10 @@ export default function Page() {
                 />
               </div>
 
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="hero-title font-medium text-[14px] block mb-2"
-                >
-                  Email
-                </label>
-                <Field
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="block w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  placeholder="Enter your email"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-red-500 text-sm mt-1"
-                />
-              </div>
-
               <Button
                 type="submit"
                 css="bg-forest-green-500 w-full mt-4"
-                loading={loading || isSubmitting}
+                loading={loading}
               >
                 Next
               </Button>
