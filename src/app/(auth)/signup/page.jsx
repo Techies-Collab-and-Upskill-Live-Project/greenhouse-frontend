@@ -91,7 +91,7 @@ export default function Page() {
           </Button>
         </form>
 
-        <div className="w-full mx-auto flex justify-center">
+        <div className="w-full mx-auto flex justify-center border">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               console.log(credentialResponse);
@@ -103,8 +103,8 @@ export default function Page() {
         </div>
 
         <p className="mt-6 text-center whitespace-normal">
-          By continuing you agree to Fysi’s <br />
-          <Link href="/signin" className="text-green-800 hover:underline">
+          By continuing you agree to Fysi’s
+          <Link href="#" className="text-green-800 hover:underline">
             Terms and Conditions
           </Link>
         </p>

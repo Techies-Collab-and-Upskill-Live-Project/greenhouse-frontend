@@ -99,8 +99,8 @@ export default function Product() {
   );
 }
 
-
-{/* <section className="py-20 max-w-[1300px] px-4 mx-auto flex flex-col items-center justify-center overflow-hidden">
+{
+  /* <section className="py-20 max-w-[1300px] px-4 mx-auto flex flex-col items-center justify-center overflow-hidden">
   <div className="w-full">
     <div className="flex flex-col md:flex-row items-center justify-between gap-2 mb-2">
       <h1 className="hero-title font-bold text-[24px] md:text-[28px]">
@@ -114,6 +114,7 @@ export default function Product() {
     </div>
   </div>
   <div className="flex gap-4 overflow-scroll md:overflow-visible">
-    {/* Product cards go here */}
+    {/* Product cards go here */
+}
 //   </div>
 // </section>; */}
