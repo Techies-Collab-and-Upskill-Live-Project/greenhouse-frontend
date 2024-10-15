@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  @apply bg-grey-500;
+}
+
+input {
+  @apply h-9 w-full bg-grey-100 focus:outline-none rounded-lg border border-[#D0D5DD] py-1;
+}
+
+td,
+th {
+  @apply px-8 py-4;
+}
+tr {
+  @apply border-t-2 border-[];
+}
+
+label {
+  @apply font-semibold text-sm inline-block;
+}
+.input {
+  @apply focus:outline-none rounded-lg px-4 py-1 h-10 bg-transparent border-2;
+}
+
+/* Hide scroll bar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scroll bar for IE, Edge, and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.background_img {
+  background-image: linear-gradient(to left, #002212b2, #002212b2),
+    url("/images/hero_img.jpeg");
+  /* background-image: linear-gradient(to left, rgba(255, 0, 0, 0.112), rgba(0, 128, 0, 0.353)),
+    url("/images/hero_img.jpeg"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-title {
+  font-family: "DM Sans", sans-serif;
+}
+
+.flower_background::before {
+  content: "";
+  background-image: url("/images/flower.png");
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+.container-md {
+  max-width: 120rem;
+<<<<<<< HEAD
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+.container-sm {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+=======
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:24px;
+  /* padding: 2rem 3.2rem; */
+>>>>>>> 691e435 (landing page)
+}
+.container-sm {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.text_box {
+  /* border-color: #d0d5dd; */
+  border: 2px solid #d0d5dd;
+}
+.text_box-sm {
+  border: 1px solid #d0d5dd;
+}
