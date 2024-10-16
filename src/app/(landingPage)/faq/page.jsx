@@ -37,7 +37,7 @@ const FaqPage = () => {
     const [dropdown, setDropdown] = useState(false);
 
     return (
-      <div className="flex justify-between pb-1 sm:pb-4 bg-red-600 mx-auto container w-full">
+      <div className="flex justify-between pb-1 sm:pb-4 mx-auto container w-full">
         <div>
           <h6 className="pb-3 font-bold text-[20px]">{question}</h6>
           <p
@@ -60,7 +60,7 @@ const FaqPage = () => {
   };
 
   return (
-    <div className="pt-56 pb-24 gap-36 flex justify-between items-center w-full container mx-auto">
+    <div className="pt-56 pb-24 gap-36 flex justify-between items-center w-full container mx-auto p-6">
       <div>
         <div className="md:text-[32px] text-[27px] font-bold mb-16 text-center md:text-left">
           Frequently Asked Questions

@@ -8,7 +8,6 @@ import Button from "@/components/ui/Button";
 import Image from "next/image";
 import axios from "@/config/axios";
 
-// Comprehensive list of major country codes
 const countryCodes = [
   { code: "1", label: "+1" },
   { code: "44", label: "+44" },
@@ -44,29 +43,22 @@ export default function PersonalDetails() {
   const email = searchParams.get("email");
   const [loading, setLoading] = useState(false);
 
-  // useFormik hook
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
       phoneNumber: "",
-      countryCode: "234", // Default country code
+      countryCode: "234",
+      lastName: "",
+      firstName: "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
       phoneNumber: Yup.string()
         .matches(/^\d{10,15}$/, "Phone number is not valid")
         .required("Phone number is required"),
+      lastName: Yup.string().required("Last name is required"),
+      firstName: Yup.string().required("First name is required"),
     }),
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
-      // setTimeout(() => {
-      //   // console.log("Form submitted successfully!", values);
-      //   router.push("/signin");
-      //   setSubmitting(false);
-      //   setLoading(false);
-      // }, 3000);
       try {
         const res = await axios.post("/users/complete-profile/", {
           email,
@@ -78,9 +70,7 @@ export default function PersonalDetails() {
         if (res) {
           setLoading(false);
           router.push("/signin");
-          // console.log(res);
         }
-        // console.log(email,values);
       } catch (error) {
         console.log(error);
       } finally {
@@ -108,49 +98,6 @@ export default function PersonalDetails() {
 
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
           <div>
-            <label htmlFor="firstName" className="block mb-1">
-              First Name*
-            </label>
-            <input
-              type="text"
-              name="firstName"
-              id="firstName"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none"
-              placeholder="Enter your first name"
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-            />
-            {formik.errors.firstName && formik.touched.firstName ? (
-              <div className="text-red-500 text-sm">
-                {formik.errors.firstName}
-              </div>
-            ) : null}
-          </div>
-
-          <div>
-            <label htmlFor="lastName" className="block mb-1">
-              Last Name*
-            </label>
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none"
-              placeholder="Enter your last name"
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-            />
-            {formik.errors.lastName && formik.touched.lastName ? (
-              <div className="text-red-500 text-sm">
-                {formik.errors.lastName}
-              </div>
-            ) : null}
-          </div>
-
-          <div>
-            <label htmlFor="phoneNumber" className="block mb-1">
-              Phone Number*
-            </label>
             <div className="flex flex-row items-center gap-2 w-full">
               <select
                 name="countryCode"
@@ -178,6 +125,40 @@ export default function PersonalDetails() {
             {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
               <div className="text-red-500 text-sm">
                 {formik.errors.phoneNumber}
+              </div>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none"
+              placeholder="Enter your last name"
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.lastName && formik.touched.lastName ? (
+              <div className="text-red-500 text-sm">
+                {formik.errors.lastName}
+              </div>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none"
+              placeholder="Enter your first name"
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.firstName && formik.touched.firstName ? (
+              <div className="text-red-500 text-sm">
+                {formik.errors.firstName}
               </div>
             ) : null}
           </div>

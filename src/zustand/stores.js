@@ -7,9 +7,16 @@ const useCustomerSidebarStore = create((set) => ({
   toggleNavbar: () => set((state) => ({ isOpen: !state.isOpen })), // Function to toggle navbar
 }));
 
+const useConfirmAccountModal = create((set) => ({
+  isOpen: false,
+  openModal: () => set({ isOpen: true }),
+  closeModal: () => set({ isOpen: false }),
+  toggleModal: () => set((state) => ({ isOpen: !state.isOpen })),
+}));
+
 const useGetUserStore = create((set) => ({
   user: {},
   setUser: (data) => set({ user: data }),
 }));
 
-export { useCustomerSidebarStore, useGetUserStore };
+export { useCustomerSidebarStore, useGetUserStore, useConfirmAccountModal };

@@ -9,7 +9,6 @@ import Button from "@/components/ui/Button";
 
 const validationSchema = Yup.object().shape({
   country: Yup.string().required("Please select a country"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
 });
 
 export default function Page() {
@@ -28,12 +27,11 @@ export default function Page() {
     // Add more countries as needed
   ];
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values) => {
     setLoading(true);
     // Simulate API call or processing
     setTimeout(() => {
       setLoading(false);
-      setSubmitting(false);
       router.push("/vendors/enteremail/");
     }, 3000);
   };
@@ -52,7 +50,7 @@ export default function Page() {
           </h1>
         </div>
         <Formik
-          initialValues={{ country: "", email: "" }}
+          initialValues={{ country: "" }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >

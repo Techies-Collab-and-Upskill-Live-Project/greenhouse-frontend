@@ -103,8 +103,8 @@ export default function Page() {
         </div>
 
         <p className="mt-6 text-center whitespace-normal">
-          By continuing you agree to Fysi’s
-          <Link href="#" className="text-green-800 hover:underline block md:inline lg:inline mx-1">
+          By continuing you agree to Fysi’s <br />
+          <Link href="/signin" className="text-green-800 hover:underline">
             Terms and Conditions
           </Link>
         </p>

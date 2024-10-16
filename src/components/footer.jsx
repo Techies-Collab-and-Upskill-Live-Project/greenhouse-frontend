@@ -41,131 +41,200 @@ export default function footer() {
           </div>
         </div>
       </section>
-      <div className="bg-forest-green-700 text-white">
-        <div className="container-md mx-auto px-6 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-            {/* Logo and Tagline */}
-            <div className="lg:col-2">
-              <div className="w-36">
-                <Image
-                  width={143}
-                  height={65}
-                  src="/images/Footer_img.png"
-                  alt="logo of FYSI"
-                  className="w-full"
-                />
+      <div className="bg-forest-green-700">
+        <div className=" px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">
+            {/* <div className="flex text-white container mx-auto px-4 py-4"> */}
+            <div className="w-[143px] h-[65px]">
+              <Image
+                width={400}
+                height={400}
+                src="/images/Footer_img.png"
+                alt="logo of FYSI"
+                className="w-full"
+              />
+              <h3 className="text-white mt-2">Shop Smart.Live Green</h3>
+            </div>
+            {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
+            <div className="flex flex-wrap gap-10 pt-8 justify-between">
+              <div className="flex flex-col gap-1">
+                <IoIosMenu size={24} className="cursor-pointer" />
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px] font-normal"
+                  >
+                    Contact
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px] font-normal"
+                  >
+                    Instagram
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px] font-normal"
+                  >
+                    X
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px] font-normal"
+                  >
+                    Facebook
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px] font-normal"
+                  >
+                    Returns &Refunds
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/contact"
+                    className="cursor-pointer text-[12px]  font-normal"
+                  >
+                    Report a Product/Problem
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-white mt-2">
-                Shop Smart. <span className="font-bold">Live Green</span>
-              </h3>
-            </div>
-
-            {/* Quick Links */}
-            <div className="">
-              <h2 className="font-medium text-lg mb-4">Quick Links</h2>
-              <ul className="space-y-2">
-                {[
-                  "Contact",
-                  "Instagram",
-                  "X",
-                  "Facebook",
-                  "Returns & Refunds",
-                  "Report a Product/Problem",
-                ].map((item) => (
-                  <li key={item}>
-                    <Link href="/contact" className="text-sm hover:underline">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Catalogue */}
-            <div>
-              <h2 className="font-medium text-lg mb-4">Catalogue</h2>
-              <ul className="space-y-2">
-                {[
-                  "Clothing",
-                  "Kitchen Items",
-                  "Personal Care",
-                  "Office Supplies",
-                  "Household Items",
-                  "Beauty & Cosmetics",
-                  "Outdoor & Travel",
-                ].map((item) => (
-                  <li key={item}>
-                    <Link href="/contact" className="text-sm hover:underline">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Account */}
-            <div>
-              <h2 className="font-medium text-lg mb-4">Account</h2>
-              <ul className="space-y-2">
-                {[
-                  "Sign in",
-                  "Order history",
-                  "Profile",
-                  "WishList",
-                  "Payment",
-                ].map((item) => (
-                  <li key={item}>
-                    <Link href="/contact" className="text-sm hover:underline">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Support and Social */}
-            <div className="">
-              <h2 className="font-medium text-lg mb-4">Support</h2>
-              <ul className="space-y-2 mb-6">
-                {["FAQs", "Help Center"].map((item) => (
-                  <li key={item}>
-                    <Link href="/contact" className="text-sm hover:underline">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <h2 className="font-medium text-lg mb-4">Sell on Fysi</h2>
-              <div className="flex space-x-4">
-                {[
-                  { href: "/facebook", icon: FaFacebookF },
-                  { href: "/instagram", icon: ImInstagram },
-                  { href: "/twitter", icon: FaTwitter },
-                ].map(({ href, icon: Icon }) => (
-                  <Link key={href} href={href} className="block">
+              <div className="flex gap-1 flex-col">
+                <h1 className="font-medium text-[16px]">Catalogue</h1>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Clothing
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Kitchen Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Personal Care
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Office Supplies
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Household Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Beauty & Cosmetics
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Outdoor & Travel
+                  </Link>
+                </div>
+              </div>
+              <div className="flex gap-1 flex-col">
+                <h1 className="font-medium text-[16px]">Account</h1>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Sign in
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Order history
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Profile
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    WishList
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Payment
+                  </Link>
+                </div>
+              </div>
+              {/* <div>
+              <h1 className="font-medium text-[16px]">About</h1>
+            </div> */}
+              <div>
+                <h1 className="font-medium text-[16px]">Support</h1>
+                <div>
+                  <Link href="/faq" className="cursor-pointer text-[12px]">
+                    FAQS
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/contact" className="cursor-pointer text-[12px]">
+                    Help Center
+                  </Link>
+                </div>
+              </div>
+              <div>
+                <h1 className="font-medium text-[16px] mb-2">Sell on Fysi</h1>
+                <div className="flex space-x-4">
+                  <Link href="/facebook" className="block">
                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                      <Icon className="text-forest-green-700 w-5 h-5" />
+                      <FaFacebookF className="text-black w-5 h-5" />
                     </div>
                   </Link>
-                ))}
+                  <Link href="/instagram" className="block">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                      <ImInstagram className="text-black w-5 h-5" />
+                    </div>
+                  </Link>
+                  <Link href="/twitter" className="block">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                      <FaTwitter className="text-black w-5 h-5" />
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+          <hr className="text-red-400" />
 
-          <hr className="my-8 border-white/20" />
-
-          <div className="container-md flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              {["Terms and Conditions", "Privacy Policy", "Legal Notice"].map(
-                (item) => (
-                  <Link key={item} href="/" className="text-sm hover:underline">
-                    {item}
-                  </Link>
-                )
-              )}
+          <div className="flex items-center justify-between flex-col lg:flex-row  w-full space-y-2 lg:space-y-0 lg:space-x-4 lg:w-auto ">
+            <div className="flex items-center justify-center gap-2 lg:gap-4 py-2 flex-col lg:flex-row">
+              <div className="text-white">
+                <Link href="/" className="cursor-pointer text-[12px]">
+                  Terms and Conditions
+                </Link>
+              </div>
+              <div className="text-white">
+                <Link href="/" className="cursor-pointer text-[12px]">
+                  Privacy Policy
+                </Link>
+              </div>
+              <div className="text-white">
+                <Link href="/" className="cursor-pointer text-[12px]">
+                  {" "}
+                  Legal Notice
+                </Link>
+              </div>
             </div>
-            <div className="text-sm">
-              &copy; 2023 Fysi. All rights reserved.
+            <div className="text-white text-[12px]">
+              @2023 Fysi.All right reserved.
             </div>
           </div>
         </div>
