@@ -33,7 +33,10 @@ export default function Hotdeal() {
                 {/* Add to Cart button */}
                 <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
                   <div className="flex justify-center gap-2 items-center">
-                    <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                    <LiaCartPlusSolid
+                      className="text-white font-bold"
+                      size={25}
+                    />
                     <p className="font-medium text-[17px]">Add to Cart</p>
                   </div>
                 </button>
@@ -70,7 +73,10 @@ export default function Hotdeal() {
                 {/* Add to Cart button */}
                 <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
                   <div className="flex justify-center gap-2 items-center">
-                    <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                    <LiaCartPlusSolid
+                      className="text-white font-bold"
+                      size={25}
+                    />
                     <p className="font-medium text-[17px]">Add to Cart</p>
                   </div>
                 </button>
@@ -107,7 +113,10 @@ export default function Hotdeal() {
                 {/* Add to Cart button */}
                 <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
                   <div className="flex justify-center gap-2 items-center">
-                    <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                    <LiaCartPlusSolid
+                      className="text-white font-bold"
+                      size={25}
+                    />
                     <p className="font-medium text-[17px]">Add to Cart</p>
                   </div>
                 </button>
@@ -144,7 +153,10 @@ export default function Hotdeal() {
                 {/* Add to Cart button */}
                 <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
                   <div className="flex justify-center gap-2 items-center">
-                    <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                    <LiaCartPlusSolid
+                      className="text-white font-bold"
+                      size={25}
+                    />
                     <p className="font-medium text-[17px]">Add to Cart</p>
                   </div>
                 </button>
@@ -181,7 +193,10 @@ export default function Hotdeal() {
                 {/* Add to Cart button */}
                 <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
                   <div className="flex justify-center gap-2 items-center">
-                    <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                    <LiaCartPlusSolid
+                      className="text-white font-bold"
+                      size={25}
+                    />
                     <p className="font-medium text-[17px]">Add to Cart</p>
                   </div>
                 </button>
