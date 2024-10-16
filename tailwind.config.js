@@ -51,6 +51,7 @@ module.exports = {
         mint: "#98FF98",
         olive: "#808000",
         light: "#0F973D",
+        text__strike: "#696969",
       },
     },
   },
