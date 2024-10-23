@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useFormik } from "formik";
@@ -18,8 +18,19 @@ const validationSchema = Yup.object().shape({
     .required("Verification code is required"),
 });
 
+// The main component
 export default function Page() {
   const [loading, setLoading] = useState(false);
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FormComponent />
+    </Suspense>
+  );
+}
+
+// The form component wrapped inside Suspense
+function FormComponent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
   const router = useRouter();
