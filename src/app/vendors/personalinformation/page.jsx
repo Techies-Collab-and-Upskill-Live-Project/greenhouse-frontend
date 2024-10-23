@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@/components/ui/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import axios from "@/config/axios";
 
 const validationSchema = Yup.object().shape({
   countryCode: Yup.string().required("Please select a country code"),
@@ -23,6 +23,7 @@ const validationSchema = Yup.object().shape({
 const countryCodes = [
   { code: "1", label: "+1" },
   { code: "44", label: "+44" },
+  { code: "234", label: "+234" },
   // ... (other country codes)
 ];
 
@@ -32,14 +33,26 @@ export default function Page() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     setLoading(true);
-    // Simulate API call or processing
-    setTimeout(() => {
+    try {
+      const res = await axios.post("/vendor/register/", {
+        phone_number: `${values.countryCode}${values.phoneNumber}`,
+        password: values.password,
+        user_type: "Vendor",
+      });
+
+      console.log(res);
+      if (res) {
+        router.push("/vendors/accounttype");
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle error (e.g., show error message to user)
+    } finally {
       setLoading(false);
       setSubmitting(false);
-      router.push("/vendors/accounttype/");
-    }, 3000);
+    }
   };
 
   const togglePasswordVisibility = (field) => {
@@ -51,7 +64,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex items-center justify-center pt-36 flex-col px-4">
+    <div className="flex items-center justify-center pt-20 flex-col px-4">
       <div className="flex items-center justify-center flex-col">
         <div className="mb-4">
           <Link href="/">
@@ -85,9 +98,8 @@ export default function Page() {
                     name="countryCode"
                     className="flex-shrink-0 w-1/5 px-2 py-2 h-[56px] border rounded-md"
                   >
-                    <option value="+234">+234</option>
                     {countryCodes.map((country) => (
-                      <option key={country.code} value={country.code}>
+                      <option key={country.code} value={`+${country.code}`}>
                         {country.label}
                       </option>
                     ))}
@@ -123,7 +135,7 @@ export default function Page() {
                     type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     className="w-full h-[56px] px-3 py-2 border rounded-md pr-10"
-                    placeholder="Your Password"
+                    placeholder="Confirm Password"
                   />
                   <button
                     type="button"
@@ -138,8 +150,8 @@ export default function Page() {
                   </button>
                 </div>
                 <p className="text-[12px] hero-title">
-                  Password should contain at least 8 characters containing a
-                  capital <br /> letter a lower letter, a number and a special
+                  Password should contain at least 8 characters including a
+                  capital letter, a lowercase letter, a number, and a special
                   character
                 </p>
               </div>
@@ -166,7 +178,7 @@ export default function Page() {
               <Button
                 type="submit"
                 css="text-white bg-forest-green-500 w-full mt-8"
-                loading={loading}
+                loading={loading || isSubmitting}
               >
                 Next
               </Button>

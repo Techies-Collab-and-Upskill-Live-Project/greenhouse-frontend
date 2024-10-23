@@ -11,7 +11,7 @@ export default function Page() {
   console.log(user);
 
   return (
-    <section className=" flex flex-col gap-10 ">
+    <section className="flex flex-col gap-10 ">
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="w-1/3 lg:max-w-[363px] min-w-[300px] max-lg:w-full h-[224px] rounded-lg bg-white p-6 flex flex-col items-center justify-center">
           <div className="h-24 w-24 overflow-hidden rounded-full">

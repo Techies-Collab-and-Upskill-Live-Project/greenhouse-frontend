@@ -9,9 +9,11 @@ const useCustomerSidebarStore = create((set) => ({
 
 const useConfirmAccountModal = create((set) => ({
   isOpen: false,
+  activeModal: "Modal",
   openModal: () => set({ isOpen: true }),
   closeModal: () => set({ isOpen: false }),
   toggleModal: () => set((state) => ({ isOpen: !state.isOpen })),
+  // switchModal: (modalName) => set({ activeModal: modalName }),
 }));
 
 const useGetUserStore = create((set) => ({
@@ -19,4 +21,23 @@ const useGetUserStore = create((set) => ({
   setUser: (data) => set({ user: data }),
 }));
 
-export { useCustomerSidebarStore, useGetUserStore, useConfirmAccountModal };
+const useConfirmRegisterModals = create((set) => ({
+  isOpen: false,
+  activeModal: "Modal",
+  closeModal: () => set({ isOpen: false }),
+  openModal: () => set({ isOpen: true }),
+  switchModal: (modalName) => set({ activeModal: modalName }),
+}));
+
+const useDoneAccountModal = create((set) => ({
+  isOpen: true,
+  openModal: () => set({ isOpen: true }),
+}));
+
+export {
+  useCustomerSidebarStore,
+  useConfirmRegisterModals,
+  useGetUserStore,
+  useConfirmAccountModal,
+  useDoneAccountModal,
+};

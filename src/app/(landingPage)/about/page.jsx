@@ -6,7 +6,7 @@ import Reviews from "@/components/landingPage/reviews/reviews";
 export default function Page() {
   return (
     <>
-      <div className="  max-w-[1200px] mx-auto  px-12  ">
+      <div className="max-w-[1200px] mx-auto  px-12">
         <div className="mb-20">
           <TextImg
             title="About Us"
