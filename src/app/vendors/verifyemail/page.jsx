@@ -31,6 +31,7 @@ export default function Page() {
 
 // The form component wrapped inside Suspense
 function FormComponent() {
+  const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
   const router = useRouter();

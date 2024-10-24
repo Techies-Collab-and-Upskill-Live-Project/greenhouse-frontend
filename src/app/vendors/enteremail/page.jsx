@@ -18,11 +18,8 @@ const validationSchema = Yup.object().shape({
 // Main page component
 export default function Page() {
   const [loading, setLoading] = useState(false);
-<<<<<<< HEAD
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
-=======
->>>>>>> 94b4c9c32586fe75a8e6c0032d13ac88338332cb
   const router = useRouter();
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -43,7 +40,6 @@ export default function Page() {
 
   return (
     <div className="flex items-center justify-center py-40 flex-col px-4">
-<<<<<<< HEAD
       <div className="flex items-center justify-center flex-col">
         <div>
           <Link href="/">
@@ -93,31 +89,6 @@ export default function Page() {
             </Form>
           )}
         </Formik>
-=======
-      <Suspense fallback={<div>Loading...</div>}>
-        <SearchParamsForm handleSubmit={handleSubmit} loading={loading} />
-      </Suspense>
-    </div>
-  );
-}
-
-// Component to handle search parameters and form
-function SearchParamsForm({ handleSubmit, loading }) {
-  const searchParams = useSearchParams();
-  const email = searchParams?.get("email") || ""; // Default to empty string if no email is provided
-
-  return (
-    <div className="flex items-center justify-center flex-col">
-      <div>
-        <Link href="/">
-          <img src="/images/Logo.png" alt="logo" className="mb-6" />
-        </Link>
-      </div>
-      <div className="mb-8">
-        <h1 className="hero-title font-medium text-[16px]">
-          Set up your shop by completing the following details
-        </h1>
->>>>>>> 94b4c9c32586fe75a8e6c0032d13ac88338332cb
       </div>
       <Formik
         initialValues={{ email }}
