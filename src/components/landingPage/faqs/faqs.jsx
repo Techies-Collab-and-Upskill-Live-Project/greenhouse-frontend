@@ -1,6 +1,6 @@
 import React from 'react'
-import Faq from '@/components/faqs/faq'
 import Image from 'next/image'
+import Faq from './faq'
  const Faqs = () => {
   return (
     <div className='pt-56 pb-24 gap-36 flex justify-between  items-center'> 
