@@ -23,9 +23,9 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <FormComponent />
-    </Suspense>
+    // <Suspense fallback={<div>Loading...</div>}>
+    // </Suspense>
+    <FormComponent />
   );
 }
 
