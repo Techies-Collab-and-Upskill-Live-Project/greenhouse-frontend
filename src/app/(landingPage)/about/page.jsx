@@ -1,13 +1,12 @@
 import PageLoader from "@/components/ui/PageLoader";
 import React from "react";
 import TextImg from "@/components/landingPage/about/textImg";
-import NewsLetter from "@/components/landingPage/newsletter/letter";
-import ReviewCard from "@/components/landingPage/reviews/reviews";
+import Reviews from "@/components/landingPage/reviews/reviews";
 
 export default function Page() {
   return (
     <>
-      <div className="  max-w-[1200px] mx-auto  px-12  ">
+      <div className="max-w-[1200px] mx-auto  px-12">
         <div className="mb-20">
           <TextImg
             title="About Us"
@@ -47,11 +46,9 @@ export default function Page() {
           />
         </div>
         <div>
-          <ReviewCard />
+          <Reviews />
         </div>
       </div>
-      {/* <div>    <NewsLetter />
-    </div> */}
     </>
   );
 }

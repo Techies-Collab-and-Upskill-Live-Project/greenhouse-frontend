@@ -7,6 +7,15 @@ const useCustomerSidebarStore = create((set) => ({
   toggleNavbar: () => set((state) => ({ isOpen: !state.isOpen })), // Function to toggle navbar
 }));
 
+const useConfirmAccountModal = create((set) => ({
+  isOpen: false,
+  activeModal: "Modal",
+  openModal: () => set({ isOpen: true }),
+  closeModal: () => set({ isOpen: false }),
+  toggleModal: () => set((state) => ({ isOpen: !state.isOpen })),
+  // switchModal: (modalName) => set({ activeModal: modalName }),
+}));
+
 const useGetUserStore = create((set) => ({
   user: {},
   setUser: (data) => set({ user: data }),
@@ -15,7 +24,6 @@ const useGetUserStore = create((set) => ({
 const useGetProducts = create((set) => ({
   products: [],
   setProducts: (data) => set({ products: data }),
-
 
   // Search term
   searchTerm: "",
