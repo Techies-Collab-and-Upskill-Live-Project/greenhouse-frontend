@@ -1,7 +1,7 @@
 import React from 'react'
 import Faq from '@/components/faqs/faq'
 import Image from 'next/image'
- const faqs = () => {
+ const Faqs = () => {
   return (
     <div className='pt-56 pb-24 gap-36 flex justify-between  items-center'> 
 <div> 
@@ -23,4 +23,4 @@ import Image from 'next/image'
   )
 }
 
-export default faqs
+export default Faqs

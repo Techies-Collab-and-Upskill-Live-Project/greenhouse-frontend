@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
  import { IoMailOutline } from 'react-icons/io5'
  
-const letter = () => {
+const NewsLetter = () => {
   const [email, setEmail] = useState('');
 
   return (
@@ -37,4 +37,4 @@ const letter = () => {
   )
 }
 
-export default letter
+export default NewsLetter;

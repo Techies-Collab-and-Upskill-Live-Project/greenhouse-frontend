@@ -1,6 +1,5 @@
-import React from "react";
-import Faqs from "@/components/faqs/faqs";
-import NewsLetter from "@/components/newsletter/letter";
+import Faqs from "@/components/landingPage/faqs/faqs";
+import NewsLetter from "@/components/landingPage/newsletter/letter";
 
 export default function Page() {
   return (
@@ -8,7 +7,7 @@ export default function Page() {
       <div className=" max-w-[1200px] mx-auto  px-12">
         <Faqs />
       </div>
-      {/* <NewsLetter /> */}
+      <NewsLetter />
     </>
   );
 }
