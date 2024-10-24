@@ -12,4 +12,14 @@ const useGetUserStore = create((set) => ({
   setUser: (data) => set({ user: data }),
 }));
 
-export { useCustomerSidebarStore, useGetUserStore };
+const useGetProducts = create((set) => ({
+  products: [],
+  setProducts: (data) => set({ products: data }),
+
+
+  // Search term
+  searchTerm: "",
+  setSearchTerm: (data) => set({ searchTerm: data }),
+}));
+
+export { useCustomerSidebarStore, useGetUserStore, useGetProducts };
