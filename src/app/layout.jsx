@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
           )}
           <main className="min-h-screen">{children}</main>
           {showHeaderFooter && (
-            <div className="">
+            <div className="mt-20">
               <Footer />
             </div>
           )}
