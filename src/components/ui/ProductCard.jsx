@@ -9,13 +9,13 @@ export default function ProductCard({ product }) {
   const router = useRouter();
 
   const gotoProductPage = () => {
-    router.push(`/product/${product?.id}`);
+    router.push(`/products/${product?.id}`);
   };
 
   return (
     <div
       onClick={gotoProductPage}
-      className="relative bg-white group p-2 rounded-xl min-w-[150px] h-fit  shadow-sm"
+      className="relative cursor-pointer bg-white group p-2 rounded-xl min-w-[150px] h-fit  shadow-sm"
     >
       <div className="relative hover:scale-95 bg-white duration-150 h-[208px]    rounded-xl overflow-hidden ">
         <Image
