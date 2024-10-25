@@ -39,10 +39,7 @@ export default function ProductCard({ product }) {
           </p>
         </div>
       </div>
-      <div className="absolute top-4 right-4 bg-white p-2 rounded-full">
-        <FaRegHeart className="text-forest-green-600" size={18} />
-      </div>
-
+      <FavoriteBtn product={product} />
       <div className="flex flex-col items-start mt-4">
         <span className="text-xs sm:text-lg line-clamp-1 ">
           {product?.name}
