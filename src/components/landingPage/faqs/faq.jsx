@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
 
-const faq = (props) => {
+const Faq = (props) => {
   const [dropdown, setDropdown] = useState(false);
   return (
     <div className="flex justify-between pb-1 sm:pb-4">
@@ -29,4 +29,4 @@ const faq = (props) => {
   );
 };
 
-export default faq;
+export default Faq;

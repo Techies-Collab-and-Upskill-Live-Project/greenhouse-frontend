@@ -1,12 +1,15 @@
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/modal";
-import { useConfirmAccountModal } from "@/zustand/stores";
+import Modal from "@/components/ui/modals/modal";
+import {
+  useConfirmAccountModal,
+  useConfirmRegisterModals,
+} from "@/zustand/stores";
+import ConfirmModal from "@/components/ui/modals/confirmmodals";
 
 const validationSchema = Yup.object().shape({
   accountType: Yup.string().required("Please select an account type"),
@@ -27,23 +30,26 @@ const heardAboutOptions = [
 export default function Page() {
   const [loading, setLoading] = useState(false);
   const { isOpen, openModal } = useConfirmAccountModal();
+  const confirm = useConfirmRegisterModals();
 
   const showModal = () => {
-    openModal();
+    console.log("hello");
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
-    setLoading(true);
+    // setLoading(true);
     // Simulate API call or processing
-    setTimeout(() => {
-      console.log(values);
-      setLoading(false);
-      setSubmitting(false);
-    }, 3000);
+    console.log("hello");
+    openModal();
+    // setTimeout(() => {
+    //   console.log(values);
+    //   setLoading(false);
+    //   setSubmitting(false);
+    // }, 3000);
   };
 
   return (
-    <div className=" flex items-center justify-center pt-6 flex-col relative">
+    <div className=" flex items-center justify-center pt-2 h-screen flex-col relative">
       <div className="flex items-center justify-center flex-col w-full max-w-lg ">
         <div className="mb-2">
           <Link href="/">
@@ -65,7 +71,7 @@ export default function Page() {
             onSubmit={handleSubmit}
           >
             {({ isSubmitting, errors, touched }) => (
-              <Form className="space-y-4">
+              <Form className="space-y-4 pt-3">
                 <div>
                   <h2 className="hero-title text-[16px] mb-2 font-bold">
                     Account Type
@@ -203,12 +209,13 @@ export default function Page() {
                 >
                   Submit
                 </Button>
-                {isOpen && <Modal />}
               </Form>
             )}
           </Formik>
         </div>
       </div>
+      {isOpen && <Modal />}
+      {confirm.isOpen && <ConfirmModal />}
     </div>
   );
 }

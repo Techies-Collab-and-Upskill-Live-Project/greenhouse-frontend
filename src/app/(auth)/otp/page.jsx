@@ -30,7 +30,7 @@ const Page = () => {
     setCounter(60); // Reset timer to 60 seconds
     setIsTimerActive(true); // Restart the timer
     // Logic to resend the OTP
-    console.log("Resend OTP");
+    // console.log("Resend OTP");
   };
 
   return (

@@ -104,7 +104,7 @@ export default function Page() {
 
         <p className="mt-6 text-center whitespace-normal">
           By continuing you agree to Fysi’s <br />
-          <Link href="/signin" className="text-green-800 hover:underline">
+          <Link href="#" className="text-green-800 hover:underline">
             Terms and Conditions
           </Link>
         </p>

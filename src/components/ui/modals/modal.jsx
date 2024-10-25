@@ -1,16 +1,37 @@
 "use client";
 import React, { useState } from "react";
-import Button from "./Button";
-import { useConfirmAccountModal } from "@/zustand/stores";
+import Button from "../Button";
+import {
+  useConfirmAccountModal,
+  useConfirmRegisterModals,
+} from "@/zustand/stores";
+import { useDoneAccountModal } from "@/zustand/stores";
+// import { useSwitchBetweeModals } from "@/zustand/stores";
+import { useRouter } from "next/navigation";
 
 export default function Modal() {
   const [loading, setLoading] = useState(false);
 
-  const { closeModal, isOpen } = useConfirmAccountModal(); // Make sure modal is open initially
+  const confirm = useConfirmRegisterModals();
+  const { closeModal, isOpen, activeModal, switchModal } =
+    useConfirmAccountModal(); // Make sure modal is open initially
+  const { openModal } = useDoneAccountModal();
+  const router = useRouter();
 
   const handleCloseModal = () => {
     // setIsCloseModal((prevState) => !prevState); // Toggle modal open/close
     closeModal();
+  };
+
+  const handleNextModal = () => {
+    // setLoading(true);
+    // setTimeout(() => {
+    // router.push("/modals/confirmmodal");
+    closeModal();
+    confirm.openModal();
+    // setLoading(false);
+    // }, 1000);
+    // console.log("this is working fine!");
   };
 
   return (
@@ -43,6 +64,7 @@ export default function Modal() {
                 required document{" "}
               </p>
               <Button
+                fn={handleNextModal}
                 type="submit"
                 css="text-white bg-forest-green-500 w-full mt-8"
                 loading={loading}
