@@ -38,8 +38,7 @@ export default function AccountCreated() {
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
-        console.log(values);
-
+        // console.log(values);
         const res = await axios.post("/users/set-password/", {
           email: values.email,
           password: values.password,
@@ -47,7 +46,7 @@ export default function AccountCreated() {
         });
 
         if (res) {
-          console.log(email);
+          // console.log(email);
           setLoading(false);
           // console.log(res);
           router.push(`/personalDetails?email=${email}`);

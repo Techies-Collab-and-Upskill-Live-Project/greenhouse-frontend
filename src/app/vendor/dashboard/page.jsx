@@ -3,9 +3,8 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div>
-      Dashboard
-     
+    <div className="">
+      <h1>Dashboard!</h1>
     </div>
   );
 }

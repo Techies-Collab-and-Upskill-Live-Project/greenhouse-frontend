@@ -7,22 +7,27 @@ import React from "react";
 const links = [
   {
     text: "My Account",
+    icon: "/public/icons/user",
     link: "/customer/account",
   },
   {
     text: "Order History",
+    icon: "/public/icons/Order",
     link: "/customer/orderHistory",
   },
   {
     text: "Inbox",
+    icon: "/public/icons/Mail",
     link: "/customer/inbox",
   },
   {
     text: "Reviews",
+    icon: "/public/icons/Review",
     link: "/customer/review",
   },
   {
     text: "Settings",
+    icon: "/public/icons/Settings",
     link: "/customer/settings",
   },
 ];
@@ -33,7 +38,7 @@ export default function SideBar() {
     useCustomerSidebarStore();
 
   const renderLinks = () =>
-    links.map((l, i) => (
+    links.map((l, i, z) => (
       <Link
         key={i}
         href={l.link}
@@ -42,7 +47,7 @@ export default function SideBar() {
           pathname.startsWith(l.link) && "bg-[#E6ECE9]"
         } text-sm px-4 py-2  hover:bg-grey-600  duration-150`}
       >
-        {" "}
+        {z.icon}
         {l.text}{" "}
       </Link>
     ));
