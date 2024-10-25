@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button";
 import StarRating from "@/components/ui/Stars";
 import axios from "@/config/axios";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
-import { useGetProduct } from "@/zustand/stores";
+import { useCart, useGetProduct, useGetUserStore } from "@/zustand/stores";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -15,11 +15,12 @@ import { TbCurrencyNaira } from "react-icons/tb";
 
 export default function Page() {
   const axiosAuth = useAxiosAuth();
-  const router = useRouter();
+  const { user } = useGetUserStore();
   const [loading, setLoading] = useState(false);
   const [cartLoading, setCartLoading] = useState(false);
   const [count, setCount] = useState(1);
   const { product, setProduct } = useGetProduct();
+  const { cartItems, setCartItems } = useCart();
   const params = useParams();
   const productId = params?.productId;
 
@@ -77,7 +78,7 @@ export default function Page() {
 
       if (res) {
         setCartLoading(false);
-        router.refresh();
+        getCartItems();
       }
     } catch (error) {
       setCartLoading(false);
@@ -85,6 +86,22 @@ export default function Page() {
       setCartLoading(false);
     }
   };
+
+  async function getCartItems() {
+    try {
+      const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      // console.log(res, "headre");
+      if (res.data) {
+        setCartItems(res.data?.items?.length);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCartItems();
+  }, []);
 
   return (
     <>

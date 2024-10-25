@@ -9,15 +9,20 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import SearchBar from "./ui/SearchBar";
 import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
-import { useCustomerSidebarStore, useGetUserStore } from "@/zustand/stores";
+import {
+  useCart,
+  useCustomerSidebarStore,
+  useGetUserStore,
+} from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 
 export default function Header() {
   const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
     useCustomerSidebarStore();
-  const [cartItems, setCartItems] = useState();
+  // const [cartItems, setCartItems] = useState();
   const axiosAuth = useAxiosAuth();
   const { user } = useGetUserStore();
+  const { cartItems, setCartItems } = useCart();
 
   const handleOpen = () => {
     toggleNavbar();
@@ -30,7 +35,7 @@ export default function Header() {
 
       // console.log(res, "headre");
       if (res.data) {
-        setCartItems(res.data);
+        setCartItems(res.data?.items?.length);
       }
     } catch (error) {
       console.log(error);
@@ -99,7 +104,7 @@ export default function Header() {
               <BiCart className="text-3xl max-sm:text-3xl" />
               <span className="max-xl:hidden">Cart</span>
               <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
-                {cartItems?.items?.length}
+                {cartItems}
               </span>
             </div>
           </div>
