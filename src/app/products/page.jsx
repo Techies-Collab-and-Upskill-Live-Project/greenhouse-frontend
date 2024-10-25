@@ -7,6 +7,7 @@ import axios from "@/config/axios";
 import { useGetProducts } from "@/zustand/stores";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { ImSpinner3 } from "react-icons/im";
 
 export default function Page() {
   const { products, setProducts, searchTerm } = useGetProducts();
@@ -38,19 +39,24 @@ export default function Page() {
   }, [searchTerm]);
 
   const renderProducts = () => {
-    return products.map((p, i) => <ProductCard key={i} product={p} />);
+    return products?.map((p, i) => <ProductCard key={i} product={p} />);
   };
 
   return (
     <>
       {loading ? (
         <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
-          <PageLoader />
+          <div className="h-screen flex justify-center items-center">
+            <ImSpinner3
+              size={150}
+              className="animate-spin text-forest-green-500"
+            />
+          </div>
         </div>
       ) : products?.length === 0 && !loading ? (
         <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
           <div className="gap-10 sm:gap-20 h-screen pt-52 flex justifycenter text-center items-center flex-col px-8">
-            <h1 className="text-xl sm:text-6xl ">Oops! No Product Found</h1>
+            <h1 className="text-xl sm:text-6xl font-medium ">Oops! No Product Found</h1>
             <div className="h-40 sm:h-80">
               <Image
                 src="/images/404-image.svg"

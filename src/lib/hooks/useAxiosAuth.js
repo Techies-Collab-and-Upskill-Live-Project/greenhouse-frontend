@@ -1,6 +1,5 @@
 import { axiosAuth } from "@/config/axios";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 export default function useAxiosAuth() {
   //   const { auth } = useSelector((state) => state.auth);

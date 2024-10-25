@@ -35,12 +35,17 @@ const useGetUserStore = create((set) => ({
 }));
 
 const useGetProducts = create((set) => ({
-  products: [],
+  products: null,
   setProducts: (data) => set({ products: data }),
 
   // Search term
   searchTerm: "",
   setSearchTerm: (data) => set({ searchTerm: data }),
+}));
+
+const useGetProduct = create((set) => ({
+  products: {},
+  setProduct: (data) => set({ product: data }),
 }));
 
 export {
@@ -50,4 +55,5 @@ export {
   useConfirmAccountModal,
   useConfirmRegisterModals,
   useDoneAccountModal,
+  useGetProduct,
 };
