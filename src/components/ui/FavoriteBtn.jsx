@@ -10,7 +10,7 @@ export default function FavoriteBtn(product) {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavorite(favorites.some((fav) => fav.id === product.id));
     console.log("favorite", favorite);
-  }, [product.id]);
+  }, [product.id, favorite]);
 
   const addToFavorite = () => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
