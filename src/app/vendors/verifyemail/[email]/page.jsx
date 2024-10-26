@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@/components/ui/Button";
 import axios from "@/config/axios";
+import Image from "next/image";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -23,22 +24,22 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <FormComponent />
-    </Suspense>
+    // <Suspense fallback={<div>Loading...</div>}>
+    // </Suspense>
+    <FormComponent />
   );
 }
 
 // The form component wrapped inside Suspense
 function FormComponent() {
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+  // const searchParams = useSearchParams();
+  // const email = searchParams.get("email");
   const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
-      email: email || "",
+      email: "",
       verificationCode: "",
     },
     validationSchema,
@@ -77,7 +78,7 @@ function FormComponent() {
     <div className="flex items-center justify-center py-40 flex-col px-4">
       <div className="flex items-center justify-center flex-col">
         <Link href="/">
-          <img src="/images/Logo.png" alt="logo" className="mb-6" />
+          <Image height={500} width={500} src="/images/Logo.png" alt="logo" className="mb-6" />
         </Link>
         <h1 className="hero-title font-medium text-[16px] mb-8">
           Set up your shop by completing the following details

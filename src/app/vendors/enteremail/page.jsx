@@ -2,11 +2,12 @@
 
 import React, { useState, Suspense } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Button from "@/components/ui/Button";
 import axios from "@/config/axios";
+import Image from "next/image";
 
 // Validation schema for email
 const validationSchema = Yup.object().shape({
@@ -18,8 +19,8 @@ const validationSchema = Yup.object().shape({
 // Main page component
 export default function Page() {
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email") || "";
+  // const searchParams = useSearchParams();
+  // const email = searchParams.get("email") || "";
   const router = useRouter();
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -28,7 +29,7 @@ export default function Page() {
       const res = await axios.post("/vendor/email/", values);
       console.log(res);
       if (res) {
-        router.push(`/vendors/verifyemail?email=${values.email}`);
+        router.push(`/vendors/verifyemail/${values.email}`);
       }
     } catch (error) {
       console.log(error);
@@ -43,7 +44,13 @@ export default function Page() {
       <div className="flex items-center justify-center flex-col">
         <div>
           <Link href="/">
-            <img src="/images/Logo.png" alt="logo" className="mb-6" />
+            <Image
+              height={500}
+              width={500}
+              src="/images/Logo.png"
+              alt="logo"
+              className="mb-6"
+            />
           </Link>
         </div>
         <div className="mb-8">
@@ -52,7 +59,7 @@ export default function Page() {
           </h1>
         </div>
         <Formik
-          initialValues={{ email }}
+          initialValues=""
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
@@ -90,7 +97,7 @@ export default function Page() {
           )}
         </Formik>
       </div>
-      <Formik
+      {/* <Formik
         initialValues={{ email }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -129,7 +136,7 @@ export default function Page() {
             </Button>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 }
