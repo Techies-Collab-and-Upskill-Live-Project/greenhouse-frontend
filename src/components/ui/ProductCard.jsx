@@ -4,7 +4,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
+import FavoriteBtn from "./FavoriteBtn";
 export default function ProductCard({ product }) {
   const router = useRouter();
 

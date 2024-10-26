@@ -37,7 +37,7 @@ export default function Login() {
         });
 
         if (res) {
-          const accessToken = res.data?.token;
+          const accessToken = res.data?.token.access;
           const user = res.data?.user;
           sessionStorage.setItem("accessToken", accessToken);
           sessionStorage.setItem("user", JSON.stringify(user));

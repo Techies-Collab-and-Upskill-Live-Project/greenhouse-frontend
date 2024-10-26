@@ -13,7 +13,7 @@ export default function Layout({ children }) {
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
     <section className="h-screen flex items-stretch">

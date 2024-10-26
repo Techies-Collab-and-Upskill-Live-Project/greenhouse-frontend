@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         </nav> */}
 
           {showHeaderFooter && (
-            <header className="fixed left-0 right-0 z-10">
+            <header className="fixed left-0 right-0 z-[1001]">
               <Header />
             </header>
           )}
