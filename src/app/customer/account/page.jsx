@@ -36,10 +36,11 @@ export default function Page() {
             <MdOutlineEdit size={26} />
           </div>
           <div className="mt-3 flex flex-col gap-2">
-            <h3>Nike Bankole</h3>
+            <h3>
+              {user?.profile?.first_name + " " + user?.profile?.last_name}
+            </h3>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem,
-              sint. f
+             Please write your address here
             </p>
             <p>{user?.email}</p>
             <p>{user?.profile?.phone_number}</p>
@@ -55,7 +56,7 @@ export default function Page() {
               href="/customer/orderHistory"
               className="hover:text-forest-green-500"
             >
-              See all{" "}
+              See all
             </Link>
           </div>
         </div>
