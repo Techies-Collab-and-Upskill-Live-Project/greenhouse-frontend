@@ -68,7 +68,7 @@ export default function Home() {
       <section className="max-w-[1300px] px-4 mx-auto  py-10 text-center">
         <div>
           <div className="flex items-center justify-between gap-2 mb-2 xl:px-6">
-            <h1 className="hero-title font-bold text-[28px]">Categories</h1>
+            <h1 className="hero-title font-bold text-[20px] sm:text-[28px]">Categories</h1>
             <div className="flex items-center gap-3 ">
               <div
                 className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center cursor-pointer"
