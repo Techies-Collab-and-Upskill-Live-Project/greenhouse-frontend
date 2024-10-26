@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     }
   }, [router]);
 
-  return <div>{children}</div>;
+  return <div className="">{children}</div>;
 };
 
 export default AuthProvider;

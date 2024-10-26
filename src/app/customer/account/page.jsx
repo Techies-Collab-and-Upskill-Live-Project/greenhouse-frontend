@@ -8,7 +8,7 @@ import { MdOutlineEdit } from "react-icons/md";
 export default function Page() {
   const { user } = useGetUserStore();
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <section className="flex flex-col gap-10 ">
