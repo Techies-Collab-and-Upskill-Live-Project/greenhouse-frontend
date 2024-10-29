@@ -6,7 +6,7 @@ import cotton from "../../../public/images/cotton.jpeg";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
-import FavoriteBtn from "../ui/FavoriteBtn";
+import Link from "next/link";
 
 export default function Hotdeal() {
   return (
@@ -17,7 +17,12 @@ export default function Hotdeal() {
             New In
           </h1>
           <div className="flex items-center justify-center gap-3">
-            <h1 className="text-forest-green-600 text-[16px]">See All</h1>
+            <Link
+              href="/products"
+              className="text-forest-green-600 text-[16px] cursor-pointer"
+            >
+              Sell All
+            </Link>
           </div>
         </div>
 

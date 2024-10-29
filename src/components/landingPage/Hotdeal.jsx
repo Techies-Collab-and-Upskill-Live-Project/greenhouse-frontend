@@ -6,20 +6,23 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import cotton from "../../../public/images/cotton.jpeg";
 import { FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
-import FavoriteBtn from "../ui/FavoriteBtn";
+import Link from "next/link";
 
 export default function Hotdeal() {
   return (
     <section className="py-20 max-w-[1300px] px-4 mx-auto flex items-center justify-center overflow-hidden">
       <div className="max-w-full">
-        <div className="max-w-[1300px] mx-auto">
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <h1 className="hero-title font-bold text-[20px] sm:text-[28px]">
-              Hot Deal
-            </h1>
-            <div className="flex items-center justify-center gap-3">
-              <h1 className="text-forest-green-600 text-[16px]">See All</h1>
-            </div>
+        <div className="lg:max-w-[1500px] flex items-center justify-between gap-2 mb-2">
+          <div>
+            <h1 className="hero-title font-bold text-[28px]">Hot Deals</h1>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Link
+              href="/products"
+              className="text-forest-green-600 text-[17px] cursor-pointer"
+            >
+              Sell All
+            </Link>
           </div>
         </div>
         <div className="flex gap-4 overflow-x-scroll md:overflow-x-auto whitespace-nowrap">
