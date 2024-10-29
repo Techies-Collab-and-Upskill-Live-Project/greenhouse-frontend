@@ -253,23 +253,3 @@ export default function Product() {
     </section>
   );
 }
-
-{
-  /* <section className="py-20 max-w-[1300px] px-4 mx-auto flex flex-col items-center justify-center overflow-hidden">
-  <div className="w-full">
-    <div className="flex flex-col md:flex-row items-center justify-between gap-2 mb-2">
-      <h1 className="hero-title font-bold text-[24px] md:text-[28px]">
-        Products on demand
-      </h1>
-      <div className="flex items-center justify-center gap-3">
-        <h1 className="text-forest-green-600 text-[14px] md:text-[16px] cursor-pointer">
-          Sell All
-        </h1>
-      </div>
-    </div>
-  </div>
-  <div className="flex gap-4 overflow-scroll md:overflow-visible">
-    {/* Product cards go here */
-}
-//   </div>
-// </section>; */}
