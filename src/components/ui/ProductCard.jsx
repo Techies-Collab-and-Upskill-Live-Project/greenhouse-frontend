@@ -5,7 +5,10 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import FavoriteBtn from "./FavoriteBtn";
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8473175307e191914d4d1cfe7e883797a263440
 export default function ProductCard({ product }) {
   const router = useRouter();
 

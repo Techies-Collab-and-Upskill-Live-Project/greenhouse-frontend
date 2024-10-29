@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import { IoIosMenu } from "react-icons/io";
 import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
@@ -58,7 +57,6 @@ export default function footer() {
             {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
             <div className="flex flex-wrap gap-10 pt-8 justify-between">
               <div className="flex flex-col gap-1">
-                <IoIosMenu size={24} className="cursor-pointer" />
                 <div>
                   <Link
                     href="/contact"
@@ -111,37 +109,58 @@ export default function footer() {
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-[16px]">Catalogue</h1>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/clothing"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Clothing
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/kitchen"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Kitchen Items
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/personalcare"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Personal Care
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/officesupplies"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Office Supplies
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/household"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Household Items
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/cosmetics"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Beauty & Cosmetics
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/product/travel"
+                    className="cursor-pointer text-[12px]"
+                  >
                     Outdoor & Travel
                   </Link>
                 </div>
@@ -149,7 +168,7 @@ export default function footer() {
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-[16px]">Account</h1>
                 <div>
-                  <Link href="/sigin" className="cursor-pointer text-[12px]">
+                  <Link href="/signin" className="cursor-pointer text-[12px]">
                     Sign in
                   </Link>
                 </div>
@@ -170,13 +189,16 @@ export default function footer() {
                   </Link>
                 </div>
                 <div>
-                  <Link href="/product" className="cursor-pointer text-[12px]">
+                  <Link
+                    href="/customer/wishlist"
+                    className="cursor-pointer text-[12px]"
+                  >
                     WishList
                   </Link>
                 </div>
                 <div>
                   <Link
-                    href="/customer/account"
+                    href="/customer/payment"
                     className="cursor-pointer text-[12px]"
                   >
                     Payment
