@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
     } else {
       router.replace("/signin");
     }
-  }, [router]);
+  }, [router, setUser]);
 
   return <div className="">{children}</div>;
 };

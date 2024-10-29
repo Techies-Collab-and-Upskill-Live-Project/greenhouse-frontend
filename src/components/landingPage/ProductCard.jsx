@@ -6,8 +6,25 @@ import Crochet from "../../../public/images/Crochet.jpeg";
 import HandKitten from "../../../public/images/HandKitten.jpeg";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "@/config/axios";
 
 export default function Product() {
+  const [loading, setLoading] = useState(false);
+ 
+const renderProducts = async() =>{
+  try {
+    const res = await axios.get("/vendor/products/");
+    console.log(res);
+
+  } catch (error) {
+    console.error(error);
+  } finally {
+
+  }
+}
+
   return (
     <section className="py-20 max-w-[1300px] px-4 mx-auto flex items-center justify-center overflow-hidden">
       <div className="max-w-full">
@@ -17,7 +34,7 @@ export default function Product() {
               Products on demand
             </h1>
             <div className="flex items-center justify-center gap-3">
-              <h1 className="text-forest-green-600 text-[16px]">Sell All</h1>
+              <Link href="/products" className="text-forest-green-600 text-[16px] cursor-pointer ">Sell All</Link>
             </div>
           </div>
         </div>
