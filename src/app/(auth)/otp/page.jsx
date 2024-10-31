@@ -37,7 +37,7 @@ const Page = () => {
 
   return (
     <section className="flex justify-center">
-      <ToastContainer position="top-center" autoClose={3000} />
+      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
       <div className="flex flex-col items-center md:items-start justify-center px-6 md:px-16">
         <div className="flex items-center justify-center w-full">
           <Link href="/">
