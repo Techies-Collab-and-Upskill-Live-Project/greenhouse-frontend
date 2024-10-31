@@ -248,17 +248,17 @@ export default function footer() {
           <div className="flex items-center justify-between flex-col lg:flex-row  w-full space-y-2 lg:space-y-0 lg:space-x-4 lg:w-auto ">
             <div className="flex items-center justify-center gap-2 lg:gap-4 py-2 flex-col lg:flex-row">
               <div className="text-white">
-                <Link href="/" className="cursor-pointer text-[12px]">
+                <Link href="/contact" className="cursor-pointer text-[12px]">
                   Terms and Conditions
                 </Link>
               </div>
               <div className="text-white">
-                <Link href="/" className="cursor-pointer text-[12px]">
+                <Link href="/contact" className="cursor-pointer text-[12px]">
                   Privacy Policy
                 </Link>
               </div>
               <div className="text-white">
-                <Link href="/" className="cursor-pointer text-[12px]">
+                <Link href="/contact" className="cursor-pointer text-[12px]">
                   {" "}
                   Legal Notice
                 </Link>

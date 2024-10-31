@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <>
       {loading ? (
-        <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
+        <div className="min-h-svh max-lg:pt-52 lg:pt-36 max-w-[1536px] mx-auto  px-4">
           <div className="h-screen flex justify-center items-center">
             <ImSpinner3
               size={150}
@@ -54,9 +54,11 @@ export default function Page() {
           </div>
         </div>
       ) : products?.length === 0 && !loading ? (
-        <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
+        <div className="min-h-svh max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
           <div className="gap-10 sm:gap-20 h-screen pt-52 flex justifycenter text-center items-center flex-col px-8">
-            <h1 className="text-xl sm:text-6xl font-medium ">Oops! No Product Found</h1>
+            <h1 className="text-xl sm:text-6xl font-medium">
+              Oops! No Product Found
+            </h1>
             <div className="h-40 sm:h-80">
               <Image
                 src="/images/404-image.svg"
@@ -70,7 +72,7 @@ export default function Page() {
         </div>
       ) : (
         <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
-          <div className="font-bold md:text-2xl mt-2 max-md:hidden">{`Products `}</div>
+          <div className="font-bold md:text-2xl mt-2 max-md:hidden">{`Products`}</div>
           <div className="font-bold text-3xl max-md:block hidden -mt-6">{`Products`}</div>
 
           <section className="mt-10 grid  max-[340px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-10  md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6">

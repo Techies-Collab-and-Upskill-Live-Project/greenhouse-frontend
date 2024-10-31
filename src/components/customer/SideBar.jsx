@@ -1,7 +1,7 @@
 "use client";
-import { useCustomerSidebarStore } from "@/zustand/stores";
+import { useCustomerSidebarStore, useGetUserStore } from "@/zustand/stores";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 const links = [
@@ -36,6 +36,16 @@ export default function SideBar() {
   const pathname = usePathname();
   const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
     useCustomerSidebarStore();
+  const router = useRouter();
+
+  const { setUser } = useGetUserStore();
+
+  const logOut = () => {
+    sessionStorage.setItem("accessToken", "");
+    sessionStorage.setItem("user", "");
+    setUser({});
+    router.push("/signin");
+  };
 
   const renderLinks = () =>
     links.map((l, i, z) => (
@@ -58,7 +68,10 @@ export default function SideBar() {
     >
       {/* <div className="relative pl-4"> */}
       {renderLinks()}
-      <div className="text-sm px-4 py-2 bg-rd-400 hover:bg-[#E6ECE9] hover:text-white duration-150">
+      <div
+        onClick={logOut}
+        className="text-sm cursor-pointer px-4 py-2 bg-rd-400 hover:bg-[#E6ECE9] hover:text-white duration-150"
+      >
         Log Out
       </div>
     </div>
