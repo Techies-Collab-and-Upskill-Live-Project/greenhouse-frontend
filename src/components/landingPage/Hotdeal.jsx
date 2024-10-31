@@ -7,6 +7,7 @@ import cotton from "../../../public/images/cotton.jpeg";
 import { FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import FavoriteBtn from "../ui/FavoriteBtn";
 
 export default function Hotdeal() {
   return (

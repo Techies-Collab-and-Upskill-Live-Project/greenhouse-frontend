@@ -7,7 +7,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-
+import FavoriteBtn from "../ui/FavoriteBtn";
 export default function Hotdeal() {
   return (
     <section className="pt-6 px-4 py-20 flex items-center justify-center overflow-scroll">

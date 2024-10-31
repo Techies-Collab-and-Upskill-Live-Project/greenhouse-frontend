@@ -4,6 +4,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import Soap from "../../../public/images/Soap.jpeg";
 import Crochet from "../../../public/images/Crochet.jpeg";
 import HandKitten from "../../../public/images/HandKitten.jpeg";
+import FavoriteBtn from "../ui/FavoriteBtn";
 
 import Image from "next/image";
 import Link from "next/link";
