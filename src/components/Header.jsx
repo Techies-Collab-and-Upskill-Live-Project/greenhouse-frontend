@@ -144,7 +144,7 @@ export default function Header() {
           <Link href="/customer/wishlist">Wishlist</Link>
         </div>
         {/* Auth menu */}
-        <div className=" mt-5 px-4 border-b pb-4 ">
+        <div className="mt-5 px-4 border-b pb-4">
           <div className="mb-3 text-lg">Catalog</div>
           <div className="flex flex-col gap-4 overflow-y-auto max-h-36">
             <div>Clothes</div>

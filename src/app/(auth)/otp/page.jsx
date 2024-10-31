@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { MdOutlinePermDeviceInformation } from "react-icons/md";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -30,11 +32,12 @@ const Page = () => {
     setCounter(60); // Reset timer to 60 seconds
     setIsTimerActive(true); // Restart the timer
     // Logic to resend the OTP
-    console.log("Resend OTP");
+    // console.log("Resend OTP");
   };
 
   return (
     <section className="flex justify-center">
+      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
       <div className="flex flex-col items-center md:items-start justify-center px-6 md:px-16">
         <div className="flex items-center justify-center w-full">
           <Link href="/">

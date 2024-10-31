@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import axios from "@/config/axios";
+import { Toaster, toast } from "react-hot-toast"; // Import toast
 
 export default function AccountCreated() {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,8 +39,6 @@ export default function AccountCreated() {
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
-        console.log(values);
-
         const res = await axios.post("/users/set-password/", {
           email: values.email,
           password: values.password,
@@ -47,28 +46,36 @@ export default function AccountCreated() {
         });
 
         if (res) {
-          console.log(email);
           setLoading(false);
-          // console.log(res);
+          toast.success("Account created successfully!");
           router.push(`/personalDetails?email=${email}`);
         }
       } catch (error) {
         console.log(error);
+        toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
       }
-
-      // setTimeout(() => {
-      //   console.log("Form submitted successfully!", values);
-      //   setLoading(false);
-      //   router.push(`/personalDetails?email=${email}`);
-      //   setSubmitting(false);
-      // }, 3000);
     },
   });
 
   return (
     <div className="flex flex-col items-center justify-center px-8 md:px-16">
+      <Toaster
+        position="top-center"
+        gutter={12}
+        toastOptions={{
+          success: { duration: 3000 },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "whitesmoke",
+            color: "green",
+          },
+        }}
+      />
       <Link href="/">
         <Image
           src="/images/Logo.png"
@@ -86,7 +93,7 @@ export default function AccountCreated() {
         </p>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6 mb-6">
-          {/* Email or Phone Number Field */}
+          {/* Email Field */}
           <div>
             <label htmlFor="email" className="block mb-1">
               Email
@@ -97,7 +104,7 @@ export default function AccountCreated() {
               name="email"
               disabled
               className="w-full px-2 py-3.5 border rounded focus:outline-none"
-              placeholder="Enter your email "
+              placeholder="Enter your email"
               value={formik.values.email}
               onChange={formik.handleChange}
             />
@@ -111,26 +118,24 @@ export default function AccountCreated() {
             <label htmlFor="password" className="block mb-1">
               Password
             </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="password"
-                name="password"
-                className="w-full px-3 py-3.5 border rounded focus:outline-none"
-                placeholder="Your Password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-              />
-              <div
-                onClick={() => setShowPassword(!showPassword)}
-                className="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2"
-              >
-                {showPassword ? (
-                  <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />
-                ) : (
-                  <FaRegEyeSlash className="w-5 h-5 text-gray-500" />
-                )}
-              </div>
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              className="w-full px-3 py-3.5 border rounded focus:outline-none"
+              placeholder="Your Password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+            />
+            <div
+              onClick={() => setShowPassword(!showPassword)}
+              className="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2"
+            >
+              {showPassword ? (
+                <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />
+              ) : (
+                <FaRegEyeSlash className="w-5 h-5 text-gray-500" />
+              )}
             </div>
             {formik.errors.password && formik.touched.password ? (
               <div className="text-red-500">{formik.errors.password}</div>
@@ -138,32 +143,30 @@ export default function AccountCreated() {
           </div>
 
           {/* Confirm Password Field */}
-          <div className="relative ">
+          <div className="relative">
             <label htmlFor="confirmPassword" className="block mb-1">
               Confirm Password
             </label>
-            <div className="relative">
-              <input
-                type={showConfirmPassword ? "text" : "password"}
-                id="confirmPassword"
-                name="confirmPassword"
-                className="w-full px-3 py-3.5 border rounded focus:outline-none"
-                placeholder="Confirm Your Password"
-                value={formik.values.confirmPassword}
-                onChange={formik.handleChange}
-              />
-              <button
-                type="button"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
-              >
-                {showConfirmPassword ? (
-                  <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />
-                ) : (
-                  <FaRegEyeSlash className="w-5 h-5 text-gray-500" />
-                )}
-              </button>
-            </div>
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              id="confirmPassword"
+              name="confirmPassword"
+              className="w-full px-3 py-3.5 border rounded focus:outline-none"
+              placeholder="Confirm Your Password"
+              value={formik.values.confirmPassword}
+              onChange={formik.handleChange}
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2"
+            >
+              {showConfirmPassword ? (
+                <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />
+              ) : (
+                <FaRegEyeSlash className="w-5 h-5 text-gray-500" />
+              )}
+            </button>
             {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
               <div className="text-red-500">
                 {formik.errors.confirmPassword}

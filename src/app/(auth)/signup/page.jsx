@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleLogin } from "@react-oauth/google";
+import { Toaster, toast } from "react-hot-toast";
 import axios from "@/config/axios";
 
 export default function Page() {
@@ -36,11 +37,13 @@ export default function Page() {
 
         if (res) {
           setLoading(false);
+          toast.success("Account created successfully!");
           // console.log(res);
           router.push(`/otp?email=${values.email}`);
         }
       } catch (error) {
         console.log(error);
+        toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -54,6 +57,21 @@ export default function Page() {
 
   return (
     <div className="flex flex-col items-center justify-center px-8 md:px-16">
+      <Toaster
+        position="top-center"
+        gutter={12}
+        toastOptions={{
+          success: { duration: 3000 },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "whitesmoke",
+            color: "green",
+          },
+        }}
+      />
       <Link href="/">
         <img src="/images/Logo.png" alt="logo" className="mb-6" />
       </Link>
@@ -104,7 +122,7 @@ export default function Page() {
 
         <p className="mt-6 text-center whitespace-normal">
           By continuing you agree to Fysi’s <br />
-          <Link href="/signin" className="text-green-800 hover:underline">
+          <Link href="#" className="text-green-800 hover:underline">
             Terms and Conditions
           </Link>
         </p>
