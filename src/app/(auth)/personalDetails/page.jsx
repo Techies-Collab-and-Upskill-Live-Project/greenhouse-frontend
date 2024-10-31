@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import { Toaster, toast } from "react-hot-toast";
+import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import axios from "@/config/axios";
 
@@ -69,10 +71,12 @@ export default function PersonalDetails() {
 
         if (res) {
           setLoading(false);
+          toast.success("Details succefully saved");
           router.push("/signin");
         }
       } catch (error) {
         console.log(error);
+        toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -81,6 +85,21 @@ export default function PersonalDetails() {
 
   return (
     <div className="flex flex-col items-center justify-center p-4 md:p-8">
+      <Toaster
+        position="top-center"
+        gutter={12}
+        toastOptions={{
+          success: { duration: 3000 },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "whitesmoke",
+            color: "green",
+          },
+        }}
+      />
       <Link href="/">
         <Image
           src="/images/Logo.png"

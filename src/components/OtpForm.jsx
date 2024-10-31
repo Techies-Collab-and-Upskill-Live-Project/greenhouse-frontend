@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Toaster, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "./ui/Button";
 import axios from "@/config/axios";
 
@@ -72,8 +74,10 @@ const OtpInput = () => {
       if (res) {
         setLoading(false);
         router.push(`/createAccount?email=${email}`);
+        toast.success("OTP has been resent successfully!");
       }
     } catch (error) {
+      toast.error("Failed to resend OTP. Please try again.");
       console.log(error);
     } finally {
       setLoading(false);
@@ -83,6 +87,21 @@ const OtpInput = () => {
   return (
     <div>
       <div className="flex justify-center gap-2">{renderInputs()}</div>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        toastOptions={{
+          success: { duration: 3000 },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "whitesmoke",
+            color: "green",
+          },
+        }}
+      />
       {error && !otp.includes("") && (
         <div className="text-xs text-center mt-2 text-error">Invalid Otp</div>
       )}
