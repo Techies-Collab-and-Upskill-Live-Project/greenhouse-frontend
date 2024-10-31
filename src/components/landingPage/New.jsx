@@ -67,7 +67,7 @@ export default function HotProduct() {
     };
 
     fetchProducts();
-  }, []); // Empty dependency array means this runs once on mount
+  }, [setProducts]); // Empty dependency array means this runs once on mount
 
   return (
     <section className="py-20 max-w-[1300px] px-4 mx-auto">
