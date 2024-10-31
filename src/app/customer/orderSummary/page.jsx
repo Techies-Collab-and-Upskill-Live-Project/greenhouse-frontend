@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import BambooBrush from "../../../../public/images/BambooBrush.jpeg";
+// import BambooBrush from "../../../../public/images/BambooBrush.jpeg";
 import { FiMinus } from "react-icons/fi";
 import { IoIosAdd, IoIosArrowDown } from "react-icons/io";
 import { AiOutlineDelete } from "react-icons/ai";

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FiMinus } from "react-icons/fi";
 import { IoIosAdd } from "react-icons/io";
 import { AiOutlineDelete } from "react-icons/ai";
-import BambooBrush from "/public/images/BambooBrush.jpeg";
+// import BambooBrush from "/images/BambooBrush.jpeg";
 import Image from "next/image";
 import axios from "@/config/axios";
 
@@ -40,7 +40,7 @@ const CartCard = ({ item }) => {
     <div className="flex max-w-[697px] items-center gap-5">
       <div className="overflow-hidden max-h-[190] max-w-[210px] rounded-xl">
         <Image
-          src={BambooBrush}
+          src="/images/BambooBrush.jpeg"
           alt="picture of the products"
           width={500}
           height={500}
