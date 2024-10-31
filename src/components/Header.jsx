@@ -103,7 +103,7 @@ export default function Header() {
             <div className="flex items-center relative cursor-pointer gap-1">
               <BiCart className="text-3xl max-sm:text-3xl" />
               <span className="max-xl:hidden">Cart</span>
-              <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
+              <span className="absolute -right-1 md:right-8 lg:right-8 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
                 {cartItems}
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function Header() {
           <Link href="/customer/wishlist">Wishlist</Link>
         </div>
         {/* Auth menu */}
-        <div className=" mt-5 px-4 border-b pb-4 ">
+        <div className="mt-5 px-4 border-b pb-4">
           <div className="mb-3 text-lg">Catalog</div>
           <div className="flex flex-col gap-4 overflow-y-auto max-h-36">
             <div>Clothes</div>

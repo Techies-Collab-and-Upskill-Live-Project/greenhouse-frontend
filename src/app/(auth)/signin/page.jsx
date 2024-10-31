@@ -10,6 +10,7 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import axios from "@/config/axios";
+import { Toaster, toast } from "react-hot-toast"; // Import toast
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +30,8 @@ export default function Login() {
     }),
     onSubmit: async (values) => {
       setLoading(true);
-      // console.log(values);
+      const toastId = toast.loading("Logging in..."); // Show loading toast
+
       try {
         const res = await axios.post("/users/login/", {
           email: values.email,
@@ -43,33 +45,43 @@ export default function Login() {
           sessionStorage.setItem("user", JSON.stringify(user));
           setLoading(false);
 
+          toast.success("Login successful!", { id: toastId }); // Replace with success toast
+
           const route =
             user?.user_type === "Customer"
               ? "/customer/account"
               : "/vendor/dashboard";
 
           router.push(route);
-          console.log(res.data.token);
-          console.log(res.data);
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        toast.error("Login failed! Please check your credentials.", {
+          id: toastId,
+        }); // Replace with error toast
       } finally {
         setLoading(false);
       }
-
-      // console.log("Form submitted successfully!", values);
-      // setLoading(true);
-
-      // setTimeout(() => {
-      //   router.push("/customer/account");
-      //   setLoading(false);
-      // }, 3000);
     },
   });
 
   return (
     <div className="flex flex-col items-center justify-center">
+      <Toaster
+        position="top-center"
+        gutter={12}
+        toastOptions={{
+          success: { duration: 3000 },
+          error: { duration: 5000 },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "whitesmoke",
+            color: "green",
+          },
+        }}
+      />
       <div>
         <Image
           width={100}
@@ -161,6 +173,7 @@ export default function Login() {
               console.log(credentialResponse);
             }}
             onError={() => {
+              toast.error("Google login failed!"); // Show error toast for Google login
               console.log("Login Failed");
             }}
           />
