@@ -9,6 +9,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import SearchBar from "./ui/SearchBar";
 import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
+import SignupDropdown from "@/components/ui/SignupDropdown";
 import {
   useCart,
   useCustomerSidebarStore,
@@ -100,7 +101,7 @@ export default function Header() {
 
           <div className="flex gap-7">
             <div className="whitespace-nowrap max-md:hidden">
-              <Link href="/signup">Sign Up</Link>
+            <SignupDropdown/>
             </div>
             <div className="flex items-center gap-2 cursor-pointer max-md:hidden">
               <MdOutlineFavoriteBorder size={24} />
