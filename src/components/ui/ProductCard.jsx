@@ -9,7 +9,7 @@ import FavoriteBtn from "./FavoriteBtn";
 // import Image from "next/image";
 
 =======
->>>>>>> ea47563ab04d7b5faf6a38092f1de5df9893c2df
+>>>>>>> 24b7899d9f8af870087d2c7a86dd1ab305686515
 export default function ProductCard({ product }) {
   const router = useRouter();
 

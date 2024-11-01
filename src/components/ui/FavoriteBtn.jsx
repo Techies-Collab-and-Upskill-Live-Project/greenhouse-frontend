@@ -9,7 +9,7 @@ export default function FavoriteBtn(product) {
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavorite(favorites.some((fav) => fav.id === product.id));
-    console.log("favorite", favorite);
+    // console.log("favorite", favorite);
   }, [product.id, favorite]);
 
   const addToFavorite = () => {

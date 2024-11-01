@@ -34,6 +34,7 @@ const links = [
 
 export default function SideBar() {
   const pathname = usePathname();
+  const showSideBar = !pathname.startsWith("/customer/orderSummary");
   const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
     useCustomerSidebarStore();
   const router = useRouter();
@@ -63,7 +64,9 @@ export default function SideBar() {
     ));
 
   return (
-    <div
+    <>
+    {showSideBar &&
+   ( <div
       className={`min-w-[240px] flex flex-col h-[296px] justify-between gap-1 b-red-300  text-[#101928] bg-white max-lg:fixed max-lg:top-52 max-lg:left-2 max-lg:-translate-x-[200%] duration-150 `}
     >
       {/* <div className="relative pl-4"> */}
@@ -74,6 +77,8 @@ export default function SideBar() {
       >
         Log Out
       </div>
-    </div>
+    </div>)
+      }
+    </>
   );
 }
