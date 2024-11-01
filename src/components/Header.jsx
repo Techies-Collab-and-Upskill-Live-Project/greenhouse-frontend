@@ -10,6 +10,7 @@ import SearchBar from "./ui/SearchBar";
 import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
 import SignupDropdown from "@/components/ui/SignupDropdown";
+import SupportDropdown from "@/components/ui/SupportDropdown";
 import {
   useCart,
   useCustomerSidebarStore,
@@ -85,7 +86,7 @@ export default function Header() {
               <Link href="/about">About Us</Link>
             </div>
             <div>
-              <Link href="/contact">Support</Link>
+            <SupportDropdown/>
             </div>
           </div>
 
