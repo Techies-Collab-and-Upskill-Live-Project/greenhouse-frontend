@@ -117,6 +117,22 @@ const Cards = [
     text: "Personal Care",
     image: "/images/Orange.png",
   },
+  {
+    text: "Kitchen Items",
+    image: "/images/woodenPlate.jpeg",
+  },
+  {
+    text: "Office supplies",
+    image: "/images/pens.jpeg",
+  },
+  {
+    text: "Beauty & Cosmetics",
+    image: "/images/bambooBrush.jpeg",
+  },
+  {
+    text: "Outdoor & Travel",
+    image: "/images/Eco_img.png",
+  },
 ];
 
 export { Cards };

@@ -5,9 +5,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import AuthProvider from "../(auth)/AuthProvider";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Layout({ children }) {
+  
+  
   const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
     useCustomerSidebarStore();
   const router = useRouter();
@@ -33,10 +35,12 @@ export default function Layout({ children }) {
           <IoCloseOutline className="" size={28} onClick={handleOpen} />
         )}
       </div> */}
-        <div className="flex max-w-[1535px] mx-auto gap-10 px-4">
-          <SideBar />
-          <div className="w-full max-sm:pt-10">{children}</div>
-        </div>
+       
+          <div className="flex max-w-[1535px] mx-auto gap-10 px-4">
+            <SideBar />
+            <div className="w-full max-sm:pt-10">{children}</div>
+          </div>
+      
       </div>
     </AuthProvider>
   );
