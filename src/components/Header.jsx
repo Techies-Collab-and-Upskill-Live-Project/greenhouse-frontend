@@ -9,8 +9,8 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import SearchBar from "./ui/SearchBar";
 import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
-import SignupDropdown from "@/components/ui/SignupDropdown";
-import SupportDropdown from "@/components/ui/SupportDropdown";
+import SignupDropdown from "../components/ui/signupdropdown";
+import SupportDropdown from "../components/ui/SupportDropdown";
 import {
   useCart,
   useCustomerSidebarStore,
