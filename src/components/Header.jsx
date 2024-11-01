@@ -15,7 +15,7 @@ import {
   useGetUserStore,
 } from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
-import AuthProvider from "@/app/(auth)/AuthProvider";
+// import AuthProvider from "@/app/(auth)/AuthProvider";
 import axios from "@/config/axios";
 
 export default function Header() {
@@ -30,11 +30,17 @@ export default function Header() {
   };
 
   // console.log(user?.id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getCartItems = async () => {
+     if (!user?.id) {
+    console.warn("User ID is not available.");
+    return;
+     }
     try {
 
-    const res = await axiosAuth.get(`/customer/cart/${user.id}`);
-
+    // const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+    const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+         console.log(res);
         // const res = await axiosAuth.get("/customer/cart/");
 
         // console.log(res, "headre");
@@ -49,11 +55,12 @@ export default function Header() {
 
   useEffect(() => {
     if (user) getCartItems();
-  }, [user]);
+  }, [getCartItems, user]);
 
 
   return (
-    <AuthProvider>
+    // <AuthProvider>
+    // </AuthProvider>
       <header className="">
         <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden ">
           <div className="container mx-auto text-white font-light flex justify-between text-xs">
@@ -178,6 +185,5 @@ export default function Header() {
           </div>
         </nav>
       </header>
-    </AuthProvider>
   );
 }
