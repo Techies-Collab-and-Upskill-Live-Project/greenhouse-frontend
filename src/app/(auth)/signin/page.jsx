@@ -83,13 +83,15 @@ export default function Login() {
         }}
       />
       <div>
-        <Image
-          width={100}
-          height={100}
-          src="/images/Logo.png"
-          alt="logo"
-          className="mb-6"
-        />
+        <Link href="/">
+          <Image
+            width={100}
+            height={100}
+            src="/images/Logo.png"
+            alt="logo"
+            className="mb-6"
+          />
+        </Link>
       </div>
       <div>
         <h1 className="text-2xl font-bold mb-2">Welcome back</h1>
