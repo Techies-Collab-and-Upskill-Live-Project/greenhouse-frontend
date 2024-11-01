@@ -18,9 +18,7 @@ export default function Page() {
   const getProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `/vendor/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
-      );
+      const res = await axios.get(`/api/products?search=${searchTerm}`);
 
       // console.log(res.data);
       if (res?.data) {
@@ -28,7 +26,7 @@ export default function Page() {
         setLoading(false);
       }
     } catch (e) {
-      console.log(e);
+      console.log("Error fetching product list:", e);
     } finally {
       setLoading(false);
     }

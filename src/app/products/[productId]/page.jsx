@@ -33,7 +33,7 @@ export default function Page() {
   const getProduct = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`/vendor/products/${productId}/detail/`);
+      const res = await axios.get(`/api/products/${productId}/`);
 
       //   console.log(res);
       if (res?.data) {
@@ -41,7 +41,7 @@ export default function Page() {
         setLoading(false);
       }
     } catch (e) {
-      console.log(e);
+      console.log("Error fetching product ID and details:", e);
     } finally {
       setLoading(false);
     }
@@ -190,7 +190,6 @@ export default function Page() {
                     <span className="2xl">{count}</span>
                     <IoIosAdd size={24} onClick={handleClick} />
                   </div>
-
                   <div className="mt-4 flex justify-between gap-4 flex-1 ">
                     <Button
                       fn={addToCart}
