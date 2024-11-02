@@ -42,7 +42,7 @@ export default function Header() {
       //  console.log(res);
       // const res = await axiosAuth.get("/customer/cart/");
 
-      console.log(res?.data, "headre");
+      // console.log(res?.data, "headre");
       if (res.data) {
         setCartItemsLength(res.data[0]?.items?.length);
         setCartItems(res.data[0]?.items);
