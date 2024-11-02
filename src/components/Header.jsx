@@ -32,16 +32,22 @@ export default function Header() {
   };
 
   // console.log(user?.id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getCartItems = async () => {
+    //  if (!user?.id) {
+    // console.warn("User ID is not available.");
+    // return;
+    //  }
     try {
-      const res = await axiosAuth.get(`/customer/cart/${user.id}`);
-
+      // const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      const res = await axiosAuth.get(`/customer/cart/`);
+      //  console.log(res);
       // const res = await axiosAuth.get("/customer/cart/");
 
-      // console.log(res, "headre");
+      // console.log(res?.data, "headre");
       if (res.data) {
-        setCartItemsLength(res.data?.items?.length);
-        setCartItems(res.data?.items);
+        setCartItemsLength(res.data[0]?.items?.length);
+        setCartItems(res.data[0]?.items);
       }
     } catch (error) {
       console.log(error);
@@ -50,6 +56,7 @@ export default function Header() {
 
   useEffect(() => {
     if (user) getCartItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
@@ -92,7 +99,7 @@ export default function Header() {
               <Link href="/about">About Us</Link>
             </div>
             <div>
-            <SupportDropdown/>
+              <Link href="/contact">Support</Link>
             </div>
           </div>
 
@@ -102,7 +109,7 @@ export default function Header() {
 
           <div className="flex gap-7">
             <div className="whitespace-nowrap max-md:hidden">
-            <SignupDropdown/>
+              <Link href="/signup">Sign Up</Link>
             </div>
             <div className="flex items-center gap-2 cursor-pointer max-md:hidden">
               <MdOutlineFavoriteBorder size={24} />

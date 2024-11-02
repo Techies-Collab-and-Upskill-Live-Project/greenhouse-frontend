@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import PageLoader from "@/components/ui/PageLoader";
 import ProductCard from "@/components/ui/ProductCard";
 import axios from "@/config/axios";
-import { useGetProducts } from "@/zustand/stores";
+import { useGetProducts, useGetUserStore } from "@/zustand/stores";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
@@ -12,13 +12,21 @@ import { ImSpinner3 } from "react-icons/im";
 export default function Page() {
   const { products, setProducts, searchTerm } = useGetProducts();
   const [loading, setLoading] = useState(false);
+  const { user } = useGetUserStore();
 
   // console.log(products);
 
   const getProducts = async () => {
     setLoading(true);
     try {
+<<<<<<< HEAD
+      const res = await axios.get(
+        // `/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
+        `/api/products/`
+      );
+=======
       const res = await axios.get(`/api/products?search=${searchTerm}`);
+>>>>>>> e779e0706c0014519ddec012fc17133d0f838047
 
       // console.log(res.data);
       if (res?.data) {
@@ -33,8 +41,8 @@ export default function Page() {
   };
 
   useEffect(() => {
-    getProducts();
-  }, [searchTerm]);
+    if (user) getProducts();
+  }, [searchTerm, user]);
 
   const renderProducts = () => {
     return products?.map((p, i) => <ProductCard key={i} product={p} />);

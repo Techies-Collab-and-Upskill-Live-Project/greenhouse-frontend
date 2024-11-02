@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Button from "@/components/ui/Button";
 import StarRating from "@/components/ui/Stars";
@@ -20,7 +21,7 @@ export default function Page() {
   const [cartLoading, setCartLoading] = useState(false);
   const [count, setCount] = useState(1);
   const { product, setProduct } = useGetProduct();
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItemsLength } = useCart();
   const params = useParams();
   const productId = params?.productId;
 
@@ -89,10 +90,10 @@ export default function Page() {
 
   async function getCartItems() {
     try {
-      const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      const res = await axiosAuth.get(`/customer/cart/`);
       // console.log(res, "headre");
       if (res.data) {
-        setCartItems(res.data?.items?.length);
+        setCartItemsLength(res.data[0]?.items?.length);
       }
     } catch (error) {
       console.log(error);
