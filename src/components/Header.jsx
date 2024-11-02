@@ -10,7 +10,7 @@ import SearchBar from "./ui/SearchBar";
 import Image from "next/image";
 import { IoCloseOutline } from "react-icons/io5";
 import SignupDropdown from "../components/ui/signupdropdown";
-import SupportDropdown from "../components/ui/SupportDropdown";
+import SupportDropdown from "../components/ui/supportdropdown";
 import {
   useCart,
   useCustomerSidebarStore,
