@@ -10,13 +10,13 @@ import { useCart, useGetUserStore } from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 
 const CartCard = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const axiosAuth = useAxiosAuth();
   const { cartItems, setCartItems } = useCart();
   const { user } = useGetUserStore();
 
   const addToCart = async () => {
-    console.log("hello");
+    // console.log("hello");
 
     try {
       //  setCartLoading(true);
@@ -25,7 +25,7 @@ const CartCard = ({ item }) => {
         quantity: item.quantity,
       });
 
-      console.log(res);
+      // console.log(res);
 
       if (res) {
         //  setCartLoading(false);

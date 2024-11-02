@@ -20,7 +20,8 @@ export default function Page() {
     setLoading(true);
     try {
       const res = await axios.get(
-        `/vendor/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
+        // `/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
+        `/api/products/`
       );
 
       // console.log(res.data);
