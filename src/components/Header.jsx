@@ -15,27 +15,37 @@ import {
   useGetUserStore,
 } from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
+// import AuthProvider from "@/app/(auth)/AuthProvider";
+import axios from "@/config/axios";
 
 export default function Header() {
   const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
     useCustomerSidebarStore();
-  // const [cartItems, setCartItems] = useState();
   const axiosAuth = useAxiosAuth();
   const { user } = useGetUserStore();
-  const { cartItems, setCartItems } = useCart();
+  const { cartItemsLength, setCartItemsLength, setCartItems } = useCart();
 
   const handleOpen = () => {
     toggleNavbar();
   };
-  // console.log(cartItems);
 
+  // console.log(user?.id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getCartItems = async () => {
+    //  if (!user?.id) {
+    // console.warn("User ID is not available.");
+    // return;
+    //  }
     try {
-      const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      // const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      const res = await axiosAuth.get(`/customer/cart/`);
+      //  console.log(res);
+      // const res = await axiosAuth.get("/customer/cart/");
 
-      // console.log(res, "headre");
+      console.log(res?.data, "headre");
       if (res.data) {
-        setCartItems(res.data?.items?.length);
+        setCartItemsLength(res.data[0]?.items?.length);
+        setCartItems(res.data[0]?.items);
       }
     } catch (error) {
       console.log(error);
@@ -43,10 +53,13 @@ export default function Header() {
   };
 
   useEffect(() => {
-    getCartItems();
-  }, []);
+    if (user) getCartItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
+    // <AuthProvider>
+    // </AuthProvider>
     <header className="">
       <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden ">
         <div className="container mx-auto text-white font-light flex justify-between text-xs">
@@ -100,13 +113,15 @@ export default function Header() {
               <MdOutlineFavoriteBorder size={24} />
               <span className="">Wishlist</span>
             </div>
-            <div className="flex items-center relative cursor-pointer gap-1">
-              <BiCart className="text-3xl max-sm:text-3xl" />
-              <span className="max-xl:hidden">Cart</span>
-              <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
-                {cartItems}
-              </span>
-            </div>
+            <Link href="/customer/orderSummary">
+              <div className="flex items-center relative cursor-pointer gap-1">
+                <BiCart className="text-3xl max-sm:text-3xl" />
+                <span className="max-xl:hidden">Cart</span>
+                <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
+                  {cartItemsLength}
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

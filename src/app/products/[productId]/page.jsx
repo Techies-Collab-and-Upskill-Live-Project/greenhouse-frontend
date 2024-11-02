@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import Button from "@/components/ui/Button";
 import StarRating from "@/components/ui/Stars";
@@ -190,7 +191,6 @@ export default function Page() {
                     <span className="2xl">{count}</span>
                     <IoIosAdd size={24} onClick={handleClick} />
                   </div>
-
                   <div className="mt-4 flex justify-between gap-4 flex-1 ">
                     <Button
                       fn={addToCart}

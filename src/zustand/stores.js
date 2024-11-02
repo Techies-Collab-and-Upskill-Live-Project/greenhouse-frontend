@@ -48,7 +48,10 @@ const useGetProduct = create((set) => ({
   setProduct: (data) => set({ product: data }),
 }));
 const useCart = create((set) => ({
-  cartItems: 0,
+  cartItemsLength: 0,
+  setCartItemsLength: (data) => set({ cartItemsLength: data }),
+
+  cartItems: [],
   setCartItems: (data) => set({ cartItems: data }),
 }));
 
@@ -59,5 +62,6 @@ export {
   useConfirmAccountModal,
   useConfirmRegisterModals,
   useDoneAccountModal,
-  useGetProduct, useCart
+  useGetProduct,
+  useCart,
 };
