@@ -42,7 +42,7 @@ export default function Page() {
         setLoading(false);
       }
     } catch (e) {
-      console.log(e);
+      console.log("Error fetching product ID and details:", e);
     } finally {
       setLoading(false);
     }

@@ -1,10 +1,11 @@
 import { FaRegHeart } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
+import { ImSpinner3 } from "react-icons/im";
 import FavoriteBtn from "../ui/FavoriteBtn";
 import { useGetProducts } from "@/zustand/stores";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "@/config/axios";
 
 const ProductCard = ({ product }) => {
@@ -52,9 +53,12 @@ const ProductCard = ({ product }) => {
 
 export default function HotProduct() {
   const { products, setProducts } = useGetProducts();
+  const [isLoading, setIsLoading] = useState(false);
+  const PRODUCTS_TO_SHOW = 10;
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setIsLoading(true);
       try {
         const res = await axios.get("/api/products/");
         if (res.data) {
@@ -63,6 +67,8 @@ export default function HotProduct() {
         }
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -88,11 +94,20 @@ export default function HotProduct() {
           </div>
         </div>
 
-        <div className="flex gap-4 overflow-x-scroll md:overflow-x-auto whitespace-nowrap">
-          {products?.map((product, index) => (
-            <ProductCard key={product.id || index} product={product} />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="flex justify-center items-center min-h-[320px]">
+            <ImSpinner3
+              size={150}
+              className="animate-spin text-forest-green-500"
+            />
+          </div>
+        ) : (
+          <div className="flex gap-4 overflow-x-scroll md:overflow-x-auto whitespace-nowrap">
+            {products?.slice(0, PRODUCTS_TO_SHOW).map((product, index) => (
+              <ProductCard key={product.id || index} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

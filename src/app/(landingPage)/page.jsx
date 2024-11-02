@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { FaRegHeart } from "react-icons/fa";
 import { LandingCards, Cards } from "@/lib/constants";
@@ -33,9 +32,9 @@ export default function Home() {
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollAmount = 300; // Adjust this value to control scroll distance
+      const cardWidth = container.firstElementChild?.offsetWidth || 300; // Approximate width if exact width is unavailable
       container.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -cardWidth : cardWidth,
         behavior: "smooth",
       });
     }
@@ -54,7 +53,7 @@ export default function Home() {
             <p className="hero-title text-white text-[14px] md:text-[20px] lg:text-[26px]">
               Shop Smart, Live Green
             </p>
-            <Button css={`bg-white  w-[187px] h-[55px]`}>
+            <Button css={`bg-white  w-[187px] h-[55px] lg:mt-3`}>
               <span className="text-forest-green-500">Shop Now</span>
             </Button>
           </div>
@@ -65,11 +64,13 @@ export default function Home() {
           {renderLandingCards()}
         </div>
       </section>
-      <section className="max-w-[1300px] px-4 mx-auto  py-10 text-center">
+      <section className="max-w-[1300px] px-4 mx-auto py-10 text-center">
         <div>
-          <div className="flex items-center justify-between gap-2 mb-2 xl:px-6">
-            <h1 className="hero-title font-bold text-[20px] sm:text-[28px]">Categories</h1>
-            <div className="flex items-center gap-3 ">
+          <div className="flex items-center justify-between gap-2 mb-2 xl:px-4">
+            <h1 className="hero-title font-bold text-[20px] sm:text-[28px]">
+              Categories
+            </h1>
+            <div className="flex items-center gap-3">
               <div
                 className="w-8 h-8 bg-forest-green-800 rounded-full flex items-center justify-center cursor-pointer"
                 onClick={() => scroll("left")}
@@ -87,12 +88,15 @@ export default function Home() {
         </div>
         <div
           ref={scrollContainerRef}
-          className="w-full overflow-x-auto  flex justify-start"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="w-full overflow-x-auto flex justify-start"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
+          }}
         >
           <div
-            className="flex gap-6 justify-center w-full  bg-red-30 items-center"
-            // className="w-full grid grid-cols-3 gap-10"
+            className="flex gap-6 justify-center w-full items-center"
             style={{ minWidth: "max-content" }}
           >
             {renderCategoriesCards()}
