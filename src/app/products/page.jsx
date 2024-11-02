@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import PageLoader from "@/components/ui/PageLoader";
 import ProductCard from "@/components/ui/ProductCard";
 import axios from "@/config/axios";
-import { useGetProducts } from "@/zustand/stores";
+import { useGetProducts, useGetUserStore } from "@/zustand/stores";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
@@ -12,6 +12,7 @@ import { ImSpinner3 } from "react-icons/im";
 export default function Page() {
   const { products, setProducts, searchTerm } = useGetProducts();
   const [loading, setLoading] = useState(false);
+  const { user } = useGetUserStore();
 
   // console.log(products);
 
@@ -33,8 +34,8 @@ export default function Page() {
   };
 
   useEffect(() => {
-    getProducts();
-  }, [searchTerm]);
+    if (user) getProducts();
+  }, [searchTerm, user]);
 
   const renderProducts = () => {
     return products?.map((p, i) => <ProductCard key={i} product={p} />);
