@@ -16,6 +16,7 @@ import {
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 import { IoCloseOutline } from "react-icons/io5";
 import CatalogueDropdown from "./ui/cataloguedropdown";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
   const { isOpen, toggleNavbar } = useCustomerSidebarStore();
@@ -32,6 +33,15 @@ export default function Header() {
     setCategories,
   } = useGetCategories();
   // console.log(categoryDropDown);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const gotoProducts = () => {
+    if (pathname !== "/products") {
+      router.push(`/products`);
+    }
+    return;
+  };
 
   const handleOpen = () => {
     toggleNavbar();
@@ -186,9 +196,10 @@ export default function Header() {
           <div className="flex flex-col gap-4 overflow-y-auto max-h-36">
             {categories?.map((c, i) => (
               <div
-              key={i}
+                key={i}
                 onClick={() => {
                   setCategory(c);
+                  gotoProducts();
                   toggleNavbar();
                 }}
                 className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
