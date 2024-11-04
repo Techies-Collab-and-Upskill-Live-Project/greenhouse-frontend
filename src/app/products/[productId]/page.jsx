@@ -21,7 +21,7 @@ export default function Page() {
   const [cartLoading, setCartLoading] = useState(false);
   const [count, setCount] = useState(1);
   const { product, setProduct } = useGetProduct();
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItemsLength } = useCart();
   const params = useParams();
   const productId = params?.productId;
 
@@ -36,8 +36,6 @@ export default function Page() {
     setLoading(true);
     try {
       const res = await axios.get(`/api/products/${productId}/`);
-      console.log("Full API response:", res.data); // Add this log
-      console.log("Images from API:", res.data.images); // Add this log
 
       console.log(res);
       if (res?.data) {
@@ -94,10 +92,10 @@ export default function Page() {
 
   async function getCartItems() {
     try {
-      const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
+      const res = await axiosAuth.get(`/customer/cart/`);
       // console.log(res, "headre");
       if (res.data) {
-        setCartItems(res.data?.items?.length);
+        setCartItemsLength(res.data[0]?.items?.length);
       }
     } catch (error) {
       console.log(error);

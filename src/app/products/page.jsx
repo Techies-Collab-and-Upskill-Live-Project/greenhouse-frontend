@@ -19,7 +19,10 @@ export default function Page() {
   const getProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`/api/products?search=${searchTerm}`);
+      const res = await axios.get(
+        // `/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
+        `/api/products/`
+      );
 
       // console.log(res.data);
       if (res?.data) {
