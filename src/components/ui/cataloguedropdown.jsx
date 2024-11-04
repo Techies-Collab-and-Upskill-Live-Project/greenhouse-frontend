@@ -11,12 +11,14 @@ import Travel from "../../../public/icons/Travel";
 import Kitchen from "../../../public/icons/Kitchen";
 import Clothes from "../../../public/icons/Clothes";
 import Office from "../../../public/icons/Office";
+import Cartoondish from "../../../public/images/Cartoondish.png";
+import Cartoondishes from "../../../public/images/Cartoondishes.png";
 
 export default function CatalogueDropdown() {
   return (
     <div className="flex items-center justify-center">
       <div className="w-[476px] h-[231px] p-6 bg-white flex items-center justify-center gap-8 rounded-lg">
-        <div className="flex items-start gap-6 flex-col">
+        <div className="flex items-start gap-6 flex-col relative">
           <Link
             href="/"
             className="flex items-center justify-center gap-3 cursor-pointer"
@@ -45,6 +47,14 @@ export default function CatalogueDropdown() {
             <Office className="bg-forest-green-600" />
             <span>Office supplies</span>
           </Link>
+          <div>
+            <Image
+              src={Cartoondish}
+              alt="images of cartoon"
+              width={40}
+              className="absolute -bottom-2 -left-15"
+            />
+          </div>
         </div>
         <div className="flex items-start gap-6 flex-col">
           <Link
@@ -75,6 +85,9 @@ export default function CatalogueDropdown() {
             <Accessory className="bg-forest-green-600" />
             <span>Acessories</span>
           </Link>
+          <div>
+            <Image src={Cartoondishes} alt="images of cartoon" width={40} />
+          </div>
         </div>
       </div>
     </div>
