@@ -129,14 +129,10 @@ export default function Page() {
               <div className="absolute top-4 right-4 bg-forest-green-200 p-2 rounded-full flex items-center justify-center">
                 <FaRegHeart className="text-[#E6ECE9]" size={24} />
               </div>
-              {console.log(
-                "Image URL being used:",
-                product?.images[0]?.image_url
-              )}{" "}
               <Image
                 height={500}
                 width={500}
-                src={product?.images[0]?.image_url ?? "/images/bio.jpeg"}
+                src={product?.images?.image_url ?? "/images/bio.jpeg"}
                 alt=""
                 className="rounded-[8px] h-full w-full object-cover "
               />
@@ -152,7 +148,7 @@ export default function Page() {
                   <div>
                     <StarRating rating={5} />
                   </div>
-                  <div>3 Reivws</div>
+                  <div>3 Reviews</div>
                   <div className="font-normal text-[12px]">
                     SKU:{product?.sku}
                   </div>

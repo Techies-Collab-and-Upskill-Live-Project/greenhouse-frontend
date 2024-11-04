@@ -24,7 +24,7 @@ export default function ProductCard({ product }) {
           alt="product name"
           loading="lazy"
           className="h-full w-full object-cover "
-          src={product?.images[1]?.image_url ?? "/images/mike.jpg"}
+          src={product?.images[0]?.image_url ?? "/images/mike.jpg"}
         />
         <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0  md:group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
           <div className="flex justify-center gap-2 items-center">

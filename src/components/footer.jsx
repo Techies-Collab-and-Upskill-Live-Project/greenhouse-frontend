@@ -7,6 +7,7 @@ import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import Button from "./ui/Button";
+import CatalogueDropdown from "./ui/cataloguedropdown";
 // import Footer_img from "/public";
 
 export default function footer() {
@@ -57,7 +58,7 @@ export default function footer() {
               {/* <h3 className="text-white mt-2">Shop Smart.Live Green</h3> */}
             </div>
             {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
-            <div className="flex flex-wrap gap-10 pt-8 justify-between font-sans">
+            <div className="flex  mx-auto flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
                 <div className="mt-2">
@@ -196,6 +197,7 @@ export default function footer() {
           </div>
         </div>
       </div>
+      <CatalogueDropdown />
     </footer>
   );
 }
