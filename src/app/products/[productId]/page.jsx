@@ -119,7 +119,7 @@ export default function Page() {
       ) : (
         <div className="pt-48 md-max:pt-56 mx-auto container px-4">
           <section>
-            <div>Home &gt; Catalogue</div>
+            <div>Products &gt; {product?.name}</div>
           </section>
 
           <section className="mt-10 flex flex-col lg:gap-5 xl:gap-10 lg:flex-row items-center  lg:justify-center">
