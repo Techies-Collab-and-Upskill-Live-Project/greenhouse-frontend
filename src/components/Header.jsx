@@ -7,7 +7,6 @@ import { MdOutlineFavoriteBorder, MdKeyboardArrowDown } from "react-icons/md";
 import { BiCart } from "react-icons/bi";
 import Logo from "./ui/Logo";
 import SearchBar from "./ui/SearchBar";
-import CatalogueDropdown from "./ui/Cataloguedropdown"; // adjust the path as necessary
 import {
   useCart,
   useCustomerSidebarStore,
