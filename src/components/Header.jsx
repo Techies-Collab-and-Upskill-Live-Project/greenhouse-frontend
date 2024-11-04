@@ -185,6 +185,7 @@ export default function Header() {
           <div className="flex flex-col gap-4 overflow-y-auto max-h-36">
             {categories?.map((c, i) => (
               <div
+              key={i}
                 onClick={() => {
                   setCategory(c);
                   toggleNavbar();
