@@ -1,16 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Clothes from "../../../public/icons/Clothes";
-import Kitchen from "../../../public/icons/Kitchen";
-import Care from "../../../public/icons/Care";
-import Office from "../../../public/icons/Office";
-import HouseHold from "../../../public/icons/HouseHold";
-import Cosmetics from "../../../public/icons/Cosmetics";
-import Travel from "../../../public/icons/Travel";
-import Accessory from "../../../public/icons/Accessory";
 import CategoryList from "./CategoryList";
-import { useEffect, useState } from "react";
 import { useGetCategories } from "@/zustand/stores";
 
 export default function CatalogueDropdown() {

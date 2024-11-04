@@ -15,6 +15,7 @@ import {
 } from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 import { IoCloseOutline } from "react-icons/io5";
+import CatalogueDropdown from "./ui/cataloguedropdown";
 
 export default function Header() {
   const { isOpen, toggleNavbar } = useCustomerSidebarStore();
