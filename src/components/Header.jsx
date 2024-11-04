@@ -112,7 +112,7 @@ export default function Header() {
               <div className="flex items-center relative cursor-pointer gap-1">
                 <BiCart className="text-3xl max-sm:text-3xl" />
                 <span className="max-xl:hidden">Cart</span>
-                <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
+                <span className="absolute -right-1 -top-0.5 md:right-[1.80rem] lg:left-5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
                   {cartItemsLength}
                 </span>
               </div>
