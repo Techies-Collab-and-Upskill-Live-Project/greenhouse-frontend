@@ -43,7 +43,7 @@ export default function Page() {
     try {
       const res = await axios.get(`/api/products/${productId}/`);
 
-      //   console.log(res);
+      console.log(res);
       if (res?.data) {
         setProduct(res.data);
         setLoading(false);
@@ -57,6 +57,7 @@ export default function Page() {
 
   useEffect(() => {
     getProduct();
+    console.log("Product images:", product?.images);
   }, []);
 
   // const res =  await axios.get("/vendor/products/{id}/")
@@ -82,7 +83,7 @@ export default function Page() {
         quantity: count,
       });
 
-      //   console.log(res);
+      console.log(res);
 
       if (res) {
         setCartLoading(false);

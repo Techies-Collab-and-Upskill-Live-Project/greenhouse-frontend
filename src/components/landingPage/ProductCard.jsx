@@ -9,47 +9,45 @@ import axios from "axios";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="relative group h-80 bg-white rounded-md hover:shadow-lg">
-      <div className="relative w-56 h-80 p-3 rounded-md">
-        {/* Product Image Container */}
-        <div className="relative w-full h-[77%] overflow-hidden">
-          <Image
-            alt={`Product image of ${product?.name || "Eco Phone"}`}
-            width={500}
-            height={500}
-            src={product?.images[0]?.image_url ?? "/images/mike.jpg"}
-            className="w-full h-full object-cover rounded-md"
-          />
-
-          <button className="absolute bottom-0 left-0 w-full h-9 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
-            <div className="flex justify-center gap-2 items-center">
-              <LiaCartPlusSolid className="text-white font-bold" size={25} />
-              <p className="font-medium text-lg">Add to Cart</p>
-            </div>
-          </button>
-        </div>
-
-        <div className="mt-1">
-          <h3 className="font-normal text-xs">
-            {product?.name || "Eco Phone"}
-          </h3>
-          <p className="font-bold text-lg">
-            ₦{product?.pricing?.base_price || "28,373"}
-          </p>
-          {product?.pricing?.sale_price && (
-            <p className="font-normal text-base text-text__strike">
-              <s>₦{product.pricing.sale_price}</s>
+    <Link href={`/products/${product.id}`} passHref>
+      <div className="relative group h-80 bg-white rounded-md hover:shadow-lg">
+        <div className="relative w-56 h-80 p-3 rounded-md">
+          {/* Product Image Container */}
+          <div className="relative w-full h-[77%] overflow-hidden">
+            <Image
+              alt={`Product image of ${product?.name || "Eco Phone"}`}
+              width={500}
+              height={500}
+              src={product?.images[0]?.image_url ?? "/images/mike.jpg"}
+              className="w-full h-full object-cover rounded-md"
+            />
+            <button className="absolute bottom-0 left-0 w-full h-9 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">
+              <div className="flex justify-center gap-2 items-center">
+                <LiaCartPlusSolid className="text-white font-bold" size={25} />
+                <p className="font-medium text-lg">Add to Cart</p>
+              </div>
+            </button>
+          </div>
+          <div className="mt-1">
+            <h3 className="font-normal text-xs">
+              {product?.name || "Eco Phone"}
+            </h3>
+            <p className="font-bold text-lg">
+              ₦{product?.pricing?.base_price || "28,373"}
             </p>
-          )}
-        </div>
-
-        <FavoriteBtn />
-
-        <div className="absolute top-52 right-3 px-2 py-1 bg-grey-150 rounded-lg">
-          <p className="text-sm text-forest-green-500 font-medium">-15%</p>
+            {product?.pricing?.sale_price && (
+              <p className="font-normal text-base text-text__strike">
+                <s>₦{product.pricing.sale_price}</s>
+              </p>
+            )}
+          </div>
+          <FavoriteBtn />
+          <div className="absolute top-52 right-3 px-2 py-1 bg-grey-150 rounded-lg">
+            <p className="text-sm text-forest-green-500 font-medium">-15%</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

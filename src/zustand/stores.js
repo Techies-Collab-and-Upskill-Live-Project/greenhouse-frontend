@@ -22,6 +22,7 @@ const useConfirmRegisterModals = create((set) => ({
   closeModal: () => set({ isOpen: false }),
   toggleModal: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
+
 const useDoneAccountModal = create((set) => ({
   isOpen: false,
   openModal: () => set({ isOpen: true }),

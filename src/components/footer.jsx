@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
@@ -31,7 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="">
+    <footer>
       <section className="flower_background h-[60vh] lg:min-h-screen relative">
         <div className="container-sm px-8">
           <div className="flex items-start justify-start pt-2 lg:pt-64">
@@ -56,14 +56,13 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-            <div className="bg-red-500 flex-1"></div>
           </div>
         </div>
       </section>
+
       <div className="bg-forest-green-700">
-        <div className=" px-8">
+        <div className="px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">
-            {/* <div className="flex text-white container mx-auto px-4 py-4"> */}
             <div className="w-[143px] h-[65px]">
               <Link href="/">
                 <Image
@@ -74,10 +73,9 @@ export default function Footer() {
                   className="w-full"
                 />
               </Link>
-              {/* <h3 className="text-white mt-2">Shop Smart.Live Green</h3> */}
             </div>
-            {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
-            <div className="flex flex-wrap gap-10 pt-8 justify-between font-sans">
+
+            <div className="flex mx-auto flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
 
@@ -133,6 +131,7 @@ export default function Footer() {
                   </Link>
                 </div> */}
               </div>
+
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>
                 <div className="mt-2">
@@ -151,9 +150,7 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-              {/* <div>
-              <h1 className="font-medium text-[16px]">About</h1>
-            </div> */}
+
               <div>
                 <h1 className="font-medium">Our Company</h1>
                 <div className="mt-2">
@@ -167,6 +164,7 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
+
               <div>
                 <h1 className="font-medium text-[16px]">Support</h1>
                 <div className="mt-2">
@@ -180,6 +178,7 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
+
               <div>
                 <div>
                   <h1 className="font-medium">Join Us</h1>
@@ -204,6 +203,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
           <hr className="mt-2" />
 
           <div className="flex items-center justify-between flex-col lg:flex-row w-full space-y-2 lg:space-y-0 lg:space-x-4 lg:w-auto font-sans">
@@ -225,7 +225,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="text-white text-[12px]">
-              @2023 Fysi.All right reserved.
+              @{currentYear} Fysi. All rights reserved.
             </div>
           </div>
         </div>

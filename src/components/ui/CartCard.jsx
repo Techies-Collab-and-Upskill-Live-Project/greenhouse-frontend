@@ -37,8 +37,6 @@ const CartCard = ({ item }) => {
     }
   };
 
-  
-
   async function getCartItems() {
     try {
       const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
@@ -50,8 +48,6 @@ const CartCard = ({ item }) => {
       console.log(error);
     }
   }
-
- 
 
   return (
     <div className="flex max-w-[697px] items-center gap-5">

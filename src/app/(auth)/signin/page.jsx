@@ -132,7 +132,7 @@ export default function Login() {
             <div
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="cursor-pointer absolute right-2 top-8 md:flex hidden"
+              className="cursor-pointer absolute right-2 top-8"
             >
               {showPassword ? (
                 <FaRegEyeSlash className="w-5 h-5 text-gray-500" />

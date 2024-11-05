@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
       onClick={gotoProductPage}
       className="relative cursor-pointer bg-white group p-2 rounded-xl min-w-[150px] h-fit  shadow-sm"
     >
-      <div className="relative hover:scale-95 bg-white duration-150 h-[208px]    rounded-xl overflow-hidden ">
+      <div className="relative hover:scale-95 bg-white duration-150 h-[208px] rounded-xl overflow-hidden ">
         <Image
           height={500}
           width={500}

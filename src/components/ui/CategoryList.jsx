@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import Kitchen from "../../../public/icons/Kitchen";
 import { useGetCategories } from "@/zustand/stores";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -8,7 +7,6 @@ export default function CategoryList({ c }) {
   const { setCategory, closeCategoryDropDown } = useGetCategories();
   const router = useRouter();
   const pathname = usePathname();
-// console.log(pathname);
 
   const gotoProducts = () => {
     if (pathname !== "/products") {
