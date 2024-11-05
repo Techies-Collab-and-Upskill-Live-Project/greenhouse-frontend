@@ -7,7 +7,7 @@ import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import Button from "./ui/Button";
-import CatalogueDropdown from "./ui/cataloguedropdown";
+// import CatalogueDropdown from "./ui/cataloguedropdown";
 // import Footer_img from "/public";
 
 export default function footer() {
@@ -77,10 +77,7 @@ export default function footer() {
                   </Link>
                 </div>
                 <div>
-                  <Link
-                    href="/product/officesupplies"
-                    className="cursor-pointer"
-                  >
+                  <Link href="/products" className="cursor-pointer">
                     Office Supplies
                   </Link>
                 </div>
@@ -197,7 +194,7 @@ export default function footer() {
           </div>
         </div>
       </div>
-      <CatalogueDropdown />
+      {/* <CatalogueDropdown /> */}
     </footer>
   );
 }

@@ -20,15 +20,15 @@ export default function Page() {
 
   console.log(cartItems);
 
-const getTotal = () => {
-  const total = cartItems.reduce((sum, item) => sum + item.subtotal, 0);
-  return total.toLocaleString("en-NG", { style: "currency", currency: "NGN" });
-};
+  const getTotal = () => {
+    const total = cartItems.reduce((sum, item) => sum + item.subtotal, 0);
+    return total.toLocaleString("en-NG", {
+      style: "currency",
+      currency: "NGN",
+    });
+  };
 
-
-// console.log(getTotal());
-
-
+  // console.log(getTotal());
 
   return (
     <div className="flex flex-col gap-10 md:flex-row pt-10">
@@ -202,10 +202,10 @@ const getTotal = () => {
               <p>{getTotal()}</p>
             </div>
             <Button
-              css={`w-[450px] h-[55px] 
-              bg-forest-green-800  `}
+              css={`px-28 py-2
+              bg-forest-green-800 whitespace-nowrap `}
             >
-              Pay {getTotal()}
+              <span className=""> Pay {getTotal()}</span>
             </Button>
           </div>
         </section>

@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
             alt="images of one of the popular products"
             width={500}
             height={500}
-            src={product?.images?.image_url ?? "/images/mike.jpg"}
+            src={product?.images[0]?.image_url ?? "/images/mike.jpg"}
             className="w-full h-full object-cover rounded-md"
           />
           <button className="absolute bottom-0 left-0 w-full h-[36px] opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 bg-forest-green-600 rounded-b-md text-white z-50">

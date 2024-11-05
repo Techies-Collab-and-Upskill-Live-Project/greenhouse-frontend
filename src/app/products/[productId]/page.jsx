@@ -4,7 +4,12 @@ import Button from "@/components/ui/Button";
 import StarRating from "@/components/ui/Stars";
 import axios from "@/config/axios";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
-import { useCart, useGetProduct, useGetUserStore } from "@/zustand/stores";
+import {
+  useCart,
+  useGetCategories,
+  useGetProduct,
+  useGetUserStore,
+} from "@/zustand/stores";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -24,13 +29,14 @@ export default function Page() {
   const { cartItems, setCartItemsLength } = useCart();
   const params = useParams();
   const productId = params?.productId;
+  const { categories } = useGetCategories();
 
   const totalPrice =
     parseInt(product?.pricing?.base_price) * count ??
     product?.pricing?.base_price;
 
-  console.log(totalPrice);
-  console.log("this works!");
+  const getCategory = categories?.find((c) => c?.id === product?.category);
+  // console.log(getCategory);
 
   const getProduct = async () => {
     setLoading(true);
@@ -121,7 +127,7 @@ export default function Page() {
       ) : (
         <div className="pt-48 md-max:pt-56 mx-auto container px-4">
           <section>
-            <div>Home &gt; Catalogue</div>
+            <div>Products &gt; {product?.name}</div>
           </section>
 
           <section className="mt-10 flex flex-col lg:gap-5 xl:gap-10 lg:flex-row items-center  lg:justify-center">
@@ -141,7 +147,7 @@ export default function Page() {
             <div className="bg-rd-300 ">
               <div className="bg-red500 flex flex-col gap-1 border-b-2 pb-1 w-full mt-4 lg:mt-0">
                 <h3 className="font-semibold text-[#898a8a] lg:text-2xl">
-                  Office Supplies{" "}
+                  {getCategory?.name} <br />
                   <span className="text-black">{product?.name}</span>{" "}
                 </h3>
                 <div className="text-xs flex items-center gap-[10px] ">

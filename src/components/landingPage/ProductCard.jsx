@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
             alt={`Product image of ${product?.name || "Eco Phone"}`}
             width={500}
             height={500}
-            src={product?.images?.image_url ?? "/images/mike.jpg"}
+            src={product?.images[0]?.image_url ?? "/images/mike.jpg"}
             className="w-full h-full object-cover rounded-md"
           />
 
@@ -75,6 +75,7 @@ const Product = () => {
     };
 
     fetchProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

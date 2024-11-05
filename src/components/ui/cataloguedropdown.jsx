@@ -1,94 +1,41 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { GiClothes } from "react-icons/gi";
-import { FaKitchenSet } from "react-icons/fa6";
-import HouseHold from "../../../public/icons/HouseHold";
-import Accessory from "../../../public/icons/Accessory";
-import Care from "../../../public/icons/Care";
-import Cosmetics from "../../../public/icons/Cosmetics";
-import Travel from "../../../public/icons/Travel";
-import Kitchen from "../../../public/icons/Kitchen";
-import Clothes from "../../../public/icons/Clothes";
-import Office from "../../../public/icons/Office";
-import Cartoondish from "../../../public/images/Cartoondish.png";
-import Cartoondishes from "../../../public/images/Cartoondishes.png";
+import CategoryList from "./CategoryList";
+import { useGetCategories } from "@/zustand/stores";
 
 export default function CatalogueDropdown() {
+  const { categories } = useGetCategories();
+
+  //   console.log(categories);
+
+  const renderCategories = categories?.map((c, i) => (
+    <CategoryList key={i} c={c} />
+  ));
+
   return (
     <div className="flex items-center justify-center">
-      <div className="w-[476px] h-[231px] p-6 bg-white flex items-center justify-center gap-8 rounded-lg">
-        <div className="flex items-start gap-6 flex-col relative">
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Clothes className="bg-forest-green-600" />
-            <span>Clothing</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Kitchen className="bg-forest-green-600" />
-            <span>Kitchen Items</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Care className="bg-forest-green-600" />
-            <span>Personal care</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Office className="bg-forest-green-600" />
-            <span>Office supplies</span>
-          </Link>
-          <div>
-            <Image
-              src={Cartoondish}
-              alt="images of cartoon"
-              width={40}
-              className="absolute -bottom-2 -left-15"
-            />
-          </div>
+      <div className="w-[476px] h-[231px] p-6 bg-white flex items-center justify-center gap-8 rounded-lg relative">
+        {/* <div className="flex items-start justify-evenly gap-6 flex-wrap"> */}
+        <div className="grid grid-cols-2 justify-start gap-5">
+          {renderCategories}
         </div>
-        <div className="flex items-start gap-6 flex-col">
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <HouseHold className="bg-forest-green-600" />
-            <span>House Hold Items</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Cosmetics className="bg-forest-green-600" />
-            <span>Beauty & Cosmetics</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Travel className="bg-forest-green-600" />
-            <span>Outdoor & Travel</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-3 cursor-pointer"
-          >
-            <Accessory className="bg-forest-green-600" />
-            <span>Acessories</span>
-          </Link>
-          <div>
-            <Image src={Cartoondishes} alt="images of cartoon" width={40} />
-          </div>
-        </div>
+
+        {/* Images positioned absolutely */}
+        <Image
+          src="/images/_img.png"
+          alt="bottom-left cartoon image"
+          width={40}
+          height={40}
+          className="absolute bottom-0 left-0"
+        />
+        <Image
+          src="/images/_img3.png"
+          alt="top-right cartoon image"
+          height={40}
+          width={40}
+          className="absolute top-0 right-0"
+        />
       </div>
     </div>
   );
