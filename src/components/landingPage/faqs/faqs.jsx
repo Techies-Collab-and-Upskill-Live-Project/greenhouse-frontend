@@ -3,11 +3,11 @@ import Image from "next/image";
 import Faq from "./faq";
 const Faqs = () => {
   return (
-    <div className="pt-56 pb-24 gap-36 flex justify-between  items-center">
+    <div className="pt-56 pb-24 gap-3 flex justify-betwen  items-center">
       <div>
-        <div className=" md:text-[32px] text-[27px] font-bold mb-16 text-center md:text-left">
+        {/* <div className=" md:text-[32px] text-[27px] font-bold mb-16 text-center md:text-left">
           Frequently Asked Questions
-        </div>
+        </div> */}
         <Faq
           question="What is Fysi?"
           answer="Fysi is an online marketplace that connects eco-conscious customers with vendors who share our passion for sustainability. Our platform features a wide  "

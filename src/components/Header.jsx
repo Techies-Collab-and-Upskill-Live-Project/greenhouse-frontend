@@ -94,6 +94,7 @@ export default function Header() {
               Get 50% Off on Selected Items | Sell on Fysi
             </span>
           </div>
+          <div></div>
         </div>
       </div>
 

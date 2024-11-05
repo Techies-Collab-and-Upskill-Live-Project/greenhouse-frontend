@@ -129,7 +129,7 @@ export default function AccountCreated() {
             />
             <div
               onClick={() => setShowPassword(!showPassword)}
-              className="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2"
+              className="cursor-pointer absolute right-2 top-1/2 transform -translte-y-1/2"
             >
               {showPassword ? (
                 <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />
@@ -159,7 +159,7 @@ export default function AccountCreated() {
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2"
+              className="absolute right-2 top-1/2 transform -translte-y-1/2"
             >
               {showConfirmPassword ? (
                 <MdOutlineRemoveRedEye className="w-5 h-5 text-blue-500" />

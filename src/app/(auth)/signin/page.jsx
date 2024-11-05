@@ -56,7 +56,7 @@ export default function Login() {
         }
       } catch (error) {
         console.error(error);
-        toast.error("Login failed! Please check your credentials.", {
+        toast.error(error.response.data.error, {
           id: toastId,
         }); // Replace with error toast
       } finally {

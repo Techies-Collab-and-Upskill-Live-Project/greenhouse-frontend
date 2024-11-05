@@ -7,9 +7,29 @@ import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import Button from "./ui/Button";
+import { useGetCategories } from "@/zustand/stores";
+import { usePathname, useRouter } from "next/navigation";
 // import Footer_img from "/public";
 
-export default function footer() {
+export default function Footer() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const {
+    categoryDropDown,
+    setCategory,
+    closeCategoryDropDown,
+    categories,
+    toggleCategoryDropDown,
+    setCategories,
+  } = useGetCategories();
+
+  const gotoProducts = () => {
+    if (pathname !== "/products") {
+      router.push(`/products`);
+    }
+    return;
+  };
+
   return (
     <footer className="">
       <section className="flower_background h-[60vh] lg:min-h-screen relative">
@@ -60,7 +80,21 @@ export default function footer() {
             <div className="flex flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
-                <div className="mt-2">
+
+                {categories?.map((c, i) => (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setCategory(c);
+                      gotoProducts();
+                      // toggleNavbar();
+                    }}
+                    className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
+                  >
+                    <span>{c?.name}</span>
+                  </div>
+                ))}
+                {/* <div className="mt-2">
                   <Link href="/product/clothing" className="cursor-pointer">
                     Clothing
                   </Link>
@@ -97,7 +131,7 @@ export default function footer() {
                   <Link href="/product/travel" className="cursor-pointer">
                     Outdoor & Travel
                   </Link>
-                </div>
+                </div> */}
               </div>
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>

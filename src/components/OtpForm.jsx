@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast";
-// import "react-toastify/dist/ReactToastify.css";
 import Button from "./ui/Button";
 import axios from "@/config/axios";
 
@@ -15,8 +14,6 @@ const OtpInput = () => {
   const inputRefs = useRef([]);
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
-
-  // console.log(email);
 
   useEffect(() => {
     inputRefs.current[0]?.focus();
@@ -41,30 +38,34 @@ const OtpInput = () => {
     }
   };
 
+  const handleInput = (e, index) => {
+    e.target.value = e.target.value.replace(/\D/g, ""); // Allows only digits
+    handleChange(index, e.target.value);
+  };
+
   const renderInputs = () => {
     return otp.map((value, index) => (
       <input
         key={index}
         ref={(ref) => {
           if (ref) inputRefs.current[index] = ref;
-        }} // Modified ref callback function
+        }}
         type="text"
         maxLength={1}
-        defaultValue={value}
-        onChange={(e) => handleChange(index, e.target.value)}
+        value={value}
+        onChange={(e) => handleInput(e, index)}
         onKeyDown={(e) => handleKeyDown(index, e)}
-        className={`w-9 h-9 sm:w-14 sm:h-14  text-center outline-none sm:text-lg ${
+        className={`w-9 h-9 sm:w-14 sm:h-14 text-center outline-none sm:text-lg ${
           value ? "border-primary text-primary" : ""
         }`}
       />
     ));
   };
 
-  async function handleSubmit(values) {
+  async function handleSubmit() {
     setLoading(true);
     try {
       const otpString = otp.join("");
-      // console.log(otp.join(""));
 
       const res = await axios.post("/users/verify-otp/", {
         email,
@@ -74,10 +75,12 @@ const OtpInput = () => {
       if (res) {
         setLoading(false);
         router.push(`/createAccount?email=${email}`);
-        toast.success("OTP has been resent successfully!");
+        toast.success(
+          "OTP verified successfully! Redirecting to account creation.."
+        );
       }
     } catch (error) {
-      toast.error("Failed to resend OTP. Please try again.");
+      toast.error(error.response.data.error);
       console.log(error);
     } finally {
       setLoading(false);
@@ -103,7 +106,7 @@ const OtpInput = () => {
         }}
       />
       {error && !otp.includes("") && (
-        <div className="text-xs text-center mt-2 text-error">Invalid Otp</div>
+        <div className="text-xs text-center mt-2 text-error">Invalid OTP</div>
       )}
       {!otp.includes("") && (
         <Button

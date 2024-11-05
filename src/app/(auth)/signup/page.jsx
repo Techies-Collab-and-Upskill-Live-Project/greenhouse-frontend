@@ -37,13 +37,13 @@ export default function Page() {
 
         if (res) {
           setLoading(false);
-          toast.success("Account created successfully!");
+          toast.success("Otp sent succesfully!");
           // console.log(res);
           router.push(`/otp?email=${values.email}`);
         }
       } catch (error) {
-        console.log(error);
-        toast.error("An error occurred. Please try again.");
+        console.log(error.message);
+          toast.error(error.response.data.error);
       } finally {
         setLoading(false);
       }
@@ -78,7 +78,7 @@ export default function Page() {
       <div>
         <h1 className="text-2xl font-bold mb-2">Welcome to Fysi</h1>
         <p className="mb-6">
-          Type your e-mail or phone number to log in or create a Fysi account
+          Type your e-mail to verify your Fysi account
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4 mb-6">
           <div>

@@ -6,8 +6,8 @@ import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
 const Faq = (props) => {
   const [dropdown, setDropdown] = useState(false);
   return (
-    <div className="flex justify-between pb-1 sm:pb-4">
-      <div>
+    <div className="flex justify-between pb-1 sm:pb- ">
+      <div className="h-0 bg-red-500">
         <h6 className="pb-3 font-bold text-[20px]">{props.question}</h6>
         {}
         <p

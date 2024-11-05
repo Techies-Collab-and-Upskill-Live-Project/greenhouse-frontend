@@ -13,6 +13,7 @@ import Product from "@/components/landingPage/ProductCard";
 import Hotdeal from "@/components/landingPage/Hotdeal";
 import Sustain from "@/components/landingPage/Sustainability";
 import New from "@/components/landingPage/New";
+import Link from "next/link";
 
 export default function Home() {
   const scrollContainerRef = useRef(null);
@@ -54,7 +55,10 @@ export default function Home() {
               Shop Smart, Live Green
             </p>
             <Button css={`bg-white  w-[187px] h-[55px] lg:mt-3`}>
-              <span className="text-forest-green-500">Shop Now</span>
+              <Link href="/products" >
+                {" "}
+                <span className="text-forest-green-500">Shop Now</span>
+              </Link>
             </Button>
           </div>
         </div>
