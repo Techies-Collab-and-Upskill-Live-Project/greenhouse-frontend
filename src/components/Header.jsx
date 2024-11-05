@@ -17,6 +17,8 @@ import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 import { IoCloseOutline } from "react-icons/io5";
 import CatalogueDropdown from "./ui/cataloguedropdown";
 import { usePathname, useRouter } from "next/navigation";
+import Signupdropdown from "./ui/signupdropdown";
+import SupportDropdown from "./ui/supportdropdown";
 
 export default function Header() {
   const { isOpen, toggleNavbar } = useCustomerSidebarStore();
@@ -83,16 +85,19 @@ export default function Header() {
   return (
     <header className="">
       <div className="bg-forest-green-500 py-3 px-4 max-md:hidden">
-        <div className="container mx-auto text-white font-light flex justify-between text-xs">
+        <div className="container mx-auto text-white font-light flex gap-[35rem] text-xs">
           <div>
             <Link href="tel:+2349112312345" className="flex gap-1 items-center">
               <FaPhoneAlt size={10} /> +234 911 2312 345
             </Link>
           </div>
           <div>
-            <span className="text-grey-150">
-              Get 50% Off on Selected Items | Sell on Fysi
-            </span>
+            <div className="text-white flex items-center divide-x-2">
+              <p className="pr-5">Get 50% off of selected items</p>
+              <Link href="#">
+                <p className="pl-6">Sell on Fysi</p>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -129,7 +134,7 @@ export default function Header() {
               <Link href="/about">About Us</Link>
             </div>
             <div>
-              <Link href="/contact">Support</Link>
+              <SupportDropdown />
             </div>
           </div>
 
@@ -139,7 +144,7 @@ export default function Header() {
 
           <div className="flex gap-7">
             <div className="whitespace-nowrap max-md:hidden">
-              <Link href="/signup">Sign Up</Link>
+              <Signupdropdown />
             </div>
             <div className="flex items-center gap-2 cursor-pointer max-md:hidden">
               <MdOutlineFavoriteBorder size={24} />
