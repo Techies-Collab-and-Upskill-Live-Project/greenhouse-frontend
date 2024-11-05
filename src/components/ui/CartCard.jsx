@@ -57,7 +57,7 @@ const CartCard = ({ item }) => {
     <div className="flex max-w-[697px] items-center gap-5">
       <div className="overflow-hidden max-h-[200px] h-[160px] max-w-[200px] min-w-[120px] w-1/3 rounded-xl">
         <Image
-          src={item.product?.images[1]?.image_url ?? "/images/BambooBrush.jpeg"}
+          src={item.product?.images[0]?.image_url ?? "/images/BambooBrush.jpeg"}
           // src="/images/BambooBrush.jpeg"
           alt="picture of the products"
           width={500}
