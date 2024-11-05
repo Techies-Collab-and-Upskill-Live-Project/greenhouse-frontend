@@ -38,7 +38,7 @@ const FaqPage = () => {
 
     return (
       <div className="flex justify-between pb-1 sm:pb-4 mx-auto container w-full">
-        <div>
+        <div className="">
           <h6 className="pb-3 font-bold text-[20px]">{question}</h6>
           <p
             className={` ${
