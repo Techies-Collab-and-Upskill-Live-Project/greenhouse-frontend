@@ -17,7 +17,7 @@ export default function SearchBar() {
     <div className="bg-red-0 flex relative w-full min-w-[200px]">
       <input
         type="text"
-        placeholder="Search Categories"
+        placeholder="Search"
         className=" pr-4 pl-8"
         onChange={handleChange}
       />

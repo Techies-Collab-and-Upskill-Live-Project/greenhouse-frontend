@@ -4,7 +4,12 @@ import Button from "@/components/ui/Button";
 import StarRating from "@/components/ui/Stars";
 import axios from "@/config/axios";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
-import { useCart, useGetProduct, useGetUserStore } from "@/zustand/stores";
+import {
+  useCart,
+  useGetCategories,
+  useGetProduct,
+  useGetUserStore,
+} from "@/zustand/stores";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -24,19 +29,21 @@ export default function Page() {
   const { cartItems, setCartItemsLength } = useCart();
   const params = useParams();
   const productId = params?.productId;
+  const { categories } = useGetCategories();
 
   const totalPrice =
     parseInt(product?.pricing?.base_price) * count ??
     product?.pricing?.base_price;
 
-  //   console.log(totalPrice);
+  const getCategory = categories?.find((c) => c?.id === product?.category);
+  // console.log(getCategory);
 
   const getProduct = async () => {
     setLoading(true);
     try {
       const res = await axios.get(`/api/products/${productId}/`);
 
-      //   console.log(res);
+      console.log(res);
       if (res?.data) {
         setProduct(res.data);
         setLoading(false);
@@ -50,6 +57,7 @@ export default function Page() {
 
   useEffect(() => {
     getProduct();
+    console.log("Product images:", product?.images);
   }, []);
 
   // const res =  await axios.get("/vendor/products/{id}/")
@@ -75,7 +83,7 @@ export default function Page() {
         quantity: count,
       });
 
-      //   console.log(res);
+      console.log(res);
 
       if (res) {
         setCartLoading(false);
@@ -119,7 +127,7 @@ export default function Page() {
       ) : (
         <div className="pt-48 md-max:pt-56 mx-auto container px-4">
           <section>
-            <div>Home &gt; Catalogue</div>
+            <div>Products &gt; {product?.name}</div>
           </section>
 
           <section className="mt-10 flex flex-col lg:gap-5 xl:gap-10 lg:flex-row items-center  lg:justify-center">
@@ -130,7 +138,7 @@ export default function Page() {
               <Image
                 height={500}
                 width={500}
-                src={product?.images[1]?.image_url ?? "/images/bio.jpeg"}
+                src={product?.images[0]?.image_url ?? "/images/bio.jpeg"}
                 alt=""
                 className="rounded-[8px] h-full w-full object-cover "
               />
@@ -139,14 +147,14 @@ export default function Page() {
             <div className="bg-rd-300 ">
               <div className="bg-red500 flex flex-col gap-1 border-b-2 pb-1 w-full mt-4 lg:mt-0">
                 <h3 className="font-semibold text-[#898a8a] lg:text-2xl">
-                  Office Supplies{" "}
+                  {getCategory?.name} <br />
                   <span className="text-black">{product?.name}</span>{" "}
                 </h3>
                 <div className="text-xs flex items-center gap-[10px] ">
                   <div>
                     <StarRating rating={5} />
                   </div>
-                  <div>3 Reivws</div>
+                  <div>3 Reviews</div>
                   <div className="font-normal text-[12px]">
                     SKU:{product?.sku}
                   </div>

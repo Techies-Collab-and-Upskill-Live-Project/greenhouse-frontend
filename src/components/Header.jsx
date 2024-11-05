@@ -1,50 +1,61 @@
 import React, { useEffect, useState } from "react";
-import Logo from "./ui/Logo";
 import Link from "next/link";
+import Image from "next/image";
 import { IoIosMenu } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdOutlineFavoriteBorder, MdKeyboardArrowDown } from "react-icons/md";
 import { BiCart } from "react-icons/bi";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import Logo from "./ui/Logo";
 import SearchBar from "./ui/SearchBar";
-import Image from "next/image";
-import { IoCloseOutline } from "react-icons/io5";
-import SignupDropdown from "@/components/ui/SignupDropdown";
-import SupportDropdown from "@/components/ui/SupportDropdown";
 import {
   useCart,
   useCustomerSidebarStore,
+  useGetCategories,
   useGetUserStore,
 } from "@/zustand/stores";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
-// import AuthProvider from "@/app/(auth)/AuthProvider";
-import axios from "@/config/axios";
+import { IoCloseOutline } from "react-icons/io5";
+import CatalogueDropdown from "./ui/cataloguedropdown";
+import { usePathname, useRouter } from "next/navigation";
+import Signupdropdown from "./ui/signupdropdown";
+import SupportDropdown from "./ui/supportdropdown";
 
 export default function Header() {
-  const { isOpen, openNavbar, closeNavbar, toggleNavbar } =
-    useCustomerSidebarStore();
+  const { isOpen, toggleNavbar } = useCustomerSidebarStore();
+
   const axiosAuth = useAxiosAuth();
   const { user } = useGetUserStore();
   const { cartItemsLength, setCartItemsLength, setCartItems } = useCart();
+  const {
+    categoryDropDown,
+    setCategory,
+    closeCategoryDropDown,
+    categories,
+    toggleCategoryDropDown,
+    setCategories,
+  } = useGetCategories();
+  // console.log(categoryDropDown);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const gotoProducts = () => {
+    if (pathname !== "/products") {
+      router.push(`/products`);
+    }
+    return;
+  };
 
   const handleOpen = () => {
     toggleNavbar();
   };
 
-  // console.log(user?.id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getCartItems = async () => {
-    //  if (!user?.id) {
-    // console.warn("User ID is not available.");
-    // return;
-    //  }
-    try {
-      // const res = await axiosAuth.get(`/customer/cart/${user?.id}`);
-      const res = await axiosAuth.get(`/customer/cart/`);
-      //  console.log(res);
-      // const res = await axiosAuth.get("/customer/cart/");
+  const toggleDropdown = () => {
+    setShowDropdown((prev) => !prev); // Toggle dropdown visibility
+  };
 
-      // console.log(res?.data, "headre");
+  const getCartItems = async () => {
+    try {
+      const res = await axiosAuth.get(`/customer/cart/`);
       if (res.data) {
         setCartItemsLength(res.data[0]?.items?.length);
         setCartItems(res.data[0]?.items);
@@ -54,33 +65,46 @@ export default function Header() {
     }
   };
 
+  const getCategories = async () => {
+    try {
+      const res = await axiosAuth.get(`/vendor/products/categories-list/`);
+      if (res.data) {
+        setCategories(res?.data?.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
+    getCategories();
     if (user) getCartItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
-    // <AuthProvider>
-    // </AuthProvider>
     <header className="">
-      <div className=" bg-forest-green-500 py-3 px-4 max-md:hidden ">
-        <div className="container mx-auto text-white font-light flex justify-between text-xs">
+      <div className="bg-forest-green-500 py-3 px-4 max-md:hidden">
+        <div className="container mx-auto text-white font-light flex justify-between items-center text-xs">
           <div>
             <Link href="tel:+2349112312345" className="flex gap-1 items-center">
-              {" "}
               <FaPhoneAlt size={10} /> +234 911 2312 345
             </Link>
           </div>
           <div>
-            <span className="text-grey-150">
-              Get 50% Off on Selected Items | Sell on Fysi{" "}
-            </span>
+            <div className="text-white flex items-center divide-x-2">
+              <p className="pr-5">Get 50% off of selected items</p>
+              <Link href="#">
+                <p className="pl-6">Sell on Fysi</p>
+              </Link>
+            </div>
           </div>
           <div></div>
         </div>
       </div>
-      <div className=" bg-white px-4">
-        <div className="max-w-[1536px]  mx-auto flex items-center py-6 gap-10 justify-between max-lg:flex-wrap">
+
+      <div className="bg-white px-4">
+        <div className="max-w-[1536px] mx-auto flex items-center py-6 gap-10 justify-between max-lg:flex-wrap">
           <div className="flex items-center gap-2 sm:gap-10">
             <IoIosMenu
               size={24}
@@ -90,36 +114,48 @@ export default function Header() {
             <Logo />
           </div>
 
-          <div className="flex gap-7 items-center  max-lg:hidden">
+          <div className="flex gap-7 items-center max-lg:hidden">
             <IoIosMenu size={24} className="cursor-pointer max-lg:hidden" />
-            <div className="flex items-center">
-              <span>Catalogue</span> <MdKeyboardArrowDown size={28} />
+            <div className="relative flex items-center">
+              <button
+                onClick={() => toggleCategoryDropDown()}
+                className="flex items-center gap-1"
+              >
+                <span>Catalogue</span>
+                <MdKeyboardArrowDown size={28} />
+              </button>
+              {categoryDropDown && (
+                <div className="absolute top-full mt-2 z-10">
+                  <CatalogueDropdown />{" "}
+                  {/* Render the dropdown when state is true */}
+                </div>
+              )}
             </div>
             <div className="whitespace-nowrap">
               <Link href="/about">About Us</Link>
             </div>
             <div>
-              <Link href="/contact">Support</Link>
+              <SupportDropdown />
             </div>
           </div>
 
-          <div className="w-full lg:max-w-[400px] min-w-[200px] max-lg:order-5  ">
+          <div className="w-full lg:max-w-[400px] min-w-[200px] max-lg:order-5">
             <SearchBar />
           </div>
 
           <div className="flex gap-7">
             <div className="whitespace-nowrap max-md:hidden">
-              <Link href="/signup">Sign Up</Link>
+              <Signupdropdown />
             </div>
             <div className="flex items-center gap-2 cursor-pointer max-md:hidden">
               <MdOutlineFavoriteBorder size={24} />
-              <span className="">Wishlist</span>
+              <span>Wishlist</span>
             </div>
             <Link href="/customer/orderSummary">
               <div className="flex items-center relative cursor-pointer gap-1">
                 <BiCart className="text-3xl max-sm:text-3xl" />
                 <span className="max-xl:hidden">Cart</span>
-                <span className="absolute -right-1 -top-0.5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
+                <span className="absolute -right-1 -top-0.5 md:right-[1.80rem] lg:left-5 flex items-center justify-center bg-[#D42620] h-3 w-3 text-xs rounded-full text-white p-2">
                   {cartItemsLength}
                 </span>
               </div>
@@ -130,10 +166,10 @@ export default function Header() {
 
       {/* Mobile nav */}
       <nav
-        className={`fixed text-white bg-forest-green-500 top-0 bottom-0 w-full max-w-[300px] flex flex-col px-2 py-7   ${
+        className={`fixed text-white bg-forest-green-500 top-0 bottom-0 w-full max-w-[300px] flex flex-col px-2 py-7 ${
           isOpen ? "translate-x-0" : "-translate-x-[200%]"
         } 
-      duration-150 lg:hidden overflow-y-auto`}
+        duration-150 lg:hidden overflow-y-auto`}
       >
         <div className="flex justify-between px-4">
           <div className="h-[38px]">
@@ -160,26 +196,32 @@ export default function Header() {
           <Link href="/customer/review">Review</Link>
           <Link href="/customer/wishlist">Wishlist</Link>
         </div>
-        {/* Auth menu */}
+        {/* Catalog items */}
         <div className="mt-5 px-4 border-b pb-4">
           <div className="mb-3 text-lg">Catalog</div>
           <div className="flex flex-col gap-4 overflow-y-auto max-h-36">
-            <div>Clothes</div>
-            <div>Kitchen Items</div>
-            <div>Personal Care</div>
-            <div>Office Supplies</div>
-            <div>Household Items</div>
-            <div>Beauty & Cosmetics</div>
-            <div>Outdoor and Travels</div>
-            <div>Accessories</div>
+            {categories?.map((c, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  setCategory(c);
+                  gotoProducts();
+                  toggleNavbar();
+                }}
+                className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
+              >
+                <span>{c?.name}</span>
+              </div>
+            ))}
+            {/* <Link href="/clothing">Clothes</Link>
+            <Link href="/kitchen">Kitchen Items</Link>
+            <Link href="/care">Personal Care</Link>
+            <Link href="/office">Office Supplies</Link>
+            <Link href="/household">Household Items</Link>
+            <Link href="/cosmetics">Beauty & Cosmetics</Link>
+            <Link href="/travel">Outdoor and Travels</Link>
+            <Link href="/accessories">Accessories</Link> */}
           </div>
-        </div>
-        {/* Auth menu */}
-        <div className="flex flex-col gap-4 mt-10 px-4 pb-4">
-          <Link href="#">Sell on Fysi</Link>
-          <Link href="/about">About Us</Link>
-          <Link href="/contact">Support</Link>
-          <Link href="/contact">Contact Us</Link>
         </div>
       </nav>
     </header>

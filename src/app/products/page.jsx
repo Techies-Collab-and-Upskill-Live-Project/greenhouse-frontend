@@ -4,29 +4,32 @@ import Button from "@/components/ui/Button";
 import PageLoader from "@/components/ui/PageLoader";
 import ProductCard from "@/components/ui/ProductCard";
 import axios from "@/config/axios";
-import { useGetProducts, useGetUserStore } from "@/zustand/stores";
+import {
+  useGetCategories,
+  useGetProducts,
+  useGetUserStore,
+} from "@/zustand/stores";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
 
 export default function Page() {
   const { products, setProducts, searchTerm } = useGetProducts();
+  const { category } = useGetCategories();
   const [loading, setLoading] = useState(false);
   const { user } = useGetUserStore();
 
-  // console.log(products);
+  const categoryId = category.id ?? "";
+  const categoryName = category.name ?? "";
+  // console.log(categoryName);
 
   const getProducts = async () => {
     setLoading(true);
     try {
-<<<<<<< HEAD
       const res = await axios.get(
         // `/products/listing?color=&vendor=&brand=&search=${searchTerm}&category`
-        `/api/products/`
+        `/api/products?category=${categoryId}&search=${searchTerm}`
       );
-=======
-      const res = await axios.get(`/api/products?search=${searchTerm}`);
->>>>>>> e779e0706c0014519ddec012fc17133d0f838047
 
       // console.log(res.data);
       if (res?.data) {
@@ -42,7 +45,7 @@ export default function Page() {
 
   useEffect(() => {
     if (user) getProducts();
-  }, [searchTerm, user]);
+  }, [searchTerm, user, category]);
 
   const renderProducts = () => {
     return products?.map((p, i) => <ProductCard key={i} product={p} />);
@@ -78,8 +81,12 @@ export default function Page() {
         </div>
       ) : (
         <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
-          <div className="font-bold md:text-2xl mt-2 max-md:hidden">{`Products`}</div>
-          <div className="font-bold text-3xl max-md:block hidden -mt-6">{`Products`}</div>
+          <div className="font-bold md:text-2xl mt-2 max-md:hidden">{`Products ${
+            categoryName && ">"
+          } ${categoryName}`}</div>
+          <div className="font-bold text-3xl max-md:block hidden -mt-6">
+            {categoryName ? categoryName : "Products"}
+          </div>
 
           <section className="mt-10 grid  max-[340px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-10  md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6">
             {renderProducts()}

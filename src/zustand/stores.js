@@ -22,6 +22,7 @@ const useConfirmRegisterModals = create((set) => ({
   closeModal: () => set({ isOpen: false }),
   toggleModal: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
+
 const useDoneAccountModal = create((set) => ({
   isOpen: false,
   openModal: () => set({ isOpen: true }),
@@ -47,6 +48,28 @@ const useGetProduct = create((set) => ({
   products: {},
   setProduct: (data) => set({ product: data }),
 }));
+const useGetCategories = create((set) => ({
+  categoryDropDown: false,
+
+  // Open dropdown
+  openCategoryDropDown: () => set({ categoryDropDown: true }),
+
+  // Close dropdown
+  closeCategoryDropDown: () => set({ categoryDropDown: false }),
+
+  // Toggle dropdown
+  toggleCategoryDropDown: () =>
+    set((state) => ({ categoryDropDown: !state.categoryDropDown })),
+
+  // Categories list and setter
+  categories: [],
+  setCategories: (data) => set({ categories: data }),
+
+  // Selected category and setter
+  category: {},
+  setCategory: (data) => set({ category: data }),
+}));
+
 const useCart = create((set) => ({
   cartItemsLength: 0,
   setCartItemsLength: (data) => set({ cartItemsLength: data }),
@@ -64,4 +87,5 @@ export {
   useDoneAccountModal,
   useGetProduct,
   useCart,
+  useGetCategories,
 };
