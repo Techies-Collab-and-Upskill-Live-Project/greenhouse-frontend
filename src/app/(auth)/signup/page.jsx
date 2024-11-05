@@ -42,8 +42,13 @@ export default function Page() {
           router.push(`/otp?email=${values.email}`);
         }
       } catch (error) {
-        console.log(error);
-        toast.error("An error occurred. Please try again.");
+        if (error.response && error.response.data && error.response.data.error) {
+          //show specific error message from the API
+          toast.error(error.response.data.error);
+        } else {
+          //Fallback to the generic error message
+          toast.error("An error occurred. Please try again.");
+        }
       } finally {
         setLoading(false);
       }
