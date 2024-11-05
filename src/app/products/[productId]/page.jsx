@@ -35,7 +35,7 @@ export default function Page() {
     parseInt(product?.pricing?.base_price) * count ??
     product?.pricing?.base_price;
 
-  const getCategory = categories?.find((c) => c.id === product.category);
+  const getCategory = categories?.find((c) => c?.id === product?.category);
   // console.log(getCategory);
 
   const getProduct = async () => {
