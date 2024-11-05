@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 // import Footer_img from "/public";
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
   const {
@@ -29,6 +30,10 @@ export default function Footer() {
     }
     return;
   };
+   
+useEffect(() => {
+  setCurrentYear(new Date().getFullYear());
+}, []);
 
   return (
     <footer>
