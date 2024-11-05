@@ -1,17 +1,34 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
-import Button from "./ui/Button";
-// import Footer_img from "/public";
+import { useRouter, usePathname } from "next/navigation";
+import { useGetCategories } from "@/zustand/stores";
 
-export default function footer() {
+export default function Footer() {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const router = useRouter();
+  const pathname = usePathname();
+  const { setCategory, categories, closeCategoryDropDown } = useGetCategories();
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    setCategory(category);
+    if (pathname !== "/products") {
+      router.push("/products");
+    }
+    closeCategoryDropDown();
+  };
+
   return (
-    <footer className="">
+    <footer>
       <section className="flower_background h-[60vh] lg:min-h-screen relative">
         <div className="container-sm px-8">
           <div className="flex items-start justify-start pt-2 lg:pt-64">
@@ -36,14 +53,13 @@ export default function footer() {
                 </button>
               </div>
             </div>
-            <div className="bg-red-500 flex-1"></div>
           </div>
         </div>
       </section>
+
       <div className="bg-forest-green-700">
-        <div className=" px-8">
+        <div className="px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">
-            {/* <div className="flex text-white container mx-auto px-4 py-4"> */}
             <div className="w-[143px] h-[65px]">
               <Link href="/">
                 <Image
@@ -54,51 +70,25 @@ export default function footer() {
                   className="w-full"
                 />
               </Link>
-              {/* <h3 className="text-white mt-2">Shop Smart.Live Green</h3> */}
             </div>
-            {/* <div className="grid grid-cols-1   lg:grid-cols-6 pt-8 gap-4"> */}
-            <div className="flex flex-wrap gap-10 pt-8 justify-between font-sans">
+
+            <div className="flex mx-auto flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
-                <div className="mt-2">
-                  <Link href="/product/clothing" className="cursor-pointer">
-                    Clothing
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/product/kitchen" className="cursor-pointer">
-                    Kitchen Items
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/product/personalcare" className="cursor-pointer">
-                    Personal Care
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    href="/product/officesupplies"
-                    className="cursor-pointer"
-                  >
-                    Office Supplies
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/product/household" className="cursor-pointer">
-                    Household Items
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/product/cosmetics" className="cursor-pointer">
-                    Beauty & Cosmetics
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/product/travel" className="cursor-pointer">
-                    Outdoor & Travel
-                  </Link>
+                <div className="mt-2 flex flex-col gap-2">
+                  {categories?.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => handleCategoryClick(category)}
+                      className="text-left hover:text-forest-green-200 transition-colors cursor-pointer flex items-center gap-3"
+                    >
+                      {category.icon}
+                      <span>{category.name}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
+
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>
                 <div className="mt-2">
@@ -117,9 +107,7 @@ export default function footer() {
                   </Link>
                 </div>
               </div>
-              {/* <div>
-              <h1 className="font-medium text-[16px]">About</h1>
-            </div> */}
+
               <div>
                 <h1 className="font-medium">Our Company</h1>
                 <div className="mt-2">
@@ -133,6 +121,7 @@ export default function footer() {
                   </Link>
                 </div>
               </div>
+
               <div>
                 <h1 className="font-medium text-[16px]">Support</h1>
                 <div className="mt-2">
@@ -146,6 +135,7 @@ export default function footer() {
                   </Link>
                 </div>
               </div>
+
               <div>
                 <div>
                   <h1 className="font-medium">Join Us</h1>
@@ -170,6 +160,7 @@ export default function footer() {
               </div>
             </div>
           </div>
+
           <hr className="mt-2" />
 
           <div className="flex items-center justify-between flex-col lg:flex-row w-full space-y-2 lg:space-y-0 lg:space-x-4 lg:w-auto font-sans">
@@ -191,7 +182,7 @@ export default function footer() {
               </div>
             </div>
             <div className="text-white text-[12px]">
-              @2023 Fysi.All right reserved.
+              @{currentYear} Fysi. All rights reserved.
             </div>
           </div>
         </div>

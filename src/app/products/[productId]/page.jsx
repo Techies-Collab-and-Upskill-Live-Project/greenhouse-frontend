@@ -43,7 +43,7 @@ export default function Page() {
     try {
       const res = await axios.get(`/api/products/${productId}/`);
 
-      //   console.log(res);
+      console.log(res);
       if (res?.data) {
         setProduct(res.data);
         setLoading(false);
@@ -57,6 +57,7 @@ export default function Page() {
 
   useEffect(() => {
     getProduct();
+    console.log("Product images:", product?.images);
   }, []);
 
   // const res =  await axios.get("/vendor/products/{id}/")
@@ -82,7 +83,7 @@ export default function Page() {
         quantity: count,
       });
 
-      //   console.log(res);
+      console.log(res);
 
       if (res) {
         setCartLoading(false);
@@ -137,7 +138,7 @@ export default function Page() {
               <Image
                 height={500}
                 width={500}
-                src={product?.images[1]?.image_url ?? "/images/bio.jpeg"}
+                src={product?.images[0]?.image_url ?? "/images/bio.jpeg"}
                 alt=""
                 className="rounded-[8px] h-full w-full object-cover "
               />
@@ -153,7 +154,7 @@ export default function Page() {
                   <div>
                     <StarRating rating={5} />
                   </div>
-                  <div>3 Reivws</div>
+                  <div>3 Reviews</div>
                   <div className="font-normal text-[12px]">
                     SKU:{product?.sku}
                   </div>
