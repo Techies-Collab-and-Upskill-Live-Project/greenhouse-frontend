@@ -138,7 +138,7 @@ export default function Page() {
               <Image
                 height={500}
                 width={500}
-                src={product?.images?.image_url ?? "/images/bio.jpeg"}
+                src={product?.images[0]?.image_url ?? "/images/bio.jpeg"}
                 alt=""
                 className="rounded-[8px] h-full w-full object-cover "
               />

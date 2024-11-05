@@ -83,7 +83,7 @@ export default function Header() {
   return (
     <header className="">
       <div className="bg-forest-green-500 py-3 px-4 max-md:hidden">
-        <div className="container mx-auto text-white font-light flex justify-between text-xs">
+        <div className="container mx-auto text-white font-light flex justify-between items-center text-xs">
           <div>
             <Link href="tel:+2349112312345" className="flex gap-1 items-center">
               <FaPhoneAlt size={10} /> +234 911 2312 345
@@ -94,6 +94,7 @@ export default function Header() {
               Get 50% Off on Selected Items | Sell on Fysi
             </span>
           </div>
+          <div></div>
         </div>
       </div>
 
