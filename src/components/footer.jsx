@@ -12,9 +12,35 @@ import { usePathname, useRouter } from "next/navigation";
 // import Footer_img from "/public";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     setError("");
+
+     // Basic email regex pattern
+     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+     // Validation checks
+     if (email.trim() === "") {
+       setError("Email is required.");
+       return;
+     } else if (!emailPattern.test(email)) {
+       setError("Please enter a valid email address.");
+       return;
+     } else if (email.length > 254) {
+       setError("Email is too long. Please use a shorter email.");
+       return;
+     }
+
+     // Handle successful submission (e.g., send email to backend)
+     setSubmitted(true);
+     setEmail("");
+   };
   const {
     categoryDropDown,
     setCategory,
@@ -49,17 +75,25 @@ useEffect(() => {
                 <br />
                 arrivals!
               </p>
-              <div className="w-[250px] lg:w-[350px] h-[40px] bg-white relative flex items-center rounded-md shadow-sm border">
+                <form onSubmit={handleSubmit} className="relative">
+                <div className="w-[250px] lg:w-[350px] h-[40px] bg-white relative flex items-center rounded-md shadow-sm border">
                 <IoMailOutline className="absolute left-2 text-gray-500" />
                 <input
                   type="text"
                   placeholder="Your email"
+                  value={email}
+                  onChange={(e)=> setEmail(e.target.value)}
                   className="flex-grow pl-8 pr-4 py-2 bg-transparent border-none outline-none text-gray-800"
                 />
                 <button className="text-white bg-green-800 hover:bg-green-600 -mx-1 px-4 py-2 rounded-md transition-all">
                   Subscribe
                 </button>
-              </div>
+                </div>
+                {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
+                {submitted && !error && (
+                  <p className="text-green-500 mt-2 text-sm">Thank you for subscribing!</p>
+                )}
+                </form>
             </div>
           </div>
         </div>
@@ -140,7 +174,7 @@ useEffect(() => {
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>
                 <div className="mt-2">
-                  <Link href="#" className="cursor-pointer">
+                  <Link href="/report" className="cursor-pointer">
                     Returns and Refunds
                   </Link>
                 </div>
@@ -150,7 +184,7 @@ useEffect(() => {
                   </Link>
                 </div>
                 <div>
-                  <Link href="#" className="cursor-pointer">
+                  <Link href="/vendors/register" className="cursor-pointer">
                     Sell on Fysi
                   </Link>
                 </div>

@@ -189,7 +189,11 @@ export default function Header() {
         </div>
 
         {/* Auth menu */}
-        <div className="flex flex-col gap-4 mt-10 px-4 border-b pb-7">
+
+        <div
+          onClick={() => toggleNavbar()}
+          className="flex flex-col gap-4 mt-10 px-4 border-b pb-7"
+        >
           <Link href="/customer/account">My Account</Link>
           <Link href="/customer/orderHistory">Order History</Link>
           <Link href="/customer/inbox">Inbox</Link>
