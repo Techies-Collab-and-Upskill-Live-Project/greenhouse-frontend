@@ -54,12 +54,11 @@ export default function Home() {
             <p className="hero-title text-white text-[14px] md:text-[20px] lg:text-[26px]">
               Shop Smart, Live Green
             </p>
-            <Button css={`bg-white  w-[187px] h-[55px] lg:mt-3`}>
-              <Link href="/products" >
-                {" "}
+            <Link href="/products">
+              <Button css={`bg-white  w-[187px] h-[55px] lg:mt-3`}>
                 <span className="text-forest-green-500">Shop Now</span>
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
