@@ -76,7 +76,7 @@ export default function PersonalDetails() {
         }
       } catch (error) {
         console.log(error);
-        toast.error("An error occurred. Please try again.");
+        toast.error(error.response.data.error);
       } finally {
         setLoading(false);
       }

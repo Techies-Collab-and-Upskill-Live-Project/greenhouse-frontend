@@ -42,7 +42,7 @@ const FaqPage = () => {
           <h6 className="pb-3 font-bold text-[20px]">{question}</h6>
           <p
             className={` ${
-              dropdown ? "opacity-60 visible " : "opacity-0  "
+              dropdown ? "block " : "hidden  "
             } text-[17px] transition-opacity leading-8`}
           >
             {answer}
@@ -60,15 +60,17 @@ const FaqPage = () => {
   };
 
   return (
-    <div className="pt-56 pb-24 gap-36 flex justify-between items-center w-full container mx-auto p-6">
-      <div>
+    <div className="pt-56 lg:pt-48 flex justify-between items-cnter w-full container mx-auto p-6 ">
+      <div className="lg:w-1/2 w-full ">
         <div className="md:text-[32px] text-[27px] font-bold mb-16 text-center md:text-left">
           Frequently Asked Questions
         </div>
 
-        {faqsData.map((faq, index) => (
-          <FaqItem key={index} question={faq.question} answer={faq.answer} />
-        ))}
+        <div className="flex flex-col gap-4">
+          {faqsData.map((faq, index) => (
+            <FaqItem key={index} question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
 
         <div className="pt-1">
           <p>
@@ -81,13 +83,14 @@ const FaqPage = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:block w-1/2 -mt-28">
         <Image
           width={1000}
           height={1000}
           quality={100}
           src="/images/faqfruit.png"
           alt="FAQ Illustration"
+          className="object-top"
         />
       </div>
     </div>

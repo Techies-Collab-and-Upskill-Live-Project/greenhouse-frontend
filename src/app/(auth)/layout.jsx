@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect, Suspense } from "react";
 
 export default function Layout({ children }) {
@@ -20,9 +21,11 @@ export default function Layout({ children }) {
       <div className="grid grid-cols-1 md:grid-cols-2 w-full ">
         <div className="relative hidden md:block">
           {images.map((img, index) => (
-            <img
+            <Image
               key={img}
               src={img}
+              height={400}
+              width={400}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentImage ? "opacity-100" : "opacity-0"
               }`}

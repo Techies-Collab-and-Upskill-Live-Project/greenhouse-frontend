@@ -6,26 +6,60 @@ import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
-import { useRouter, usePathname } from "next/navigation";
+import Button from "./ui/Button";
 import { useGetCategories } from "@/zustand/stores";
+import { usePathname, useRouter } from "next/navigation";
+// import Footer_img from "/public";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
-  const { setCategory, categories, closeCategoryDropDown } = useGetCategories();
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     setError("");
 
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+     // Basic email regex pattern
+     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  const handleCategoryClick = (category) => {
-    setCategory(category);
+     // Validation checks
+     if (email.trim() === "") {
+       setError("Email is required.");
+       return;
+     } else if (!emailPattern.test(email)) {
+       setError("Please enter a valid email address.");
+       return;
+     } else if (email.length > 254) {
+       setError("Email is too long. Please use a shorter email.");
+       return;
+     }
+
+     // Handle successful submission (e.g., send email to backend)
+     setSubmitted(true);
+     setEmail("");
+   };
+  const {
+    categoryDropDown,
+    setCategory,
+    closeCategoryDropDown,
+    categories,
+    toggleCategoryDropDown,
+    setCategories,
+  } = useGetCategories();
+
+  const gotoProducts = () => {
     if (pathname !== "/products") {
-      router.push("/products");
+      router.push(`/products`);
     }
-    closeCategoryDropDown();
+    return;
   };
+   
+useEffect(() => {
+  setCurrentYear(new Date().getFullYear());
+}, []);
 
   return (
     <footer>
@@ -41,17 +75,25 @@ export default function Footer() {
                 <br />
                 arrivals!
               </p>
-              <div className="w-[250px] lg:w-[350px] h-[40px] bg-white relative flex items-center rounded-md shadow-sm border">
+                <form onSubmit={handleSubmit} className="relative">
+                <div className="w-[250px] lg:w-[350px] h-[40px] bg-white relative flex items-center rounded-md shadow-sm border">
                 <IoMailOutline className="absolute left-2 text-gray-500" />
                 <input
                   type="text"
                   placeholder="Your email"
+                  value={email}
+                  onChange={(e)=> setEmail(e.target.value)}
                   className="flex-grow pl-8 pr-4 py-2 bg-transparent border-none outline-none text-gray-800"
                 />
                 <button className="text-white bg-green-800 hover:bg-green-600 -mx-1 px-4 py-2 rounded-md transition-all">
                   Subscribe
                 </button>
-              </div>
+                </div>
+                {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
+                {submitted && !error && (
+                  <p className="text-green-500 mt-2 text-sm">Thank you for subscribing!</p>
+                )}
+                </form>
             </div>
           </div>
         </div>
@@ -75,24 +117,64 @@ export default function Footer() {
             <div className="flex mx-auto flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
-                <div className="mt-2 flex flex-col gap-2">
-                  {categories?.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => handleCategoryClick(category)}
-                      className="text-left hover:text-forest-green-200 transition-colors cursor-pointer flex items-center gap-3"
-                    >
-                      {category.icon}
-                      <span>{category.name}</span>
-                    </button>
-                  ))}
+
+                {categories?.map((c, i) => (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setCategory(c);
+                      gotoProducts();
+                      // toggleNavbar();
+                    }}
+                    className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
+                  >
+                    <span>{c?.name}</span>
+                  </div>
+                ))}
+                {/* <div className="mt-2">
+                  <Link href="/product/clothing" className="cursor-pointer">
+                    Clothing
+                  </Link>
                 </div>
+                <div>
+                  <Link href="/product/kitchen" className="cursor-pointer">
+                    Kitchen Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/personalcare" className="cursor-pointer">
+                    Personal Care
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/product/officesupplies"
+                    className="cursor-pointer"
+                  >
+                    Office Supplies
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/household" className="cursor-pointer">
+                    Household Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/cosmetics" className="cursor-pointer">
+                    Beauty & Cosmetics
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/travel" className="cursor-pointer">
+                    Outdoor & Travel
+                  </Link>
+                </div> */}
               </div>
 
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>
                 <div className="mt-2">
-                  <Link href="#" className="cursor-pointer">
+                  <Link href="/report" className="cursor-pointer">
                     Returns and Refunds
                   </Link>
                 </div>
@@ -102,7 +184,7 @@ export default function Footer() {
                   </Link>
                 </div>
                 <div>
-                  <Link href="#" className="cursor-pointer">
+                  <Link href="/vendors/register" className="cursor-pointer">
                     Sell on Fysi
                   </Link>
                 </div>
