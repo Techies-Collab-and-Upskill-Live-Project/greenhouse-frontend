@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
     !pathname.startsWith("/signup") &&
     !pathname.startsWith("/personalDetails") &&
     !pathname.startsWith("/otp") &&
-    !pathname.startsWith("/createAccount");
+    !pathname.startsWith("/createAccount") &&
+    !pathname.startsWith("/forgetpassword")
+    ;
 
   return (
     <html lang="en">

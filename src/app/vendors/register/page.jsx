@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@/components/ui/Button";
 import axios from "@/config/axios";
+import Image from "next/image";
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -48,11 +49,11 @@ export default function Page() {
   });
 
   return (
-    <div className="flex items-center justify-center py-40 flex-col px-4">
-      <div className="flex items-center justify-center flex-col">
+    <div className="flex items-center justify-center py-40 flex-col px-4 min-h-screen">
+      <div className="flex items-center justify-end flex-col">
         <div>
           <Link href="/">
-            <img src="/images/Logo.png" alt="logo" className="mb-6" />
+            <Image src="/images/Logo.png" alt="logo" className="mb-6" width={100} height={100} />
           </Link>
         </div>
         <div className="mb-8">
