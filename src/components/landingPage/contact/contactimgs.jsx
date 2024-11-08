@@ -28,7 +28,7 @@ const Contactimgs = () => {
           />
         </div>
       </div>
-      <div className="flexgap-4 sm:gap-6  ">
+      <div className="flex gap-4 sm:gap-6  ">
         {" "}
         <div>
           <Image
