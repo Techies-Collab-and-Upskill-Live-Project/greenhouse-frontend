@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
   return (
     <div
       onClick={gotoProductPage}
-      className="relative cursor-pointer bg-white group p-2 rounded-xl min-w-[150px] h-fit  shadow-sm"
+      className="relative cursor-pointer bg-white group p-2 rounded-xl min-w-[150px] h-fit shadow-sm"
     >
       <div className="relative hover:scale-95 bg-white duration-150 h-[208px] rounded-xl overflow-hidden ">
         <Image
@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
           </div>
         </button>
 
-        <div className="absolute bottom-2 h-[22.66px] right-2  bg-grey-150 p-2 rounded-[7.49px]">
+        <div className="absolute bottom-2 h-[22.66px] right-2 bg-grey-150 p-2 rounded-[7.49px]">
           <p className="text-[13px] -mt-[6px] text-forest-green-500 font-medium">
             -15%
           </p>

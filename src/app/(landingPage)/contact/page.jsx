@@ -31,7 +31,9 @@ const ContactPage = () => {
       </div>
 
       {/* Contact Images Section */}
-      <h1 className="font-medium text-3xl">Welcome us on Social media</h1>
+      <h1 className="font-medium text-3xl">
+        follow us on our Social platforms
+      </h1>
       <div className="md:flex-row flex-col flex relative gap-[200px] md:gap-4 py-24">
         <div className="flex gap-4 sm:gap-6">
           <div>

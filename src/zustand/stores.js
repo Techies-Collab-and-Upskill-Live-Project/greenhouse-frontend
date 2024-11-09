@@ -52,10 +52,10 @@ const useGetCategories = create((set) => ({
   categoryDropDown: false,
 
   // Open dropdown
-  openCategoryDropDown: () => set({ categoryDropDown: true }),
+  // openCategoryDropDown: () => set({ categoryDropDown: true }),
 
-  // Close dropdown
-  closeCategoryDropDown: () => set({ categoryDropDown: false }),
+  // // Close dropdown
+  // closeCategoryDropDown: () => set({ categoryDropDown: false }),
 
   // Toggle dropdown
   toggleCategoryDropDown: () =>
