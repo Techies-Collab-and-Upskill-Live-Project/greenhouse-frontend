@@ -43,7 +43,7 @@ export default function Page() {
         }
       } catch (error) {
         console.log(error.message);
-          toast.error(error.response.data.error);
+        toast.error(error.response.data.error);
       } finally {
         setLoading(false);
       }
@@ -123,13 +123,15 @@ export default function Page() {
           <Link href="#" className="text-green-700 hover:underline mr-2">
             Terms and Conditions
           </Link>
-          Already have an account?{" "}
-          <Link
-            href="/signin"
-            className="text-green-700 hover:underline font-semibold"
-          >
-            Sign in
-          </Link>
+          <div className="mt-4">
+            Already have an account?
+            <Link
+              href="/signin"
+              className="text-green-700 hover:underline font-semibold"
+            >
+              Sign in
+            </Link>
+          </div>
         </p>
       </div>
     </div>

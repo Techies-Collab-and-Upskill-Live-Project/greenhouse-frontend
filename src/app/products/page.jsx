@@ -80,7 +80,7 @@ export default function Page() {
           </div>
         </div>
       ) : (
-        <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
+        <div className="min-h-svh  max-lg:pt-52 lg:pt-36 max-w-[1536px] mx-auto  px-4">
           <div className="font-bold md:text-2xl mt-2 max-md:hidden">{`Products ${
             categoryName && ">"
           } ${categoryName}`}</div>

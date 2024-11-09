@@ -116,7 +116,7 @@ export default function Page() {
     <>
       {" "}
       {loading ? (
-        <div className="min-h-svh   max-lg:pt-52 lg:pt-36 max-w-[1536px]  mx-auto  px-4">
+        <div className="min-h-svh max-lg:pt-52 lg:pt-36 max-w-[1536px] mx-auto  px-4">
           <div className="h-screen flex justify-center items-center">
             <ImSpinner3
               size={150}
@@ -132,7 +132,7 @@ export default function Page() {
 
           <section className="mt-10 flex flex-col lg:gap-5 xl:gap-10 lg:flex-row items-center  lg:justify-center">
             <div className="relative flex items-center justify-center max-[320px]:h-[276px] max-h-[447px] max-w-[518px] md:h-[447px] overflow-hidden rounded-lg">
-              <div className="absolute top-4 right-4 bg-forest-green-200 p-2 rounded-full flex items-center justify-center">
+              <div className="absolute top-4 right-4  bg-forest-green-200 p-2 rounded-full flex items-center justify-center">
                 <FaRegHeart className="text-[#E6ECE9]" size={24} />
               </div>
               <Image

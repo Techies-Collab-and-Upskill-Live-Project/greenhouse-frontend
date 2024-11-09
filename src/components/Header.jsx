@@ -19,6 +19,7 @@ import CatalogueDropdown from "./ui/cataloguedropdown";
 import { usePathname, useRouter } from "next/navigation";
 import Signupdropdown from "./ui/signupdropdown";
 import SupportDropdown from "./ui/supportdropdown";
+import MenuDropdown from "./ui/menudropdown";
 
 export default function Header() {
   const { isOpen, toggleNavbar } = useCustomerSidebarStore();
@@ -115,7 +116,7 @@ export default function Header() {
           </div>
 
           <div className="flex gap-7 items-center max-lg:hidden">
-            <IoIosMenu size={24} className="cursor-pointer max-lg:hidden" />
+            <MenuDropdown/>
             <div className="relative flex items-center">
               <button
                 onClick={() => toggleCategoryDropDown()}

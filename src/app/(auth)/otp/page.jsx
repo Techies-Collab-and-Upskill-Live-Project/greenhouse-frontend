@@ -6,15 +6,13 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { MdOutlinePermDeviceInformation } from "react-icons/md";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
 
   // Timer state
-  const [counter, setCounter] = useState(60);
+  const [counter, setCounter] = useState(300); // 5 minutes in seconds
   const [isTimerActive, setIsTimerActive] = useState(true);
 
   // Countdown logic
@@ -23,21 +21,26 @@ const Page = () => {
     if (counter > 0 && isTimerActive) {
       timer = setTimeout(() => setCounter(counter - 1), 1000);
     } else {
-      setIsTimerActive(false); // Stop the timer
+      setIsTimerActive(false); // Stop the timer when it reaches 0
     }
     return () => clearTimeout(timer);
   }, [counter, isTimerActive]);
 
   const handleResendOtp = () => {
-    setCounter(60); // Reset timer to 60 seconds
+    setCounter(300); // Reset timer to 5 minutes (300 seconds)
     setIsTimerActive(true); // Restart the timer
     // Logic to resend the OTP
-    // console.log("Resend OTP");
+  };
+
+  // Format counter as mm:ss
+  const formatTime = () => {
+    const minutes = Math.floor(counter / 60);
+    const seconds = counter % 60;
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
   return (
     <section className="flex justify-center">
-      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
       <div className="flex flex-col items-center md:items-start justify-center px-6 md:px-16">
         <div className="flex items-center justify-center w-full">
           <Link href="/">
@@ -45,10 +48,10 @@ const Page = () => {
           </Link>
         </div>
         <div className="w-full">
-          <h1 className="text-2xl font-bold mb-2 text-center ">
+          <h1 className="text-2xl font-bold mb-2 text-center">
             Verify your email address
           </h1>
-          <p className="mb-6 text-center ">
+          <p className="mb-6 text-center">
             We have sent a verification code to {email}
           </p>
 
@@ -59,7 +62,7 @@ const Page = () => {
             <span className="block md:inline">
               You can request a new code in{" "}
               <span className="text-green-900">
-                {isTimerActive ? `${counter} seconds` : "now"}.
+                {isTimerActive ? `${formatTime()} minutes` : "now"}.
               </span>
             </span>
           </p>
