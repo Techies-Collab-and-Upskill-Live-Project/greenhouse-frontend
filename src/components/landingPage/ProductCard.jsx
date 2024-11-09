@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
             )}
           </div>
           <FavoriteBtn />
-          <div className="absolute top-52 right-3 px-2 py-1 bg-grey-150 rounded-lg">
+          <div className="absolute top-52 right-5 px-2 py-1 bg-grey-150 rounded-lg">
             <p className="text-sm text-forest-green-500 font-medium">-15%</p>
           </div>
         </div>
@@ -73,7 +73,7 @@ const Product = () => {
     };
 
     fetchProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

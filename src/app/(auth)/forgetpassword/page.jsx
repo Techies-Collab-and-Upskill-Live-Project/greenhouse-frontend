@@ -38,12 +38,12 @@ export default function Login() {
 
     // console.log(data.target);
     try {
-      const res = await axios.post("/users/resetrequest/", {
+      const res = await axios.post("/users/send-otp/", {
         email,
       });
       if (res) {
         setLoading(false);
-        s;
+
         // const accessToken = res.data?.token.access;
         // const user = res.data?.user;
         // sessionStorage.setItem("accessToken", accessToken);
